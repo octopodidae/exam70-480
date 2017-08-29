@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SyntaxError </title>
+</head>
+<body>
+
+
+<script>
+
+    try {
+        eval("alert('hello)");   // Missing ' will produce an error
+    } catch(err) {
+        document.write(err.name);
+    }
+
+    // A SyntaxError is thrown if you try to evaluate code with a syntax error.
+</script>
+</body>
+</html>

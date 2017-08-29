@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>for...in loop</title>
+</head>
+<body>
+
+<script>
+    var person = { firstName: "Jane", lastName: "Doe", birthDate: "Jan 5, 1925", gender:
+        "female" };
+
+    for (prop in person) {
+        document.write(prop + " ");
+    } // affiche firstName lastName birthDate gender
+
+    document.write("<br />");
+
+    for (prop in person) {
+        document.write(person[prop] + " ");
+    } // affiche Jane Doe Jan 5, 1925 female
+
+    // The for…in loop is a method for iterating over an object’s properties
+</script>
+</body>
+</html>

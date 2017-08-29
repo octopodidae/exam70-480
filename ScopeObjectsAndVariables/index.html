@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ScopeObjectsAndVariables</title>
+</head>
+<body>
+
+<script>
+
+    var globalVar = "global"; // variable globalVar,
+    // which is considered global to the entire page.
+    // Any JavaScript anywhere on this page could access this variable.
+
+    var x = 0, y = 101, s1 = "", s2 = "notempty";
+    var bool1 = false;
+
+    if(x) {
+        bool1 = true; // bool1 = false
+    }
+    if(y) {
+        bool1 = true;
+        console.log("with y : "  + bool1) // true
+    }
+    if(s1) {
+        bool1 = true; // bool1 = false
+    }
+    if(s2) {
+        bool1 = true;
+        console.log("with s2 : "  + bool1) // true
+    }
+
+    /*
+    Qu'est-ce qu'un contenu vrai ou faux ?
+    Eh bien, il suffit simplement de lister les contenus faux
+    pour le savoir :
+    un nombre qui vaut zéro ou bien une chaîne de caractères vide.
+    C'est tout,
+    ces deux cas sont les seuls à être évalués comme étant àfalse.
+     */
+
+    var bool2 = false;
+    bool2 = !bool2;
+    console.log("bool2 = " + bool2);
+
+    // Declaration
+    // Until a variable is initialized,
+    // it’s not really “alive”—it has a value of undefined
+    var a, b, c;
+    console.log("a = " + a); // undefined
+
+    // Initialisation
+    // After a variable
+    // is available for use, it’s considered to be “in scope.”
+    var a = 0.2, b = 0.3, c = 101;
+
+
+    function myFunction() {
+        console.log("Dans ma fonction, j'ai accès à globalVar - global scope : " + globalVar);
+        var localVar = "local";
+        console.log("Dans ma fonction, j'ai accès à localVar - local scope : " + localVar);
+    }
+    myFunction();
+    try {
+        console.log("En dehors de la fonction, je n'ai pas accès à localVar : " + localVar);
+    } catch(e) {
+        console .log ("block catch, pas d'accès à localVar - local scope");
+        console .log (e.message);
+        console .log (e.name);
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Keybord Event</title>
+</head>
+<body>
+<p>
+    <input id="field" type="text" />
+</p>
+
+<table>
+    <tr>
+        <td>keydown</td>
+        <td id="down"></td>
+    </tr>
+    <tr>
+        <td>keypress</td>
+        <td id="press"></td>
+    </tr>
+    <tr>
+        <td>keyup</td>
+        <td id="up"></td>
+    </tr>
+</table>
+
+<script>
+    var field = document.getElementById('field'),
+        down = document.getElementById('down'),
+        press = document.getElementById('press'),
+        up = document.getElementById('up');
+
+    document.addEventListener('keydown', function(e) {
+        down.innerHTML = e.keyCode;
+    });
+
+    document.addEventListener('keypress', function(e) {
+        press.innerHTML = e.keyCode;
+    });
+
+    document.addEventListener('keyup', function(e) {
+        up.innerHTML = e.keyCode;
+    });
+</script>
+
+</body>
+</html>

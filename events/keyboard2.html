@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Keyboard events </title>
+</head>
+<body>
+    <p><input type="text" id="firstNameText"></p>
+    <p><input type="text" id="lastNameText"></p>
+    <div id="outputText"></div>
+    <script>
+         // onkeydown Event -> Execute a JavaScript when a user is pressing a key
+
+        document.onkeydown = function() {
+            if (window.event.ctrlKey && String.fromCharCode(window.event.keyCode == "F")) // JavaScript String fromCharCode() Method
+                // Convert a Unicode number into a character
+                document.getElementById("firstNameText").focus();
+            if (window.event.ctrlKey && String.fromCharCode(window.event.keyCode == "L"))
+                document.getElementById("firstNameText").focus();
+            return false;
+        }
+
+
+    </script>
+</body>
+</html>

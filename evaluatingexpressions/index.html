@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #aDiv {
+            /*background-color: green;*/
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="aDiv" style="background-color: blue;"></div>
+<script>
+    /*var n = 2000, s = "2000";
+    if(n == s)
+        console.log("With equality operator : n est égal à s")
+    if(n === s)
+        console.log("With identity operator : n est égal à s")
+     else
+    console.log("With identity operator : n n'est pas égal à s")
+    */
+
+    window.onload = function() {
+
+        /*var myDiv = document.getElementById("aDiv");
+
+        if(myDiv.style.backgroundColor == "green"){
+            console.log("div est vert");
+        }
+        else if (myDiv.style.backgroundColor == "blue") {
+            console.log("div est bleu");
+        }
+        else if (myDiv.style.backgroundColor == "red"){
+            console.log("div est red");
+        }*/
+        var myDiv = document.getElementById("aDiv");
+
+        /*switch ( myDiv.style.backgroundColor ){
+            case "blue":
+                console.log("div est bleu");
+                break;
+            case "green":
+            console.log("div est bleu");
+            break;
+            case "red":
+                console.log("div est rouge");
+                break;
+            default:
+                console.log("autre couleur");
+                break;
+        }*/
+
+        myDiv.style.backgroundColor == "red" ?  console.log("div est rouge"):  console.log("div n'est pas rouge");
+    }
+
+
+
+
+</script>
+</body>
+</html>

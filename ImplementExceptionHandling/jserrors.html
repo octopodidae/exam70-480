@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS errors</title>
+</head>
+<body>
+
+    <div id="demo"></div>
+
+    <hr>
+
+    <p>Please input a number between 5 and 10:</p>
+    <input type="text" id="aInput">
+    <button id="aButton" type="button">Test Input</button>
+    <p id="message"></p>
+
+    <input type="number" min="5" max="10" step="1">
+    <!-- Modern browsers will often use a combination of JavaScript and built-in HTML validation,
+    using predefined validation rules defined in HTML attributes -->
+
+<script>
+
+    try {
+        allert("Welcome");
+    }
+    catch (e) { // The catch statement allows you to define a block of code to be executed,
+        // if an error occurs in the try block.
+        document.getElementById("demo").innerHTML = "e.message : " + e.message + "<br /> " + "e.name : " + e.name;
+        // JavaScript will actually create an Error object with two properties: name and message.
+
+    }
+
+    var myButtton = document.getElementById("aButton");
+    myButtton.addEventListener("click", checkNumber);
+
+    function checkNumber() {
+        try {
+            var x, message;
+            message = document.getElementById("message");
+            message.innerHTML = "";
+            x = document.getElementById("aInput").value;
+
+            if (x == "") throw "empty";
+            if (isNaN(x)) throw "not a number";
+
+            x = Number(x);
+            if (x < 5) throw "too low";
+            if (x > 10) throw "too big";
+        }
+        catch (err) {
+            message.innerHTML = "Input is " + err;
+            //console.log("Input is " + err);
+        }
+        finally {
+            document.getElementById("aInput").value = "";
+            //  Block of code to be executed regardless of the try / catch result
+        }
+    }
+
+
+
+
+    // The try statement lets you test a block of code for errors.
+    // The catch statement lets you handle the error.
+    // The throw statement lets you create custom errors.
+    // The finally statement lets you execute code, after try and catch, regardless of the result.
+</script>
+</body>
+</html>

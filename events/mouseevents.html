@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mouseeenter Mouseleave</title>
+    <style>
+        #orangeBox {
+            /* position: relative;
+             top: 10%;
+             left: 10%;*/
+            width: 400px;
+            height: 400px;
+            background-color: orange;
+        }
+        .scale{
+           transform: scale(1.5);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="orangeBox"></div>
+
+    <script>
+
+        var myBox = document.getElementById("orangeBox");
+
+        window.onload = function () {
+           myBox.addEventListener("mouseenter", orangeBoxEnter);
+           myBox.addEventListener("mouseleave", orangeBoxLeave);
+        }
+
+        function orangeBoxEnter() {
+            myBox.classList.add("scale");
+        }
+
+        function orangeBoxLeave() {
+            myBox.classList.remove("scale");
+        }
+
+    </script>
+</body>
+</html>

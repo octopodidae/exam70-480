@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>URIError</title>
+</head>
+<body>
+
+<script>
+    try {
+        decodeURI("%%%");   // You cannot URI decode these percent signs
+    }
+    catch(err) {
+        document.write(err.name);
+    }
+
+    // A URIError is thrown if you use illegal characters in a URI function
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array</title>
+</head>
+<body>
+<script>
+
+    //************   concat method  ************//
+                // return a new Array //
+    //************   concat method  ************//
+
+
+    var sports = new Array( 'football', 'cricket', 'rugby', 'tennis', 'badminton', 'rugby');
+    console.log(sports);
+    var moreSports = new Array('soccer', 'basketball', 'hockey');
+    console.log(moreSports);
+    var combinedSports = sports.concat(moreSports);
+    console.log(combinedSports);
+
+    console.log("***************************************");
+    console.log(sports);
+    console.log(moreSports);
+    console.log(combinedSports);
+
+    console.log("***************************************");
+    console.log("sports.indexOf(\"rugby\", 0)");
+    var index = sports.indexOf("rugby", 0);
+    // The indexOf method accepts two parameters
+    // what to search for and the index at which to
+    // begin searching.
+    console.log(index);
+    console.log("***************************************");
+
+    console.log("sports.indexOf(\"rugby\", 3)");
+    console.log(sports.indexOf("rugby", 3));
+    console.log("***************************************");
+
+    // console.log("sports.indexOf(\"rugby\", 3)");
+    console.log(sports.indexOf("titi"));
+
+    // The indexOf method uses the identity operator to check for equality, which means that
+    // if an array contains strings such as ‘1’, ‘2’, and ‘3’ and you’re searching for the integer 3, the
+    // result is –1 because the equality operation returns false for all elements in the array.
+
+    myTab = ["3", 8, "101", "toto"];
+
+    console.log("myTab.indexOf(\"8\") : " +  myTab.indexOf("8"));
+
+
+
+
+</script>
+</body>
+</html>

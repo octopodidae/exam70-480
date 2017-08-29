@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Events</title>
+</head>
+<body> <!--onload="onloadHandler();"-->
+    <script>
+
+        /*window.onload = onloadHandler();*/
+
+        // The event name is the name of the event to be handled without the on prefix.
+        window.addEventListener("load", onloadHandler, false);
+        window.addEventListener("load", onloadHandler2, false);
+        window.addEventListener("load", onloadHandler3, false);
+
+        // The removeEventListener takes exactly the same parameters.
+        window.removeEventListener("load", onloadHandler2, false);
+
+        function onloadHandler() {
+            alert("hello event 1");
+        }
+        function onloadHandler2() {
+            alert("hello event 2");
+        }
+        function onloadHandler2() {
+            alert("hello event 3");
+        }
+
+
+
+        // IMPORTANT
+        // Fonction nommée pour pouvoir supprimer un evt avec removeEventListener
+        // Exception :
+            /*
+            window.onload = function () {
+            }
+            */
+        /*
+        In the examples so far, event handlers have been assigned via named functions. The advantage
+        to using named functions is that you can later remove event listeners as needed. You
+        can’t identify anonymous functions after they are assigned as event listeners to manipulate
+        them. In the example in the preceding section, three event listeners were added to the same
+        event, and then one event was removed. This was possible only because the name of the
+        event listener function was known.
+        As expected, an anonymous function has no name. It’s completely anonymous and can’t
+        be called from other code segments.
+        */
+
+        /*
+        window.addEventListener("load",
+            function () {
+                document.getElementById("outer").addEventListener("click", outerDivClick, false);},
+            false);
+        */
+
+
+    </script>
+</body>
+</html>

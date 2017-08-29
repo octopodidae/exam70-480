@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>forEach())</title>
+</head>
+<body>
+
+    <ol id="sportsList">
+
+    </ol>
+
+
+
+<script>
+
+    window.onload = function() {
+
+        var sportsArray = ['soccer', 'basketball', 'hockey', 'football', 'cricket', 'rugby'];
+        sportsArray.sort().forEach(offerSport);
+
+        function offerSport(value, index, array) {
+            var sportsList = document.getElementById("sportsList");
+            var bullet = document.createElement("li");
+            bullet.innerText = value;
+            sportsList.appendChild(bullet);
+        }
+    }
+
+
+    // forEach(). Cette méthode prend pour paramètre deux arguments,
+    // le premier reçoit la fonction à exécuter pour chaque index existant
+    // et le deuxième (qui est facultatif) reçoit un objet qui sera pointé par le mot-clé this dans la fonction que vous avez spécifiée pour le premier argument.
+
+    /*
+    Faites attention avec cette méthode !
+    Celle-ci ne fonctionne qu'avec des tableaux,
+    elle n'existe pas pour les collections d'éléments retournées par le DOM,
+     ainsi cela ne fonctionne pas sur la propriété classList
+     ou encore les tableaux retournés par les méthodes de sélection telles querySelectorAll()
+     ou getElementsByTagName()   !
+     */
+</script>
+</body>
+</html>

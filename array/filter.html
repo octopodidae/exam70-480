@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Filter Method</title>
+</head>
+<body>
+
+<script>
+
+    var ages = [32, 33, 12, 40];
+
+    var myTab = ages.filter(checkAdult);
+
+    function checkAdult(age) {
+        return age >= 18;
+    }
+
+    console.log(myTab); // affiche [32, 33, 40];
+
+
+
+    // Note: filter() does not change the original array.
+    // The filter() method creates an array filled
+    // with all array elements that pass a test (provided as a function).
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Custom events</title>
+</head>
+<body>
+
+<script>
+    myEevent = new CustomEvent("anAction", {
+        detail : {
+            description: "a description of the event",
+            timeofevent: new Date(),
+            eventcode: 2 },
+        bubbles: true;
+        cancelable: true;
+        }
+    );
+
+    /*
+    CustomEvent object constructor accepts two parameters
+    The first parameter is the name of the event
+    The second parameter is a dynamic object that contains a detail property that can
+    have properties assigned to it containing information that should be passed to the
+    event handler. Also, the parameter provides the ability to specify if the event should
+    bubble and whether the event can be canceled.
+     */
+
+    // The next step is to assign the event to an element on the page by using the
+    // addEventListener method
+    document.addEventListener("anAction", customEventHandler);
+
+    // Finally, the event is raised by using the dispatchEvent method :
+    document.dispatchEvent(myEvent);
+
+    // A function called customEventHandler must exist for all this to work:
+    function customEventHandler() {
+        alert(window.event.detail.description);
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Range Error</title>
+</head>
+<body>
+
+<script>
+
+    var x = 1;
+
+    try {
+        x.toPrecision(500); // A number cannot have 500 significant digits
+        console.log(x);
+    }
+    catch (e) {
+       document.write(e.name);
+    }
+
+    // A RangeError is thrown if you use a number that is outside the range of legal values.
+</script>
+</body>
+</html>

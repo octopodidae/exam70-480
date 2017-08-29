@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drag & Drop</title>
+    <style>
+        .dropped {
+            width: 50%;
+            height: 50%;
+            position: relative;
+            top: 25%;
+            left: 25%;
+            background-color: black;
+        }
+        .over {
+           transform: scale(2);
+        }
+        .bucket {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            position: absolute;
+        }
+        .chip {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+        }
+        div:first-of-type {
+            background-color: red;
+        }
+        div:nth-of-type(2) {
+            background-color: green;
+            left: 25%;
+        }
+        div:nth-of-type(3){
+            background-color: blue;
+            left: 50%;
+        }
+        #chip{
+            background-color: black;
+            width: 50px;
+            height: 50px;
+        }
+        .begin {
+            position: absolute;
+            left: 150px;
+            top: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bucket" id="bucket1"></div>
+    <div class="bucket" id="bucket2"></div>
+    <div class="bucket" id="bucket3"></div>
+    <div id="chip" draggable="true" class="chip"></div> <!-- To make an element draggable,
+    set the draggable attribute to true -->
+
+    <script>
+
+        var chip = document.getElementById("chip").addEventListener("dragstart", function() {
+            window.event.dataTransfer.setData("Text", this.id)
+        });
+
+        var b1 = document.getElementById("bucket1");
+        b1.addEventListener("dragenter", function () {
+            // the dragenter event listener is established so that the user gets a visual cue
+            //with a transform that the element can be dropped onto.
+            b1.classList.add("over");
+            window.event.returnValue = false;
+        });
+        b1.addEventListener("dragleave", function () {
+            b1.classList.remove("over");
+            // the dragleave event listener is set up to remove the effect.
+        });
+        b1.addEventListener("dragover", function() {
+            window.event.returnValue = false;
+        });
+        b1.addEventListener("drop", function() {
+            window.event.returnValue = false;
+            var data  = event.dataTransfer.getData("Text");
+            var d  = document.getElementById(data);
+            d.classList.remove("begin");
+            d.classList.add("dropped");
+            this.appendChild(d);
+        });
+
+
+
+    </script>
+</body>
+</html>

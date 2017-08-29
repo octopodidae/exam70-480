@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map()</title>
+</head>
+<body>
+
+<script>
+
+    var money = [18.8, 15.9, 21.7, 35.2];
+    var roundedMoney = money.map(roundedOff);
+
+    function roundedOff(value, position, array) {
+        return Math.round(value);
+    }
+
+    console.log("tab roundedMoney : " + roundedMoney);
+    console.log("tab money : " + money);
+
+
+    var numbers= [1,2,3,4,5,6,7,8,9];
+    var squares = numbers.map(squareNumber);
+
+    function squareNumber(value, position, array) {
+        return value * value
+    }
+
+    console.log("tab numbers : " + numbers);
+    console.log("tab squares : " + squares);
+
+    // The map() method creates a new array
+    // with the results of calling a function for every array element.
+    // Note: map() does not change the original array.
+
+
+
+</script>
+</body>
+</html>

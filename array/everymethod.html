@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Every Method</title>
+</head>
+<body>
+
+<p>Click the button to check if every element in the array has a value of 18 or more.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+    <script>
+        var ages = [32, 33, 16, 40];
+
+        function checkAdult(age) {
+            return age >= 18;
+        }
+        function myFunction() {
+            document.getElementById("demo").innerHTML = ages.every(checkAdult);
+        }
+
+
+        // The every() method checks if all elements in an array pass a test (provided as a function).
+        // The every() method executes the function once for each element present in the array:
+        // If it finds an array element where the function returns a false value, every() returns false (and does not check the remaining values)
+        // If no false occur, every() returns true
+
+        //As soon as the every method gets the first false result for any item in the array,
+        // it exits and returns false. Otherwise, if all elements in the array return true, the every method
+        // returns true
+
+    </script>
+</body>
+</html>

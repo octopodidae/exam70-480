@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Every Method</title>
+</head>
+<body>
+
+<script>
+
+
+    var myTab1 = ["100", "200", "101", "3000", "8300"];
+    var myTab2 = ["100", "200", "8", "3000", "8300"];
+
+    function isBigEnough (item, index, array) {
+
+        return item >= 100;
+    }
+
+    console.log(myTab1.every(isBigEnough)); // return true
+    console.log(myTab2.every(isBigEnough)); // return false
+
+
+
+    //The every() method tests whether all elements in the array pass the test implemented by the provided function.
+</script>
+</body>
+</html>

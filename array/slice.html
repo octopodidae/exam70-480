@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Slice Method</title>
+</head>
+<body>
+
+<script>
+    //***************************** SLICE METHOD *****************************//
+                                 // return a new Array //
+                                 // EXTRACTION  //
+    //extraire une partie d'un tableau
+
+
+
+
+    var sports = new Array('soccer', 'basketball', 'hockey', 'football', 'cricket', 'rugby',
+        'tennis', 'badminton');
+
+    console.log( "tableau sports avant slice : " + sports);
+
+    var someSports = sports.slice(1,2);
+
+    console.log( "tableau someSports : " + someSports); // Display basketball
+    console.log( "tableau sports apres slice : " + sports);
+
+
+    /*
+    The slice method takes two parameters:
+    the indexes where the slice operation should begin and end.
+    The ending index isn’t included in the slice.
+    All copied elements are returned as an array from the slice method.
+    */
+
+</script>
+</body>
+</html>

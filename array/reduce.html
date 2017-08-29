@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reduce()</title>
+</head>
+<body>
+
+<script>
+
+    var numbers = [65, 44, 12, 4];
+
+    function getSum(total, num) {
+        return total + num;
+    }
+
+    var sum = numbers.reduce(getSum);
+
+    console.log(sum); // affiche 125
+
+    // The reduce() method reduces the array to a single value.
+    // The return value of the function is stored in an accumulator (result/total).
+    // The reduce and reduceRight methods are recursive.
+    // The reduce method processes
+    // the elements of the array in ascending order, whereas the reduceRight processes the
+    // elements of the array in descending order
+</script>
+</body>
+</html>

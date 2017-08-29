@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Coordinates</title>
+    <style>
+        #yellowBox {
+           /* position: relative;
+            top: 10%;
+            left: 10%;*/
+            width: 400px;
+            height: 400px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="yellowBox"></div>
+
+    <div id="result"></div>
+
+    <script>
+        window.onload = function() {
+            document.getElementById("yellowBox").addEventListener("click", yellowBoxClick);
+        }
+
+        function yellowBoxClick() {
+            document.write("Client X : " + window.event.clientX + " Client Y : " + window.event.clientY);
+            document.write("<br />");
+            document.write("offsetX : " + window.event.offsetX + " offsetY : " + window.event.offsetY);
+            document.write("<br />");
+            document.write("screen X : " + window.event.screenX + " screen Y : " + window.event.screenY);
+        }
+
+        /*
+        clientX The x or horizontal position of the mouse cursor relative to the viewport boundaries
+        clientY The y or vertical position of the mouse cursor relative to the viewport boundaries
+        offsetX The x or horizontal position of the mouse cursor relative to the target element
+        offsetY The y or vertical position of the mouse cursor relative to the target element
+        screenX The x or horizontal position of the mouse cursor relative to the upper-left corner of the
+        screen
+        screenY The y or vertical position of the mouse cursor relative to the upper-left corner of the screen
+        */
+    </script>
+</body>
+</html>

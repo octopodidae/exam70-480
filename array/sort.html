@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sort Method</title>
+</head>
+<body>
+
+<script>
+    //***************************** SORT METHOD *****************************//
+    // The sort method sequences the items in the array in ascending order.
+    // In the sports array, the sort would be alphabetical
+    // affect the Array object directly
+
+
+    var sports = new Array('soccer', 'basketball', 'hockey', 'football', 'cricket', 'rugby',
+        'tennis', 'badminton');
+
+    console.log("Tableau initial");
+    console.log(sports);
+    alert(sports.indexOf('soccer'));
+
+    sports.sort();
+
+
+    console.log("Tableau apres sort");
+    console.log(sports);
+    alert(sports.indexOf('soccer'));
+
+</script>
+</body>
+</html>

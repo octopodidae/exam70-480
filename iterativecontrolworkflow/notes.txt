@@ -1,0 +1,7 @@
+for - loops through a block of code a number of times
+for/in - loops through the properties of an object
+
+The for and for…in iterate for a known length of values.
+
+The while and do…while loops run until a Boolean condition is set to false.
+

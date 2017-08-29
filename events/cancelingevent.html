@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Canceling Event</title>
+</head>
+<body>
+<a href="http://google.com" id="aLink">google</a>
+<script>
+    window.onload = function() {
+        var a = document.getElementById("aLink");
+        a.onclick = OverrideAnchorClick;
+     };
+     function OverrideAnchorClick() {
+         //do custom logic for the anchor
+         alert("google");
+         window.event.returnValue = false;
+         // or
+         //return false;
+     }
+</script>
+</body>
+</html>

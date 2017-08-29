@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Focus Events</title>
+</head>
+<body>
+    <p><input type="text" id="firstNameText"></p>
+    <div id="ruleViolation"></div>
+<script>
+    //Focus events occur when an element receives or loses the focus.
+    /*
+    focus -> Raised when the element receives the focus
+    blur -> Raised when the element loses the focus
+    focusin -> Raised just before an element receives the focus
+    focusout -> Raised just before an element loses the focus
+    */
+    // The blur event is commonly used to validate form fields.
+
+    window.onload = function () {
+        document.getElementById("firstNameText").focus(); // focus() method to set the focus to any element that causes
+        // the focus event hierarchy to occur.
+        document.getElementById("firstNameText").addEventListener("blur", function() {
+            if (this.value.length < 5) {
+                document.getElementById("ruleViolation").innerHTML = "First Name is required to be 5 letters.";
+                document.getElementById("ruleViolation").style.color = "red";
+                this.focus();
+            }
+        })
+    }
+</script>
+
+</body>
+</html>

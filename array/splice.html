@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Splice Method</title>
+</head>
+<body>
+
+<script>
+    // **************** SPLICE METHOD **************** //
+    //  affect the Array object directly //
+    // The splice method provides a way to replace items in an array with new items.
+    // REPLACE ITEMS
+    // Remplacer une partie d'un tableau
+    // Remplacer une partie d'un tableau
+
+
+
+    var sports = new Array('soccer', 'basketball', 'hockey', 'football', 'cricket', 'rugby',
+        'tennis', 'badminton');
+
+    console.log("Tableau sports initial");
+    console.log(sports);
+
+    var splicedItems = sports.splice(1, 3, "golf", "curling", "darts");
+
+    console.log("Tableau sports apres splice");
+    console.log(sports); // La méthode splice() modifie directement
+    // le tableau à partir duquel elle a été exécutée ;
+
+    console.log("Tableau splicedItems apres splice");
+    console.log(splicedItems); // Elle renvoie un tableau
+    // des éléments qui ont été supprimés.
+
+
+    /*
+    Cette méthode reçoit deux arguments obligatoires,
+    puis une infinité d'arguments facultatifs.
+    Le premier argument est l'index
+    à partir duquel vous souhaitez effectuer vos opérations,
+    le deuxième est le nombre d'éléments que vous souhaitez supprimer
+    à partir de cet index.
+    The first parameter is the index in the array where the splice operation should start.
+The second parameter is the number of items to splice, starting from the index specified in
+the first parameter. The optional last parameter lists items that are to replace the items being
+spliced out.
+     */
+
+</script>
+</body>
+</html>

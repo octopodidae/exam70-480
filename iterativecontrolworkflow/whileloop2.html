@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>While loop</title>
+</head>
+<body>
+
+
+<script>
+
+    console.log("script");
+    window.onload = function() {
+
+        console.log("window.load = function() {}");
+        var nicks = "",
+            nick;
+            // proceed = true; // variable témoin
+
+        while(true /*proceed*/) {
+            nick = prompt("Entrez un prénom : ");
+
+            if(nick) {
+                nicks += nick + " ";
+                console.log(nicks);
+            }
+            else {
+                // proceed = false;  // Aucun prénom n'a été entré, donc on fait en sorte d'invalider la condition
+                break;
+            }
+        }
+
+        alert (nicks);
+    }
+
+
+
+</script>
+</body>
+</html>

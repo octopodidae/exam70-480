@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Change Events</title>
+</head>
+<body>
+
+    <input type="range" id="aRange" max="200" min="0" value="0">
+    <p><input type="text" id="aText"></p>
+    <div id="rangeValue"></div>
+
+
+    <script>
+
+        window.onload = function() {
+            document.getElementById("aRange").addEventListener("change", rangeChangeEvent);
+            document.getElementById("aText").addEventListener("change", rangeChangeEvent);
+            // The text box
+            // change event is raised when the cursor leaves the text box, not as each character is typed.
+        }
+        // This example uses the this keyword. In this context, the this keyword provides a direct
+        // reference to the element that created the event.
+        function rangeChangeEvent() {
+            document.getElementById("rangeValue").innerHTML = this.value;
+        }
+
+
+
+    </script>
+</body>
+</html>

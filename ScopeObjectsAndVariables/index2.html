@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scope Objects And Variables</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="Div1"></div>
+    <div id="Div2"></div>
+    <div id="Div3"></div>
+    <script>
+
+        var globalVar = "global";
+
+        window.onload = function () {
+
+            var localVar = "local";
+
+            document.getElementById("Div1").onclick = function () {
+                var insideDiv1Click = "insideDiv1";
+                console.log("globalVar : "  + globalVar); // scope global -> OK
+                console.log("localVar : " + localVar); // localVar is local to the onload event -> OK
+                console.log(insideDiv1Click); // -> OK
+            };
+
+            document.getElementById("Div2").onclick = function () {
+                console.log("globalVar : "  + globalVar);  // scope global -> OK
+                console.log("localVar : " + localVar); // localVar is local to the onload event
+                console.log(insideDiv1Click); // insideDiv1Click is not defined
+                /*
+                insideDiv1Click variable isn’t in scope.
+                That variable lives only within the Div1 onclick handler,
+                so it’s in scope only while that function runs.
+                This example raises an undefined exception
+                when it tries to access the insideDiv1Click variable.
+                */
+
+            };
+
+            document.getElementById("Div3").onclick = function () {
+            };
+
+            function AFunction() {
+                var x;
+            }
+
+            function BFunctionWithParam(p) {
+            }
+
+        }
+    </script>
+</body>
+</html>

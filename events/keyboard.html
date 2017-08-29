@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Keyboard events </title>
+</head>
+<body>
+    <p><input type="text" id="firstNameText"></p>
+    <div id="outputText"></div>
+    <script>
+        // Keyboard events occur when keys are pressed on the keyboard
+        /*  keydown Raised when a key is pushed down
+            keyup Raised when a key is released
+            keypress Raised when a key is completely pressed
+            keydown -> Appuyer (sans relâcher) sur une touche de clavier sur l'élément
+            keyup -> Relâcher une touche de clavier sur l'élément
+            keypress -> Frapper (appuyer puis relâcher) une touche de clavier sur l'élément
+        */
+
+        // In some cases, depending on the key, only the keydown event fires. The arrow keys are such
+        // an example: keydown fires but not keyup or keypress.
+        document.getElementById("firstNameText").addEventListener("keydown", function () {
+            document.getElementById("outputText").innerHTML = event.keyCode;
+        })
+
+
+        /*
+        Event object properties for keyboard events :
+        Property Description
+        altKey A Boolean value to indicate whether the Alt key was pressed
+        keyCode The numeric code for the key that was pressed
+        ctrlKey A Boolean value as to whether the Control key was pressed
+        shiftKey A Boolean value as to whether the Shift key was pressed
+         */
+    </script>
+</body>
+</html>

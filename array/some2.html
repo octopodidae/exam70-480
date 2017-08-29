@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Some Method</title>
+</head>
+<body>
+<script>
+
+    var myTab1 = ["100", "200", "101", "3000", "10101"];
+    var myTab2 = ["100", "200", "8", "3000", "8300"];
+
+    function isBiggerThan10000 (item, index, array){
+        return item >= 10000;
+    }
+
+    console.log(myTab1.some(isBiggerThan10000)); // return true
+    console.log(myTab2.some(isBiggerThan10000)); // return false
+
+    // the some method returns
+    // true if the called function returns true for any single element. If all elements in the array return
+    // false, the some method returns false
+
+</script>
+</body>
+</html>
