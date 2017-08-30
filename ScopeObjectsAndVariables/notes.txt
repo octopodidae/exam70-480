@@ -1,0 +1,13 @@
+In JavaScript, scope is the set of variables, objects, and functions you have access to.
+
+Since local variables are only recognized inside their functions, variables with the same name can be used in different functions.
+
+Local variables are created when a function starts, and deleted when the function is completed.
+
+A variable declared outside a function, becomes GLOBAL.
+
+A global variable has global scope: All scripts and functions on a web page can access it.
+
+Local variables are deleted when the function is completed.
+
+unction arguments (parameters) work as local variables inside functions.

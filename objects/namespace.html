@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>namespace</title>
+</head>
+<body>
+
+<script>
+
+    // On vérifie que l'objet myNamespace n'existe pas déjà avant de le créer
+    console.log(typeof  myNamespace); // doit retourner undefined
+
+    var myNamespace = {
+        myBestFunction() {
+            alert("Ma meilleure fonction !");
+        }
+    };
+
+    // On exécute la fonction :
+    myNamespace.myBestFunction();
+
+
+
+</script>
+
+</body>
+</html>

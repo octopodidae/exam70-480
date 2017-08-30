@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checking for null values</title>
+</head>
+<body>
+
+<script>
+
+    window.onload = function () {
+        try {
+            var a, b, c;
+            a = 5;
+            b = 10;
+            console.log(c);
+            var result = multiplyNumbers(a, b, c);
+            alert(result);
+        } catch (e) {
+            alert(e.message);
+            //alert(e.number);
+        }
+    }
+    function multiplyNumbers(first, second, third) {
+        if (first == null || second == null || third == null)
+        {
+            throw new Error("Forgot to initialize a number.");
+        }
+        return first * second * third;
+    }
+
+</script>
+</body>
+</html>

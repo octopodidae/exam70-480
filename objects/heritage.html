@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Héritage</title>
+</head>
+<body>
+
+<script>
+
+    function Vehicle(licensePlate, tankSize) {
+        this.engineStarted = false; // Notre véhicule est-il démarré ?
+        this.licensePlate = licensePlate; // La plaque d'immatriculation de notre véhicule.
+        this.tankSize = tankSize; // La taille de notre réservoir en litres.
+    }
+
+    // ajout d'une méthode "démarrer notre véhicule" via prototype
+    Vehicle.prototype.start = function() {
+        this.engineStarted = true;
+    }
+
+    // Permet d'arrêter notre véhicule.
+    Vehicle.prototype.stop = function() {
+        this.engineStarted = false;
+    }
+
+
+</script>
+</body>
+</html>

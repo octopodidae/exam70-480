@@ -15,6 +15,7 @@
     <div id="Div1"></div>
     <div id="Div2"></div>
     <div id="Div3"></div>
+    <div id="Div4"></div>
     <script>
 
         var globalVar = "global";
@@ -45,14 +46,56 @@
             };
 
             document.getElementById("Div3").onclick = function () {
+                var insideDiv3 = "Div3";
+                //AFunction();
+                // The AFunction method attempts to access the insideDiv3
+                // variable. Unfortunately, that variable lives only
+                // within the scope of the Div3 onclick handler.
+                BFunctionWithParam(insideDiv3); // -> OK !
+                /*
+                To access the local variables declared in the Div3
+                event handler from another function,
+                you need to pass them as parameters to those functions.
+                the event handler calls the BFunctionWithParam method.
+                This function expects a single parameter named p. The onclick event handler
+                passes the value of the insideDiv3 variable to the method. Now, the p variable is
+                a local variable to the BFunctionWithParam method,
+                so it can show the value of the insideDiv3 variable.
+                This is the only way to make a local variable
+                from one function accessible to another function—by passing a parameter.
+                 */
             };
 
             function AFunction() {
                 var x;
+                console.log(insideDiv3);
             }
 
             function BFunctionWithParam(p) {
+                console.log(p);
+                console.log(localVar);
+                console.log("globalVar : "  + globalVar);
             }
+
+            var scaleX = 0.0;
+
+            document.getElementById("Div4").onclick = function () {
+                var scaleX = -3;
+                alert(scaleX); // display -3
+                /*
+                If you plan to use the values of globalVar or localVar variables
+                in the onclick event handlers for the various div elements,
+                you must not declare any variables at the local level with the same name.
+                Locally scoped variables override higher-level scoped variables
+                of the same name. */
+
+            }
+
+            function scaleDiv() {
+                //code to scale the Div by a factor of scaleX
+                alert(scaleX); // display 0.0
+            }
+            scaleDiv(); // display 0.0
 
         }
     </script>

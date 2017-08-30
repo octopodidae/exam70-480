@@ -1,0 +1,18 @@
+Le JavaScript possède des objets natifs,
+comme String, Boolean et Array, mais nous permet aussi de créer nos propres objets, avec leurs propres méthodes et propriétés.
+
+De manière générale on met une majuscule à la première lettre d'un constructeur.
+Cela permet de mieux le différencier d'une fonction « normale »
+et le fait ressembler aux noms des objets natifs qui portent tous une majuscule (Array, Date, String…).
+
+La syntaxe d'un constructeur est la même que celle d'une fonction :
+
+function Person() {
+   // Code du constructeur
+}
+
+Une grosse particularité du JavaScript est qu'il est orienté objet par prototype ce qui le dote de certaines caractéristiques que d'autres langages orientés objet ne possèdent pas.
+Avec le JavaScript, il est possible de modifier les objets natifs,
+comme c'est le cas en C# par exemple.
+En fait, les objets natifs possèdent eux aussi un objet prototype
+autorisant donc la modification de leurs méthodes !

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Local JS Variables</title>
+</head>
+<body>
+
+<script>
+
+    console.log(carName); // code here can not use carName
+    // ReferenceError: carName is not defined
+
+    function myFunction() {
+        var carName = "Volvo";
+        console.log(carName);  // code here can use carName
+    }
+
+    myFunction();
+
+</script>
+</body>
+</html>

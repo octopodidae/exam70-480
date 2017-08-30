@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create and implement objects and methods</title>
+</head>
+<body>
+
+<script>
+
+    // Définition de l'objet Person via un constructeur
+    function Person(nick, age, sex, parent, work, friends) {
+        this.nick = nick;
+        this.age = age;
+        this.sex = sex;
+        this.parent = parent;
+        this.work = work;
+        this.friends =friends;
+    }
+    // Les paramètres de notre constructeur (les paramètres de la fonction si vous préférez) vont être détruits à la fin de l'exécution de ce dernier,
+    // alors que les propriétés définies par le biais de this vont rester présentes.
+    // Autrement dit, this.nick affecte une propriété nick à notre objet,
+    // tandis que le paramètre nick n'est qu'une simple variable qui sera détruite à la fin de l'exécution du constructeur.
+
+    var leon = new Person("Léon", 25, "m", "aîné", "JavaSCripteur", []);
+    var bob = new Person("Bob", 28, "m", "frère", "Administrateur", []);
+    // instances de l'objet Person
+    // Pour indiquer au JavaScript qu'il faut utiliser une instance,
+    // on utilise le mot-clé new.
+
+    console.log(leon.nick);
+    console.log(bob.nick);
+
+    // Il est possible de faire un test pour savoir si la variable seb est une instance de Person
+    console.log(leon instanceof Person); // affiche true
+
+    leon.age = 27;
+    for (prop in leon) {
+        console.log(leon[prop]);
+    }
+    var myArray = [
+        new Person('Sébastien', 23, 'm', 'aîné', 'JavaScripteur', []),
+        new Person('Laurence', 19, 'f', 'soeur', 'Sous-officier', []),
+        new Person('Ludovic', 9, 'm', 'frère', 'Etudiant', []),
+        new Person('Pauline', 16, 'f', 'cousine', 'Etudiante', []),
+        new Person('Guillaume', 16, 'm', 'cousin', 'Dessinateur', []),
+    ];
+
+    for (var i = 0; i< myArray.length; i++) {
+        console.log(myArray[i] instanceof Person);
+    }
+
+    // Ajout d'un ami avec la méthode push
+    myArray[3].friends.push(new Person ("Bob", 28, "", "", []));
+    myArray[3].friends[0].nick // affiche "Bob"
+
+    // Ajout d'une méthode adFriend() à l'objet Person
+    /*
+    Il y a deux manières de définir une méthode pour un objet :
+    dans le constructeur ou via prototype.
+    Définir les méthodes directement dans le constructeur est facile
+    puisque c'est nous qui créons le constructeur.
+    La définition de méthodes via prototype est utile
+    surtout si on n'a pas créé le constructeur :
+    ce sera alors utile pour ajouter des méthodes à des objets natifs,
+    comme String ou Array.
+     */
+
+    // Définir une méthode dans le constructeur
+    // Pour cela, rien de plus simple, on procède comme pour les propriétés, sauf qu'il s'agit d'une fonction
+    function Person(nick, age, sex, parent, work, friends) {
+        this.nick = nick;
+        this.age = age;
+        this.sex = sex;
+        this.parent = parent;
+        this.work = work;
+        this.friends = friends;
+        this.addFriend = function (nick, age, sex, parent, work, friends) {
+            this.friends.push(new Person(nick, age, sex, parent, work, friends));
+        }
+    }
+    // Le code de cette méthode est simple :
+    // il ajoute un objet Person dans le tableau des amis.
+
+    var Zak = new Person("Zak", 28, "m", "", "JavaScripteur", []);
+    Zak.addFriend("Pierre", 29, "", "", "", []);
+    Zak.friends[0] // Person {nick: "Pierre", age: 29, sex: "", parent: "", work: "", …}
+
+    // Ajouter une méthode via prototype
+    // Lorsque vous définissez un objet, il possède automatiquement un sous-objet appelé prototype
+    // Cet objet prototype va nous permettre d'ajouter des méthodes à un objet.
+    // Voici comment ajouter une méthode addFriend() à notre objet Person
+    Person.prototype.getFriends = function() {
+        for(var i = 0; i< this.friends.length; i++) {
+            console.log(this.friends[i].nick);
+        }
+    } // Zak.getFriends() -> Pierre
+
+    // Ajouter des méthodes aux objets natifs
+
+    var family = {
+        self: 'Sébastien',
+        sister: 'Laurence',
+        brother: 'Ludovic',
+        cousin_1: 'Pauline',
+        cousin_2: 'Guillaume'
+    }; // Comme il s'agit d'un objet, le type natif est Object
+    /*
+    family instanceof Person
+    false
+    family instanceof Object
+    true
+     */
+    // nous allons utiliser son sous-objet prototype
+    // pour lui ajouter la méthode voulue
+
+    // Testons si cette méthode n'existe pas déjà !
+    if (!Object.prototype.debug) {
+
+        // Créons la méthode
+        Object.prototype.debug = function() {
+            var text = "Object {\n ";
+
+            for (var i in this) {
+                    if (i !== 'debug') {
+                        text += '    [' + i + '] => ' + this[i] + '\n';
+                    }
+                }
+
+                alert(text + '}');
+        }
+    }
+
+    // family.debug()
+
+</script>
+</body>
+</html>

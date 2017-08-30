@@ -58,6 +58,13 @@
         }
     }
 
+    try {
+        window.dosomeunsupportedmethod();
+    } catch (e) {
+        alert("Uncaught TypeError: window.dosomeunsupportedmethod is not a function");
+    } finally {
+        alert("block finally : the code inside it runs all the time.");
+    }
 
 
 

@@ -12,3 +12,20 @@ Six different values can be returned by the error name property:
 
  A RangeError is thrown if you use a number that is outside the range of legal values.
 
+The try…catch block is divided into two parts.
+The first part, the try portion, says, “Try to do this work.” If anything
+If anything goes wrong when trying to do the work, the catch block receives
+an exception object with information about the error.
+
+The catch block is where the error can be handled as appropriate for the application. The
+catch block receives a parameter that is an exception object.
+
+Properties available on the exception object
+
+ - message : A textual description of the error that occurred
+ - number : A numeric error code
+ - name : The name of the exception object
+
+ finally block. This block is added directly after
+ the catch block. The significance of the finally block is that the code inside it runs all the time.
+
