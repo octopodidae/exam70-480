@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Selecting items in the DOM</title>
+    <style>
+        .blue {
+            background: blue;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="liens">
+        <a id="myLink" href="http://www.un_lien_quelconque.com">Un lien modifié dynamiquement</a>
+        <br>
+        <a id="link2" href="/">Retour à l'accueil du site</a>
+    </div>
+
+
+    <div id="myColoredDiv">
+        <p>Un peu de texte <a>et un lien</a></p>
+    </div>
+
+<p class="para c2 c3 red"></p>
+<p class="para"></p>
+<p class="para"></p>
+<p class="para"></p>
+<p class="para"></p>
+
+<div id="myDiv">
+    <p>Un peu de texte <a>et un lien</a></p>
+</div>
+
+<div id="output">
+    Nous aurons le destin que nous aurons mérité. <cite>Albert Einstein</cite>
+</div>
+
+<hr>
+
+<blockquote>
+    <p id="myP">Ceci est un paragraphe !</p>
+</blockquote>
+
+<hr>
+
+<!-- firstChild / lastChild -->
+<div>
+    <p id="myP2">Un peu de texte, <a>un lien</a> et <strong>une portion en emphase</strong></p>
+</div>
+
+</body>
+<script>
+
+    window.onload = function() {
+
+        var link = document.getElementById("myLink");
+        var href = link.getAttribute("href");
+
+        link.setAttribute("href", "http://lemonde.fr");
+
+        // C'est équivalent à :
+
+        /*
+        var href = link.href;
+        link.href = 'http://lemonde.fr';
+        */
+
+        var link2 = document.getElementById("link2");
+        console.log(link2.getAttribute("href")); // affiche /
+        console.log(link2.href); // affiche http://localhost/
+
+        /* On peut penser que pour modifier l'attribut class d'un élément HTML,
+         il suffit d'utiliser element.class. Ce n'est pas possible,
+         car le mot-clé class est réservé en JavaScript, bien qu'il n'ait aucune utilité.
+          À la place de class, il faudra utiliser className
+         */
+
+        var liensClass = document.getElementsByClassName("liens")[0];
+        //liensClass.class; // ne fonctionne pas
+       // liensClass.className // works !
+
+        document.getElementById('myColoredDiv').className = 'blue';
+
+        /*
+        Toujours dans le même cas, le nom for est réservé lui aussi en JavaScript (pour les boucles).
+        Vous ne pouvez donc pas modifier l'attribut HTML for d'un <label> en écrivant element.for,
+        il faudra utiliser element.htmlFor à la place.
+        */
+
+        /*
+        Faites attention : si votre élément comporte plusieurs classes (exemple : <a class="external red u">)
+        et que vous récupérez la classe avec className, cette propriété ne retournera pas un tableau avec les différentes classes,
+         mais bien la chaîne « external red u », ce qui n'est pas vraiment le comportement souhaité.
+        Il vous faudra alors couper cette chaîne avec la méthode split() pour obtenir un tableau
+         */
+        // ==> Utiliser classList --> Retourne un tableau
+
+        /*
+        innerHTML permet de récupérer le code HTML enfant d'un élément sous forme de texte.
+        Ainsi, si des balises sont présentes, innerHTML les retournera sous forme de texte
+         */
+
+        var div = document.getElementById('myDiv');
+
+        console.log(div.innerHTML);
+
+        // Pour éditer ou ajouter du contenu HTML, il suffit de faire l'inverse, c'est-à-dire de définir un nouveau contenu
+
+        document.getElementById('myDiv').innerHTML = '<blockquote>Je mets une citation à la place du paragraphe</blockquote>';
+
+        console.log(div.innerHTML);
+
+        /* Si vous voulez ajouter du contenu, et ne pas modifier le contenu déjà en place,
+        il suffit d’utiliser += à la place de l'opérateur d'affectation
+         */
+        div.innerHTML += " et <strong>une portion mise en emphase</strong>.";
+        console.log(div.innerHTML);
+
+        // Le fonctionnement d'innerText est le même qu'innerHTML excepté le fait que seul le texte est récupéré,
+        // et non les balises.
+        console.log("innerHTML : " + div.innerText);
+
+        // innerHTML = TextContent
+        console.log("TextContent : " + div.textContent);
+
+        // L'objet window est un objet global qui représente la fenêtre du navigateur.
+        // document, quant à lui, est un sous-objet de window et représente la page Web.
+
+        // Les attributs peuvent tous être modifiés grâce à setAttribute().
+        // Certains éléments possèdent des propriétés qui permettent de modifier ces attributs.
+
+        // La propriété innerHTML permet de récupérer ou de définir le code HTML présent à l'intérieur d'un élément.
+
+
+        // De leur côté, textContent et innerText ne sont capables que de définir ou récupérer du texte brut,
+        // sans aucunes balises HTML.
+
+
+        var citation = document.getElementById("output").innerHTML;
+        document.getElementById("output").innerHTML = "<blockquote>" + citation + "</blockquote>";
+
+        var paragraph = document.getElementById('myP2');
+        var blockquote = paragraph.parentNode;
+
+        // nodeType et nodeName servent respectivement à vérifier le type d'un nœud et le nom d'un nœud. nodeType retourne un nombre, qui correspond à un type de nœud.
+
+        /*Numéro  Type de nœud
+        1        Nœud élément
+        2        Nœud attribut
+        3        Nœud texte
+        4        Nœud pour passage CDATA (relatif au XML)
+        5        Nœud pour référence d'entité
+        6        Nœud pour entité
+        7        Nœud pour instruction de traitement
+        8        Nœud pour commentaire
+        9        Nœud document
+        10       Nœud type de document
+        11       Nœud de fragment de document
+        12       Nœud pour notation*/
+
+        // nodeName retourne le nom de l'élément, en majuscule
+        console.log(paragraph.nodeType + '\n\n' + paragraph.nodeName.toLowerCase());
+
+        // Comme leur nom le laisse présager, firstChild et lastChild servent respectivement à accéder au premier et au dernier enfant d'un nœud.
+
+        console.log(paragraph.firstChild.nodeName); // "#text"
+        console.log(paragraph.firstChild.nodeType); //  3
+        console.log(paragraph.lastChild.nodeName); //  "STRONG"
+        console.log(paragraph.lastChild.nodeType); // 1
+
+
+        /*
+        Dans le cas où vous ne souhaiteriez récupérer que les enfants qui sont considérés comme des éléments HTML
+        (et donc éviter les nœuds #text par exemple), sachez qu'il existe les propriétés firstElementChild et lastElementChild.
+        Ainsi, dans l'exemple précédent, la propriété firstElementChild renverrait l'élément <a>.
+         */
+        console.log(paragraph.firstElementChild.nodeName); // A
+
+        // nodeValue et data
+
+        var first = paragraph.firstChild;
+        var last = paragraph.lastChild;
+        console.log(first.nodeValue); // Un peu de texte,
+        console.log(last.firstChild.data); // une portion en emphase
+
+    }
+
+</script>
+</html>

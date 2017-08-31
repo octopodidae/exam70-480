@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sort Numbers</title>
+</head>
+<body>
+
+<script>
+
+    myArray = [1, 20, 101, 5, 80];
+
+    myArray.sort(); // [1, 101, 20, 5, 80]
+
+    myArray = [1, 20, 101, 5, 80];
+
+    myArray.sort(function(a,b) {
+        return a - b}
+        ); //  [1, 5, 20, 80, 101]
+
+    myArray = [1, 20, 101, 5, 80];
+
+    myArray.sort(function(a,b) {
+        return b - a}
+        ); // [101, 80, 20, 5, 1]
+
+</script>
+</body>
+</html>

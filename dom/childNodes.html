@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>childNodes</title>
+</head>
+<body>
+<div>
+    <p id="myP">Un peu de texte <a>et un lien</a></p>
+</div>
+<script>
+    // La propriété childNodes retourne un tableau contenant la liste des enfants d'un élément.
+    var paragraph = document.getElementById('myP');
+    var enfants = paragraph.childNodes;
+
+    for (var i = 0, l = enfants.length; i < l; i++) {
+
+        if (enfants[i].nodeType === Node.ELEMENT_NODE) { // C'est un élément HTML // Vous remarquerez que nous n'avons pas comparé
+            // la propriété nodeType à la valeur 1 mais à Node.ELEMENT_NODE,
+            // il s'agit en fait d'une constante qui contient la valeur 1
+            console.log(enfants[i].firstChild.data);
+        } else { // / C'est certainement un nœud textuel
+            console.log(enfants[i].data);
+        }
+    }
+
+
+</script>
+</body>
+</html>

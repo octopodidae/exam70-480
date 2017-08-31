@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Créer et insérer des éléments</title>
+</head>
+<body>
+
+    <div>
+        <p id="myP">Un peu de texte <a>et un lien</a></p>
+    </div>
+
+    <script>
+
+        /*
+        Avec le DOM, l'ajout d'un élément HTML se fait en trois temps :
+
+        1. On crée l'élément ;
+        2. On lui affecte des attributs ;
+        3. On l'insère dans le document, et ce n'est qu'à ce moment-là qu'il sera « ajouté ».
+        */
+
+        var newLink = document.createElement("a"); // createElement("a")
+        var newLinkText = document.createTextNode(" go to lemonde.fr"); // createTextNode(" go to lemonde.fr")
+        var para = document.getElementById("myP");
+
+        newLink.id = "myLink";
+        newLink.href = "http://lemonde.fr";
+        newLink.title = "lemonde.fr";
+        newLink.setAttribute("table-index", "10");
+
+        newLink.appendChild(newLinkText);
+
+        para.appendChild(newLink); // appendChild() insérera toujours l'élément en tant que dernier enfant
+
+        var span = document.body.appendChild(document.createElement('span')); // Utilisation de la référence retournée
+        // par appendChild()
+
+        span.innerHTML = "du texte dans un span"
+
+
+    </script>
+</body>
+</html>

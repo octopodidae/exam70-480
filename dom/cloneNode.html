@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cloneNode()</title>
+</head>
+<body>
+    <p id="myP">un paragraphe existant</p>
+    <script>
+
+        // On va cloner un élément créé :
+        var hr1 = document.createElement("hr");
+        var hr2 = hr1.cloneNode(false);
+
+        // Ici, on clone un élément existant :
+        var paragraphe1 = document.getElementById("myP");
+        var paragraphe2 = paragraphe1.cloneNode(true);
+
+        // Et attention, l'élément est cloné,
+        // mais pas « inséré » tant que l'on n'a pas appelé
+        // appendChild() :
+
+        paragraphe1.parentNode.appendChild(paragraphe2);
+
+    </script>
+
+</body>
+</html>

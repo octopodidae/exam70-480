@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>insertBefore()</title>
+</head>
+<body>
+<p id="myP">Un peu de texte <a>et un lien</a></p>
+
+
+<script>
+    // La méthode insertBefore() permet d'insérer un élément avant un autre.
+
+    /*  Elle reçoit deux paramètres :
+            - le premier est l'élément à insérer
+            - le deuxième est l'élément avant lequel l'élément va être inséré
+     */
+    var paragraph = document.querySelector('p');
+    var emphasis = document.createElement("em"),
+        emphasisText = document.createTextNode(" en emphase légère ");
+
+        emphasis.appendChild(emphasisText);
+
+        paragraph.insertBefore(emphasis, paragraph.lastChild)
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exo</title>
+</head>
+<body>
+
+<script>
+    // On crée l'élément conteneur
+    var mainDiv = document.createElement('div');
+    mainDiv.id = 'divTP2';
+
+
+    var languages = [
+        document.createTextNode("JavaScript"),
+        document.createTextNode("JScript"),
+        document.createTextNode("ActionScript"),
+        document.createTextNode("EX4")
+    ];
+
+    var para = document.createElement("p");
+    var paraTxt = document.createTextNode("Langages basés sur ECMAScript :");
+    para.appendChild(paraTxt);
+
+    // On crée la liste, et on boucle pour ajouter chaque item
+    var uList = document.createElement('ul'),
+        uItem;
+
+    for (var i = 0, c = languages.length; i < c; i++) {
+        uItem = document.createElement('li');
+
+        uItem.appendChild(languages[i]);
+        uList.appendChild(uItem);
+    }
+
+    // On insère le tout dans mainDiv
+    mainDiv.appendChild(para);
+    mainDiv.appendChild(uList);
+
+    // On insère mainDiv dans le <body>
+    document.body.appendChild(mainDiv);
+
+    // On insère mainDiv dans le <body>
+    document.body.appendChild(mainDiv);
+
+
+
+</script>
+</body>
+</html>

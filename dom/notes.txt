@@ -1,0 +1,25 @@
+getElementsByTagName -> NodeList (dans le cours) / HTMLCollection (dans la console)
+getElementsByClassName -> NodeList (dans le cours) / HTMLCollection (dans la console)
+querySelectorAll -> NodeList dans le cours et dans la console
+
+ L'objet window est ce qu'on appelle un objet global qui représente la fenêtre du navigateur. C'est à partir de cet objet que le JavaScript est exécuté.
+ alert() n'est pas vraiment une fonction. Il s'agit en réalité d'une méthode appartenant à l'objet window. Mais l'objet window est dit implicite, c'est-à-dire qu'il n'y a généralement pas besoin de le spécifier.
+
+ L'objet document est un sous-objet de window -> il représente la page Web et plus précisément la balise <html>
+
+ Le texte présent dans une page Web est vu par le DOM comme un nœud de type #text
+
+
+ document.getElementsByTagName('*') -> tous les éléments HTML du doc
+
+ getElementsByName() -> permet de ne récupérer que les éléments qui possèdent un attribut name que vous spécifiez. L'attribut name n'est utilisé qu'au sein des formulaires, et est déprécié depuis la spécification HTML5 dans tout autre élément que celui d'un formulaire.
+
+ querySelector() et querySelectorAll() -> prennent pour paramètre un seul argument : une chaîne de caractères !
+ Cette chaîne de caractères doit être un sélecteur CSS
+
+ getAttribute() et setAttribute() permettant respectivement de récupérer et d'éditer un attribut. Le premier paramètre est le nom de l'attribut, et le deuxième, dans le cas de setAttribute() uniquement, est la nouvelle valeur à donner à l'attribut.
+
+La propriété parentNode permet d'accéder à l'élément parent d'un élément.
+
+
+

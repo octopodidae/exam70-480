@@ -1,5 +1,7 @@
 Le JavaScript possède des objets natifs,
-comme String, Boolean et Array, mais nous permet aussi de créer nos propres objets, avec leurs propres méthodes et propriétés.
+comme String, Boolean et Array,
+mais nous permet aussi de créer nos propres objets,
+avec leurs propres méthodes et propriétés.
 
 De manière générale on met une majuscule à la première lettre d'un constructeur.
 Cela permet de mieux le différencier d'une fonction « normale »
@@ -16,3 +18,68 @@ Avec le JavaScript, il est possible de modifier les objets natifs,
 comme c'est le cas en C# par exemple.
 En fait, les objets natifs possèdent eux aussi un objet prototype
 autorisant donc la modification de leurs méthodes !
+
+
+var myString = 'Chaîne de caractères';
+myString instanceof String
+false
+var myString2 = new String ('Chaîne de caractères');
+myString2 instanceof String
+true
+typeof myString
+"string"
+typeof myString2
+"object"
+
+Essentially, two types of objects exist in JavaScript:
+■■ Native JavaScript objects, which are provided with JavaScript itself
+■■ Custom objects, which developers create to represent their own data constructs and
+behaviors
+
+Héritage :
+object inheritance, in which one
+object inherits all the attributes and behaviors of another object but can also implement
+additional aspects that are unique to it
+
+
+WRAPPER OBJECTS
+the JavaScript runtime creates a wrapper object for them dynamically so that some
+useful methods are available.
+var myString = 'Chaîne de caractères';
+à chaque fois que nous allons faire une opération sur une chaîne primitive,
+le JavaScript va automatiquement convertir cette chaîne en
+une instance temporaire de String, de manière à pouvoir utiliser les propriétés
+et méthodes fournies par l'objet String.
+Une fois les opérations terminées, l'instance temporaire est détruite.
+
+You can create custom objects dynamically or by using prototypes.
+
+dynamically
+
+var Personne = {
+    nom : "Laurancin",
+    prenom = "Bertrand",
+    age = 28
+}
+
+using prototypes
+  function Person(nick, age, sex, parent, work, friends) {
+        this.nick = nick;
+        this.age = age;
+        this.sex = sex;
+        this.parent = parent;
+        this.work = work;
+        this.friends =friends;
+    }
+
+    var Pers = new Person (Bob", 28, "m", "frère", "Administrateur", [])
+// Prototypes provide for object definition reuse, whereas dynamic objects require
+   attributes and methods defined for each use.
+
+   objet window -> global namespace
+
+   In HTML, the global scope is the window object. All global variables belong to the window object.
+
+ One pattern to consider using to create unique namespace names is the name of
+   the domain in reverse, such as com.microsoft.
+

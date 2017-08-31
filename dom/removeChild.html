@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>removeChild()</title>
+</head>
+<body>
+    <p id="myP">Un peu de texte <a>et un lien</a></p>
+
+    <script>
+
+        var link = document.querySelector("a");
+
+        //link.parentNode.removeChild(link);
+        // Cette méthode prend en paramètre le nœud enfant à retirer
+
+        /*À noter que la méthode removeChild() retourne l'élément supprimé,
+         ce qui veut dire qu'il est parfaitement possible de supprimer un élément HTML
+         pour ensuite le réintégrer où on le souhaite dans le DOM
+          */
+
+        var oldLink = link.parentNode.removeChild(link); // On supprime l'élément et on le garde en stock
+        document.body.appendChild(oldLink); // On réintègre ensuite l'élément supprimé où on veut et quand on veut
+
+
+
+    </script>
+</body>
+</html>

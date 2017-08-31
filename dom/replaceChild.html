@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>replaceChild()</title>
+</head>
+<body>
+
+<div>
+    <p id="myP">Un peu de texte <a>et un lien</a></p>
+</div>
+
+
+<script>
+
+    /*
+    replaceChild() accepte deux paramètres :
+      - le premier est le nouvel élément,
+      - et le deuxième est l'élément à remplacer.
+     */
+
+    var link = document.querySelector("a");
+    var newLabel = document.createTextNode("et un hyperlien");
+
+    link.replaceChild(newLabel, link.firstChild);
+
+</script>
+
+</body>
+</html>

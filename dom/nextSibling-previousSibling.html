@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>nextSibling and previousSibling</title>
+</head>
+<body>
+    <div>
+        <p id="myP">Un peu de texte, <a>un lien</a> et <strong>une portion en emphase</strong></p>
+
+        <div id="myDiv">
+            <p>Paragraphe 1</p>
+            <p>Paragraphe 2</p>
+            <p>Paragraphe 3</p>
+        </div>
+
+    </div>
+    <script>
+
+            var para = document.getElementById("myP");
+            var first = para.firstChild;
+            console.log("para.firstChild : " + first);
+            var next = first.nextSibling;
+            console.log("first.nextSibling : "  + next);
+            console.log("next.firstChild.data : " + next.firstChild.data);
+
+            var myDiv = document.getElementById("myDiv");
+            console.log(myDiv.children); //  [p, p, p]
+            console.log(myDiv.childNodes); // [text, p, text, p, text, p, text]
+            console.log(myDiv.firstChild); // #text
+            console.log(myDiv.firstElementChild); // <p>Paragraphe 1</p>
+
+    </script>
+</body>
+</html>

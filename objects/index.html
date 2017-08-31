@@ -17,14 +17,15 @@
         this.work = work;
         this.friends =friends;
     }
-    // Les paramètres de notre constructeur (les paramètres de la fonction si vous préférez) vont être détruits à la fin de l'exécution de ce dernier,
+    // Les paramètres de notre constructeur (les paramètres de la fonction si vous préférez)
+    // vont être détruits à la fin de l'exécution de ce dernier,
     // alors que les propriétés définies par le biais de this vont rester présentes.
     // Autrement dit, this.nick affecte une propriété nick à notre objet,
     // tandis que le paramètre nick n'est qu'une simple variable qui sera détruite à la fin de l'exécution du constructeur.
 
     var leon = new Person("Léon", 25, "m", "aîné", "JavaSCripteur", []);
     var bob = new Person("Bob", 28, "m", "frère", "Administrateur", []);
-    // instances de l'objet Person
+    // leon et bob sont des instances de l'objet Person
     // Pour indiquer au JavaScript qu'il faut utiliser une instance,
     // on utilise le mot-clé new.
 
