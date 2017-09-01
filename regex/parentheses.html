@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    var birth = 'Je suis né en mars';
+
+    /^Je suis né en (\S+)$/.exec(birth);
+
+    alert(RegExp.$1); // Affiche : « mars »
+
+    var email = prompt("Entrez votre adresse e-mail :", "javascript@siteduzero.com");
+
+    if (/^([a-z0-9._-]+)@([a-z0-9._-]+)\.([a-z]{2,6})$/.test(email)) {
+        alert('Partie locale : ' + RegExp.$1 + '\nDomaine : ' + RegExp.$2 + '\nExtension : ' + RegExp.$3);
+    } else {
+        alert('Adresse e-mail invalide !');
+    }
+
+</script>
+</body>
+</html>

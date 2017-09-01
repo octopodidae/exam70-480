@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Load File</title>
+
+    <style>
+        body {
+            text-align: center;
+        }
+
+        #fileContent {
+            margin-top: 100px;
+        }
+
+        #fileContent span {
+            padding: 3px 6px;
+            border: 1px solid #888;
+            background-color: #DDD;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<p>
+    Veuillez choisir quel est le fichier dont vous souhaitez voir le contenu :
+</p>
+
+<p>
+    <input type="button" value="table.xml" onclick="loadFile('./table.xml')" />
+    <input type="button" value="test.txt" onclick="loadFile('./test.txt')"/>
+</p>
+
+<p id="fileContent">
+    <span>Aucun fichier chargé</span>
+</p>
+<script>
+
+    var btns = document.querySelectorAll("input[type=button]");
+   /* var btn1 = btns[0];
+    var btn2 = btns[1];*/
+
+  /*  btn1.addEventListener("click", loadFile("./table.xml"));
+    btn2.addEventListener("click", loadFile("./test.txt"));*/
+
+    function loadFile(file) {
+
+        var xhr = new XMLHttpRequest();
+
+        var result = document.getElementById("fileContent");
+
+        xhr.open("GET", file);
+
+        xhr.addEventListener("readystatechange", function(){
+
+            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+
+                result.innerHTML =  xhr.responseText ;
+
+            } else {
+
+                result.innerHTML =  xhr.statusText ;
+
+            }
+
+        });
+
+        xhr.send(null); // La requête est prête, on envoie tout !
+
+    }
+
+
+</script>
+
+</body>
+</html>

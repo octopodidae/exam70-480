@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RegExp Object</title>
+</head>
+<body>
+
+<script>
+
+    // Il y a donc deux façons de déclarer une regex :
+    // via RegExp ou via son type primitif
+
+    var myRegex1 = /^Raclette$/i;
+    var myRegex2 = new RegExp("^Raclette$", "i");
+
+    /* Le constructeur RegExp reçoit deux paramètres :
+       - le premier est l'expression régulière sous la forme d'une chaîne de caractères
+       - et le deuxième est l'option de recherche, ici i
+    */
+
+    /*
+    RegExp ne possède que deux méthodes : test() et exec()
+    La méthode test() permet de tester une expression régulière ;
+    elle renvoie true si le test est réussi ou false si le test échoue
+    exec() applique également une expression régulière,
+    mais renvoie un tableau dont le premier élément contient
+    la portion de texte trouvée dans la chaîne de caractères.
+    Si rien n'est trouvé, null est renvoyé.
+     */
+
+    var sentence = "Si ton tonton";
+
+    var result = /\bton\b/.exec(sentence); // On cherche à récupérer le mot « ton »
+
+    if (result) { // On vérifie que ce n'est pas null
+        alert(result); // Affiche « ton »
+    }
+
+</script>
+</body>
+</html>

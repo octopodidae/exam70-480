@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adresse email</title>
+</head>
+<body>
+
+    <button id="check_email">Check Email</button>
+
+<script>
+
+    // Exemple : b.laurancin@gmail.com
+
+    // b.laurancin -> La partie locale composée  de lettres, de chiffres
+    // et éventuellement d'un tiret, un trait de soulignement et un point
+    // L'arobase @
+    // Le domaine, lui-même composé du label « gmail » et de l'extension « com ».
+
+    //Pour la partie locale :
+
+    /^[a-z0-9._-]+$/.test("b.laurancin"); // true
+
+    // Tous ces caractères peuvent être répétés plus d'une fois
+    // (il faut donc utiliser le quantificateur +)
+
+   // ajout de l'arobase
+
+    /^[a-z0-9._-]+@$/.test("b.laurancin@"); // true
+
+    //  le label du nom de domaine
+    /*
+    composé de lettres, de chiffres, de tirets et de traits de soulignement.
+    Ne pas oublier le point, car il peut s'agir d'un sous-domaine
+    (par exemple @cours.openclassrooms.com) :
+     */
+    /^[a-z0-9._-]+@[a-z0-9._-]+$/.test("b.laurancin@esri.france"); // true
+
+    // Puis vient le point de l'extension du domaine
+    // attention à ne pas oublier de l'échapper, car il s'agit d'un métacaractère
+
+    /^[a-z0-9._-]+@[a-z0-9._-]+\.$/.test("b.laurancin@gmail."); // true
+    /^[a-z0-9._-]+@[a-z0-9._-]+\.$/.test("b.laurancin@gmailcom"); // false
+
+    // Et pour finir, l'extension !
+    //Une extension de nom de domaine ne contient que des lettres, au minimum 2, au maximum 6.
+    /^[a-z0-9._-]+@[a-z0-9._-]+\.+[a-z]{2,6}$/.test("b.laurancin@gmail.com"); // true
+
+    function checkEmail() {
+        var email = prompt("Entrez votre adresse e-mail :", "javascript@siteduzero.com");
+
+        if ( /^[a-z0-9._-]+@[a-z0-9._-]+\.+[a-z]{2,6}$/.test(email)) {
+            alert("Adresse mail valide");
+        } else {
+            alert("Adresse mail INVALIDE");
+        }
+    }
+
+    var btnCheckEmail =  document.getElementById('check_email');
+
+    btnCheckEmail.addEventListener("click", checkEmail);
+
+
+
+
+</script>
+</body>
+</html>

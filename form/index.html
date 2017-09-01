@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Partie II - Chapitre 4 - Exemple 1</title>
+</head>
+
+<body>
+
+<p><input id="text" type="text" size="60" value="Vous n'avez pas le focus !" /></p>
+<p><input type="text" id="my_input" size="60"value="propriété disabled devient un boolean en js"></p>
+<label><input type="radio" name="check" value="1" class="radio"/> Case n°1</label><br />
+<label><input type="radio" name="check" value="2"  class="radio"/> Case n°2</label><br />
+<label><input type="radio" name="check" value="3"  class="radio"/> Case n°3</label><br />
+<label><input type="radio" name="check" value="4"  class="radio"/> Case n°4</label>
+<br /><br />
+<input type="button" value="Afficher la case cochée" onclick="check();" />
+
+<br><br><br>
+<select id="list">
+    <option>Sélectionnez votre sexe</option>
+    <option>Homme</option>
+    <option>Femme</option>
+</select>
+<script>
+
+    var text = document.getElementById("text");
+    console.log(text.value);
+
+    text.addEventListener("focus", function(e) {
+        //console.log(e.target);
+        e.target.value = "Vous avez le focus !";
+        //this.value = "Vous avez le focus";
+    })
+
+    text.addEventListener("blur", function(e) {
+        //console.log(e.target);
+        e.target.value = "Vous n'avez pas le focus !";
+
+    })
+
+    var myInput = document.getElementById("my_input");
+    myInput.disabled = true;
+
+/*    function check() {
+        var radios = document.querySelectorAll("input.radio");
+        var i =0, l = radios.length;
+        for(;i<l;i++){
+            if (radios[i].checked) {
+                console.log("Le radio checked is : " +radios[i].value);
+            }
+        }
+    }*/
+
+    function check() {
+        var inputs = document.querySelectorAll('input[type=radio]:checked'),
+            inputsLength = inputs.length;
+
+        for (var i = 0; i < inputsLength; i++) {
+            alert('La case cochée est la n°' + inputs[i].value);
+        }
+    }
+
+    var list = document.getElementById("list");
+    console.log(list.options);
+    list.addEventListener("change", function(e) {
+
+        console.log(list.options[list.selectedIndex].innerHTML);
+    })
+
+
+
+</script>
+
+</body>
+</html>

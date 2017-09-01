@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Code Postal</title>
+</head>
+<body>
+<script>
+
+    // A1A 1A1
+
+
+    var cpRegex = /^[A-Z,a-z]\d[A-Z,a-z][\s{1}]?\d[A-Z,a-z]\d$/;
+
+    var results = cpRegex.exec("A1A 1A1");
+
+    if (results != null){
+        alert("CP Valide : " + results[0]);
+    } else {
+        alert("CP Invalide");
+    }
+
+    var notANumber = true;
+
+    while(notANumber) {
+
+        var nb = prompt("Entrez un nombre ");
+
+        if (!isNaN(nb)) {
+        notANumber = false;
+        }
+    }
+
+
+
+
+</script>
+</body>
+</html>

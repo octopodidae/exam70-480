@@ -1,0 +1,4 @@
+Méthode test() fournie par l'objet RegExp
+L'instanciation d'un objet RegExp se fait comme ceci :
+
+    var myRegex = /contenu_à_rechercher/;

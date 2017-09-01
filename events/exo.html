@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exo</title>
+</head>
+<body>
+
+<div id="output">
+
+    <p>Quelques langages interprétés :</p>
+
+    <ol>
+        <li>PHP</li>
+        <li>Ruby</li>
+        <li>Python</li>
+        <li>Perl</li>
+        <li>Javascript</li>
+        <li>Lua</li>
+        <li>VBScript</li>
+    </ol>
+
+
+</div>
+
+<script>
+
+    var output = document.getElementById('output'), items;
+
+    if (output) {
+        items = output.getElementsByTagName('li');
+
+        for (var i=0, c=items.length; i<c; i++) {
+            items[i].onclick = function() {
+                var originalText = this.innerHTML;
+                var newText      = prompt("Modifiez le texte", originalText);
+
+                if (newText) { // Si l'utilisateur n'a pas fait 'Annuler', alors on modifie
+                    this.innerHTML = newText;
+                }
+            };
+        }
+    }
+
+
+</script>
+</body>
+</html>

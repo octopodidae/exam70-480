@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manipuler le CSS</title>
+
+    <style type="text/css">
+        #myDiv {
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Les propriétés CSS de l'attribut style sont prioritaires
+sur les propriétés d'une feuille de style !-->
+<div style="color:blue;">I'm blue ! DABADIDABADA !</div>
+
+<div id="myDiv">Je possède un fond orange.</div>
+
+<script>
+    var myDiv = document.getElementById('myDiv');
+
+    console.log('Selon le JavaScript, la couleur de fond de ce <div> est : ' + myDiv.style.backgroundColor); // On affiche la couleur de fond
+
+    // Toutes les valeurs obtenues par le biais de getComputedStyle()
+    // sont en lecture seule !
+    // Attention ! Les versions d'Internet Explorer antérieures à la 9 ne supportent pas la méthode getComputedStyle()
+    // mais la propriété currentStyle
+
+    // getComputedStyle() NAMESPACE GLOBAL window.getComputedStyle()
+
+    console.log(getComputedStyle(myDiv).backgroundColor);
+
+    getComputedStyle(myDiv).backgroundColor = "green";
+    /*
+    Failed to set the 'background-color' property on 'CSSStyleDeclaration':
+    These styles are computed, and therefore the 'background-color'
+    property is read-only.
+
+     */
+
+
+
+</script>
+
+</body>
+</html>

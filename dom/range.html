@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        input[type="range"] {
+            position: relative;
+            margin-left: 1em;
+        }
+        input[type="range"]:after,
+        input[type="range"]:before {
+            position: absolute;
+            top: 1em;
+            color: #aaa;
+        }
+        input[type="range"]:before {
+            left:0em;
+            content: attr(min);
+        }
+        input[type="range"]:after {
+            right: 0em;
+            content: attr(max);
+        }
+        #myDiv {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+        }
+
+    </style>
+</head>
+<body>
+
+<p>
+    <input id="h" type="range" min="0" max="1000" value="0" step="10"></p>
+<p>
+    <input id="w" type="range" min="0" max="1000" value="0" step="10">
+</p>
+
+<div id="myDiv"></div>
+
+<script>
+
+    var myDiv = document.getElementById("myDiv");
+    var h = document.getElementById("h");
+    var w = document.getElementById("w");
+
+    w.addEventListener("change", function (e) {
+        console.log(e.target.value);
+        myDiv.style.width = e.target.value + "px";
+    })
+
+    h.addEventListener("change", function () {
+        console.log(this.value);
+        myDiv.style.height = this.value + "px";
+    })
+
+</script>
+</body>
+</html>

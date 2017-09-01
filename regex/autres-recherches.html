@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    var sentence = 'Si ton tonton';
+
+    var result = sentence.search(/\bton\b/);
+
+    if (result > -1) { // On vérifie que quelque chose a été trouvé
+        alert('La position est ' + result); // 3
+    }
+
+    var sentence2 = 'Si ton tonton tond ton tonton, ton tonton tondu sera tondu';
+
+    var result2 = sentence2.match(/\btonton\b/g);
+
+    alert('Il y a ' + result2.length + ' "tonton" :\n\n' + result2);
+
+    var family = 'Guillaume,Pauline;Clarisse:Arnaud;Benoît;Maxime';
+    var result3 = family.split(/[,:;]/);
+
+    alert(result3);
+
+</script>
+</body>
+</html>

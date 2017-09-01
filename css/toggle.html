@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Toggle</title>
+</head>
+<body>
+
+    <button type="button">Toggle</button>
+    <aside>Cachez ce contenu que je ne saurais voir.</aside>
+
+    <script>
+
+        // ON PEUT LE FAIRE DE DEUX FACONS //
+
+        var btn = document.querySelector("button[type='button']");
+        var myAside = document.querySelector("aside");
+
+        //FACON 1 avec element.style.display = "none", "inline", "inline-block", ...
+
+        btn.addEventListener("click", function () {
+            if(myAside.style.display === "") {
+                myAside.style.display = "none";
+            } else {
+                myAside.style.display = ""
+            }
+        });/**/
+
+        //FACON 2 avec element.style.visibility = "visible", "hidden", ...
+
+
+        /*btn.addEventListener("click", function () {
+            if(myAside.style.visiblity == undefined) {
+                myAside.style.visibility = "hidden";
+            } else {
+                myAside.style.visibility = "visible"
+            }
+        });*/
+
+    </script>
+
+</body>
+</html>

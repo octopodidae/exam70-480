@@ -1,0 +1,30 @@
+ <!DOCTYPE html>
+ <html>
+        <head>
+            <meta charset="utf-8" />
+            <title>Partie III - Chapitre 4 - Exemple 2</title>
+        </head>
+
+<body>
+
+<script>
+    function preview() {
+        var value = document.getElementById("text").value;
+
+        value = value.replace(/\[b\]([\s\S]*?)\[\/b\]/g, '<strong>$1</strong>');                                // Gras
+        value = value.replace(/\[i\]([\s\S]*?)\[\/i\]/g, '<em>$1</em>');                                        // Italique
+        value = value.replace(/\[s\]([\s\S]*?)\[\/s\]/g, '<del>$1</del>');                                      // Barré
+        value = value.replace(/\[u\]([\s\S]*?)\[\/u\]/g, '<span style="text-decoration: underline">$1</span>'); // Souligné
+
+        document.getElementById("output").innerHTML = value;
+    }
+</script>
+
+<form>
+    <textarea id="text"></textarea><br />
+    <button type="button" onclick="preview()">Prévisualiser</button>
+    <div id="output"></div>
+</form>
+
+</body>
+</html>

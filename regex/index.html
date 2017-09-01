@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RegExp</title>
+</head>
+<body>
+
+<script>
+
+    var myRegex = /contenu_à_rechercher/; // instanciation d'un objet RegExp
+    var isInstanceOfRegExp = myRegex instanceof RegExp;
+    console.log(isInstanceOfRegExp)// true
+
+    /*
+    Si votre regex contient elle-même des slashs,
+    n'oubliez pas de les échapper en utilisant un anti-slash
+    examples :
+    var regex_1 = /contenu_/_contenu/; // La syntaxe est fausse car le slash n'est pas échappé
+    var regex_2 = /contenu_\/_contenu/; // La syntaxe est bonne car le slash est échappé avec un anti-slash
+     */
+
+    //                  Méthode test()              //
+    // En cas de réussite du test, elle renvoie true ;
+    // dans le cas contraire, elle renvoie false.
+    if (myRegex.test('Chaîne de caractères dans laquelle effectuer la recherche')) {
+        // Retourne true si le test est réussi
+    } else {
+        // Retourne false dans le cas contraire
+    }
+
+    // Recherche de mots
+    console.log("Sans l'optiion i (case sensitive)");
+    if (/Raclette/.test("je mangerais bien de la raclette")){
+        console.log("Ça semble parler de raclette :)"); // Case sensitive
+        // Option i pour rechercher indifféremment les majuscules et les minuscules
+    } else {
+        console.log("Pas de raclette :(");
+    }
+
+    console.log("Avec l'optiion i (ignore case)");
+    if (/Raclette/i.test("je mangerais bien de la raclette")){
+        console.log("Ça semble parler de raclette :)"); // Case sensitive
+        // Option i pour rechercher indifféremment les majuscules et les minuscules
+    } else {
+        console.log("Pas de raclette :(");
+    }
+
+    // Note : les option se placent à la fin (après le slash de fermeture de la regex)
+
+    // Recherche avec opérateur OU
+    //  « Raclette » OU « Tartiflette »
+    // Un seul pipe
+    if (/Raclette|Tartiflette|Fondue|Croziflette/i.test("je mangerais bien de la tartiflette ")){
+        console.log("Opérateur OU (un seul pipe) : /Raclette|Tartiflette|Fondue|Croziflette/i \n\n\t\t Ça semble parler de raclette " +
+            "OU de tartiflette OU de fondue OU de Croziflette :)"); // Case sensitive
+        // Option i pour rechercher indifféremment les majuscules et les minuscules
+    } else {
+        console.log("Pas de raclette, pas de fondue, " +
+            "pas de croziflette, pas de tartiflette :(");
+    }
+
+    // Début / fin d'une chaîne de caractères
+    // début -> Symbole ^
+    // fin -> $
+    console.log("/^Raclette savoyarde$/.test(\"Raclette savoyarde\")");
+    console.log(/^Raclette savoyarde$/.test("Raclette savoyarde"));
+
+
+    //          Les caractères et leurs classes         //
+    // Une classe de caractères est écrite entre crochets
+    // et sa signification est simple :
+    // une des lettres qui se trouve entre les crochets peut convenir
+
+    console.log('/gr[aoi]s/.test("grasse")');
+    console.log(/gr[aoi]s/.test("grasse"));
+    console.log('/gr[aoi]s/.test("grosse")');
+    console.log(/gr[aoi]s/.test("grosse"));
+    console.log('/gr[aoi]s/.test("gris")');
+    console.log(/gr[aoi]s/.test("gris"));
+    console.log('/gr[aoi]s/.test("grus")');
+    console.log(/gr[aoi]s/.test("grus"));
+
+    // Les intervalles de caractères
+    // Exemple : trouver les lettres allant de a à o, on écrira [a-o]
+    // Exemple : tout l'aphabet [a-z]
+
+    /* Plusieurs intervalles peuvent être écrits au sein d'une même classe.
+    Ainsi, la classe [a-zA-Z] va rechercher toutes les lettres de l'alphabet,
+    qu'elles soient minuscules ou majuscules.
+     */
+
+    //  La classe [0-9] trouvera donc un chiffre allant de 0 à 9.
+
+    // [a-z0-9] trouvera une lettre minuscule OU un chiffre
+
+    // Exclure des caractères
+    // Pour exclure des caractères ->  Mettre un accent circonflexe au début de la classe,
+    // juste après le premier crochet
+    // Exemple : classe ignorera les voyelles : [^aeyuio]
+    // Exemple : [^b-y] exclura les lettres allant de b à y
+
+    // Pour touver toutes les lettre de l'aphabet y compris les accents
+    // et quelque soit la case (majuscule - minuscule)
+    //          /[a-zâäàéèùêëîïôöçñ]/i
+
+    // Le point permet de trouver n'importe quel caractère
+    /*
+        /gr.s/.test("gras");
+        true
+        /gr.s/.test("gris");
+        true
+        /gr.s/.test("gros");
+        true
+        /gr.s/.test("grzs");
+        true
+        /gr.s/.test("grooos");
+        false
+     */
+
+
+    //          Les quantificateurs         //
+    // Les quantificateurs permettent de dire combien de fois un caractère
+    // doit être recherché.
+    /*
+    Les trois symboles quantificateurs sont :
+
+            ? : ce symbole indique que le caractère qui le précède peut apparaître 0 ou 1 fois ;
+            + :  ce symbole indique que le caractère qui le précède peut apparaître 1 ou plusieurs fois ;
+            * : ce symbole indique que le caractère qui le précède peut apparaître 0, 1 ou plusieurs fois.
+    */
+
+    /raclett?e/.test("raclete");
+       //true
+       // Ici, le premier t sera trouvé, et derrière le deuxième se trouve le point d'interrogation,
+       //ce qui signifie que le deuxième t peut apparaître 0 ou 1 fois
+
+    /raclett?e/.test("raclettttttttttte");
+    // false
+
+    /raclet+e/.test("raclettttttttttte");
+    // true
+    // Le + indique que le t sera présent une fois ou un nombre infini de fois.
+
+    // Les accolades
+    // À la place des trois symboles vus précédemment, on peut utiliser des accolades
+    // pour définir explicitement combien de fois un caractère peut être répété.
+    // {n} : le caractère est répété n fois ;
+    // {n,m} : le caractère est répété de n à m fois. Par exemple, si on a {0, 5}, le caractère peut être présent de 0 à 5 fois ;
+    // {n,} : le caractère est répété de n fois à l'infini.
+
+    /raclet{1,3}e/.test("raclete");
+    // true
+    /raclet{1,3}e/.test("raclette");
+    // true
+    /raclet{1,3}e/.test("raclettte");
+    // true
+    /raclet{1,3}e/.test("racletttte");
+    // false
+
+    /racle[tf]+e/.test("raclette");
+    // true
+    /racle[tf]+e/.test("racleffe");
+    // true
+
+    /Hellow+/.test("Hellowwwwwwwwwwwwwww");
+    // true
+
+    /Goo{2,}gle/.test("Gooooooooooooooogle");
+    //true
+
+    /Le [1-9][a-z]{2,3} septembre/.test("Le 1er septembre");
+    // true
+    /Le [1-9][a-z]{2,3} septembre/.test("Le 4eme septembre");
+    // true
+    /Le [1-9][a-z]{2,3} septembre/.test("Le 4emme septembre"); // false
+
+    // \d Trouve un caractère décimal (un chiffre)
+    /\d\d\d\d/.test("2Ot7");
+    // false
+    /\d\d\d\d/.test("2017");
+    true
+
+    // \D Trouve un caractère qui n'est pas décimal (donc pas un chiffre)
+
+    // \s Trouve un caractère blanc
+
+    // \S Trouve un caractère qui n'est pas un caractère blanc
+
+    // \w Trouve un caractère « de mot » : une lettre, accentuée ou non, ainsi que l'underscore
+
+    // \W Trouve un caractère qui n'est pas un caractère « de mot »
+
+    // \n Trouve un retour à la ligne
+    // \t Trouve une tabulation
+
+
+    /* RESUME */
+    // L'option i indique à la regex que la casse doit être ignorée.
+    // Les caractères ^ et $ indiquent respectivement le début et la fin de la chaîne de caractères.
+    // Les classes et les intervalles de caractères servent à rechercher un caractère possible parmi plusieurs.
+    // Les différents métacaractères doivent absolument être échappés.
+    // Les quantificateurs servent à indiquer le nombre de fois qu'un caractère peut être répété.
+    // Le OU -> Un seul pipe
+
+    // option i qui permet aux regex d'être insensibles à la casse des caractères
+
+
+
+
+
+</script>
+</body>
+</html>

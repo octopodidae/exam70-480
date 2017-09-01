@@ -1,0 +1,8 @@
+L'utilisation de l'objet XHR se fait en deux étapes bien distinctes :
+
+    -  Préparation et envoi de la requête ;
+    - Réception des données.
+
+Préparation et envoi de la requête
+
+    - 1ere étap : Instancier l'objet XHR

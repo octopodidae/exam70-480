@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exo</title>
+</head>
+<body>
+<div id="output">
+
+    <ol class="left">
+        <li>
+            <input type="checkbox"> A propos d'un tuto</li>
+        <li>
+            <input type="checkbox"> merci</li>
+        <li>
+            <input type="checkbox"> Ca marche ?</li>
+        <li>
+            <input type="checkbox"> Corrections sur le tuto Ada</li>
+        <li>
+            <input type="checkbox"> tuto javascript</li>
+        <li>
+            <input type="checkbox"> Kassdédi tqvu</li>
+        <li>
+            <input type="checkbox"> Supprimer les balises &lt;br /&gt;</li>
+        <li>
+            <input type="checkbox"> Recrutement</li>
+        <li>
+            <input type="checkbox"> Question concernant le tuto Hammer 4</li>
+        <li>
+            <input type="checkbox"> impossibilité d'accès aux cours</li>
+    </ol>
+
+    <p class="center">
+        <button type="button" id="button-check">Cocher tout</button>
+        <button type="button" id="button-uncheck">Décocher tout</button>
+    </p>
+
+</div>
+
+<script>
+
+    var check = document.querySelector("#output #button-check");
+    var uncheck = document.querySelector("#output #button-uncheck");
+    var boxes = document.querySelectorAll("input[type='checkbox'");
+    var len = boxes.length;
+
+    check.addEventListener("click", function() {
+        for (var i =0; i<len; i++) {
+            boxes[i].checked = true;
+        }
+    })
+    uncheck.addEventListener("click", function() {
+        for (var i =0; i<len; i++) {
+            boxes[i].checked = false;
+        }
+    })
+
+</script>
+</body>
+</html>

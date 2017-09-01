@@ -1,0 +1,7 @@
+ Cette propriété s'utilise aussi avec un élément <textarea> ! En effet, en HTML, on prend souvent l'habitude de mettre du texte dans un <textarea> en écrivant :
+
+<textarea>Et voilà du texte !</textarea>
+Du coup, en JavaScript, on est souvent tenté d'utiliser innerHTML pour récupérer le contenu de notre <textarea>, cependant cela ne fonctionne pas : il faut bien utiliser value à la place !
+
+
+les trois propriétés disabled, checked et readonly ne s'utilisent pas de la même manière qu'en HTML où il vous suffit d'écrire, par exemple, <input type="text" disabled="disabled" /> pour désactiver un champ de texte. En JavaScript, ces trois propriétés deviennent booléennes.

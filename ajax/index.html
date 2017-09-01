@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX</title>
+</head>
+<body>
+
+<script>
+
+    /* PREPARATION ET ENVOI DE LA REQUETE AVEC METHODE GET */
+
+    // 1ere étape : Instancier un objet XHR
+    var xhr = new XMLHttpRequest();
+
+    // 2eme étape : préparation de la requête
+    xhr.open('GET', 'http://mon_site_web.com/ajax.php', true); // open(sMethod, sUrl, bAsync)
+    // 2bis : Passer des variables
+    // Avec la méthode GET les variables sont transmises directement dans l'URL
+    xhr.open("GET", "http://mon_site_web.com/ajax.php?param1=value1&param2=value2", true);
+    // OU avec encodeage des valeurs (voir plus bas)
+    xhr.open('GET', 'http://mon_site_web.com/ajax.php?param1=' + value1 + '&param2=' + value2);
+    // 3eme étape : envoi de la requête
+    xhr.send(null);
+
+
+    /* PREPARATION ET ENVOI DE LA REQUETE AVEC METHODE POST */
+
+    // 1ere étape : Instancier un objet XHR
+    var xhr = new XMLHttpRequest();
+
+    // 2eme étape : préparation de la requête
+    xhr.open('POST', 'http://mon_site_web.com/ajax.php', true); // open(sMethod, sUrl, bAsync)
+
+
+    // 3eme étape : changer le type MIME de la requête avec la méthode setRequestHeader
+    // sinon le serveur ignorera la requête
+    /*
+    La méthode POST consiste généralement à envoyer des valeurs contenues dans un formulaire,
+     il faut donc modifier les en-têtes d'envoi des données afin de préciser
+     qu'il s'agit de données provenant d'un formulaire (même si, à la base, ce n'est pas le cas)
+     */
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    // 4eme étape : Passer des variables et envoi de la requête
+    // Pour POST, il faut spécifier les variables dans l'argument de send
+    /*
+    En ce qui concerne la méthode POST,
+    les paramètres ne sont pas à spécifier avec la méthode open()
+    mais avec la méthode send()
+     */
+    xhr.send("param1=value1&param2=value2");
+    // OU avec encodeage des valeurs (voir plus bas)
+    xhr.send("param1=" + value1 + "&param2=" + value2);
+
+    /*Il est conseillé, quelle que soit la méthode utilisée (GET ou POST),
+     d'encoder toutes les valeurs que vous passez en paramètre grâce à la fonction
+     encodeURIComponent(), afin d'éviter d'écrire d'éventuels caractères interdits
+     dans une URL et de conserver les caractères spéciaux et les espaces:
+      */
+    var value1 = encodeURIComponent(value1),
+        value2 = encodeURIComponent(value2);
+
+
+    /* RECUPERATION DES DONNEES */
+
+    /* Récapitulons : en 1, on a envoyé la requête,
+    et en 2 la requête a trouvé des données à récupérer
+    (les données fournies par un fichier PHP, TXT ou XML).
+     */
+    /*
+    La réception des données d'une requête se fait par le biais de nombreuses propriétés.
+    Cependant, les propriétés à utiliser diffèrent selon que la requête est synchrone ou non.
+     */
+
+    // Requête asynchrone : spécifier la fonction de callback
+    /* Dans le cas d'une requête asynchrone, il nous faut spécifier une fonction de callback
+     afin de savoir quand la requête s'est terminée.
+     On détecte les changements d'état pour savoir où en est la requête.
+    Pour cela, l'objet XHR possède un événement nommé readystatechange auquel il suffit d'attribuer une fonction
+    OU propriété onreadystatechange
+    */
+
+     // Avec événement  readystatechange
+    xhr.addEventListener('readystatechange', function() {
+        // Votre code…
+    });
+    // Avec propriété onreadystatechange
+    xhr.onreadystatechange = function() {
+        // Code
+    };
+
+    /*
+    Cependant, cet événement ne se déclenche pas seulement lorsque la requête est terminée,
+    mais plutôt, comme son nom l'indique, à chaque changement d'état.
+    Il existe cinq états différents représentés par des constantes spécifiques à l'objet XMLHttpRequest :
+    (autrement-dit une requête HTTP via XMLHttpRequest passe par  états différents
+     */
+
+    /*
+UNSENT                  0       L'objet XHR a été créé, mais pas initialisé (la méthode open() n'a pas encore été appelée).
+OPENED                  1       La méthode open() a été appelée, mais la requête n'a pas encore été envoyée par la méthode send().
+HEADERS_RECEIVED        2       La méthode send() a été appelée et toutes les informations ont été envoyées au serveur.
+LOADING                 3       Le serveur traite les informations et a commencé à renvoyer les données. Tous les en-têtes des fichiers ont été reçus.
+DONE                    4       Toutes les données ont été réceptionnées.
+     */
+
+    /* L'utilisation de la propriété readyState est nécessaire pour connaître l'état de la requête.
+    L'état qui nous intéresse est le cinquième (la constante DONE),
+    car nous voulons simplement savoir quand notre requête est terminée.
+    Il existe deux manières pour vérifier que la propriété readyState contient bien une valeur indiquant que
+    la requête est terminée, la première (que nous utiliserons pour une question de lisibilité)
+    consiste à utiliser la constante elle-même
+     */
+
+    xhr.addEventListener('readystatechange', function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) { // La constante DONE appartient à l'objet XMLHttpRequest, elle n'est pas globale
+            // Votre code…
+        }
+    });
+    /*
+    Tandis que la deuxième manière de faire consiste à utiliser directement la valeur de la constante,
+    soit 4 pour la constante DONE
+     */
+    xhr.addEventListener('readystatechange', function() {
+        if (xhr.readyState === 4) {
+            // Votre code…
+        }
+    });
+
+    /*
+    En addition, nous devons aussi vérifier le code d'état
+    (comme le fameux code 404 pour les pages non trouvées ou le code 500 pour l'erreur de serveur) de la requête,
+    pour vérifier si tout s'est bien passé. Pour cela, on utilise la propriété status.
+    Si elle vaut 200 , tout est OK.
+     */
+    xhr.addEventListener('readystatechange', function() {
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+            // Votre code…
+        }
+    });
+    /* À noter qu'il existe aussi une propriété nommée statusText contenant une version au format texte
+    du statut de la requête, en anglais seulement.
+    'Par exemple, un statut 404 vous donnera le texte suivant : « Not Found ».
+    */
+
+
+    /*
+    Nous avons ici traité le cas d'une requête asynchrone,
+    mais sachez que pour une requête synchrone il n'y a qu'à vérifier le statut de votre requête, tout simplement.
+     */
+
+
+    /* RECUPERATION DES DONNES      */
+
+    /* Une fois la requête terminée, il vous faut récupérer les données obtenues. Ici, deux possibilités s'offrent à vous :
+    1. Les données sont au format XML, vous pouvez alors utiliser la propriété responseXML, qui permet de parcourir l'arbre DOM des données reçues.
+    2. Les données sont dans un format autre que le XML, il vous faut alors utiliser la propriété responseText,
+    qui vous fournit toutes les données sous forme d'une chaîne de caractères.
+    C'est à vous qu'incombe la tâche de faire d'éventuelles conversions,
+    par exemple avec un objet JSON : var response = JSON.parse(xhr.responseText);.
+     */
+
+    /* Avec la propriété responseXMl
+    elle contient un arbre DOM que vous pouvez facilement parcourir.
+    Par exemple, si vous recevez l'arbre DOM suivant :
+     */
+/*
+    <?xml version="1.0" encoding="utf-8"?>
+    <table>
+
+    <line>
+    <cel>Ligne 1 - Colonne 1</cel>
+    <cel>Ligne 1 - Colonne 2</cel>
+    <cel>Ligne 1 - Colonne 3</cel>
+    </line>
+
+    <line>
+    <cel>Ligne 2 - Colonne 1</cel>
+    <cel>Ligne 2 - Colonne 2</cel>
+    <cel>Ligne 2 - Colonne 3</cel>
+    </line>
+
+    <line>
+    <cel>Ligne 3 - Colonne 1</cel>
+    <cel>Ligne 3 - Colonne 2</cel>
+    <cel>Ligne 3 - Colonne 3</cel>
+    </line>
+
+    </table>*/
+
+    // vous pouvez récupérer toutes les balises <cel> de la manière suivante :
+
+    var cels = xhr.responseXML.getElementsByTagName('cel');
+
+
+    // RECUPERATION DES EN-TETES DE LA REPONSE
+    // deux méthodes :
+        // -  La première se nomme getAllResponseHeaders()
+        //    et retourne tous les en-têtes de la réponse en vrac. Voici ce que cela peut donner
+
+    /*
+    Date: Sat, 17 Sep 2011 20:09:46 GMT
+Server: Apache
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Content-Length: 20
+Keep-Alive: timeout=2, max=100
+Connection: Keep-Alive
+Content-Type: text/html; charset=utf-8
+     */
+
+        // getResponseHeader(), permet la récupération d'un seul en-tête.
+        //  Il suffit d'en spécifier le nom en paramètre et la méthode retournera sa valeur :
+
+    var xhr = new XMLHttpRequest();
+
+    xhr.open('HEAD', 'http://mon_site_web.com/', false);
+    xhr.send(null);
+
+    alert(xhr.getResponseHeader('Content-type')); // Affiche : « text/html; charset=utf-8 »
+
+
+
+
+
+
+</script>
+</body>
+</html>
