@@ -1,0 +1,264 @@
+<html><h1>The H1 tag looks like this</h1>
+<p>The paragraph tag after an H1 tag looks like this</p>
+<h2>The H2 tag looks like this</h2>
+<p>The paragraph tag after an H2 tag looks like this</p>
+<h3>The H3 tag looks like this</h3>
+<p>The paragraph tag after an H3 tag looks like this</p>
+<h4>The H4 tag looks like this</h4>
+<p>The paragraph tag after an H4 tag looks like this</p>
+<h5>The H5 tag looks like this</h5>
+<p>The paragraph tag after an H5 tag looks like this</p>
+<ol>
+<li><strong>This is a strong element in an ordered list</strong></li>
+<li><i>This is an italic element in an ordered list</i></li>
+<li><b>This is a bold element in an ordered list</b></li>
+<li><em>This is an emphasized element in an ordered list</em></li>
+<li>This is a regular element in an ordered list</li>
+</ol>
+<ul>
+<li><strong>This is a strong element in an unordered list</strong></li>
+<li><i>This is an italic element in an unordered list</i></li>
+<li><b>This is a bold element in an unordered list</b></li>
+<li><em>This is an emphasized element in an unordered list</em></li>
+<li>This is a regular element in an unordered list</li>
+</ul>
+<blockquote>The block quote element looks like this</blockquote>
+<pre>The pre element looks like this</pre>
+<code>The code element looks like this</code>
+<br/>
+<span>The span element looks like this</span>
+<br/>
+<a href="#">The anchor element looks like this</a>
+<br/>
+<br/>
+<div style="float:left;margin:20px;width:200px;">Text inside a div that is 200 pixels wide looks like this.  Text inside a div that is 200 pixels wide looks like this.  Text inside a div that is 200 pixels wide looks like this.  Text inside a div that is 200 pixels wide looks like this.  Text inside a div that is 200 pixels wide looks like this.  Text inside a div that is 200 pixels wide looks like this.  Text inside a div that is 200 pixels wide looks like this.  Text inside a div that is 200 pixels wide looks like this.  Text inside a div that is 200 pixels wide looks like this.  Text inside a div that is 200 pixels wide looks like this.</div>
+<div style="float:left;margin:20px;width:400px;">Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.  Text inside a div that is 400 pixels wide looks like this.</div>
+<div style="float:left;margin:20px;width:600px;">Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.  Text inside a div that is 600 pixels wide looks like this.</div><style>html {
+    overflow: auto;
+}
+
+body {
+    background-color: #f2f2f2;
+    text-align: left;
+    font-family: Tahoma, Arial, Helvetica, Sans, Times, serif, Verdana, sans-serif;
+    font-size: 11px;
+    line-height: 18px;
+    color: #000000;
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 17px;
+}
+
+a img {
+    border: none;
+}
+
+/*	Header	*/
+#header {
+	background:#181818 url(../images/header_bg.gif) 0 100% repeat-x;
+	height:86px;
+	position:relative;
+	z-index: 9;
+}
+#header .left {
+	float:left;
+	width:200px;
+	margin-left:16px;
+	margin-top:6px;
+}
+#headerwrapper {
+	width: 930px;
+	margin: 0 auto;
+	text-align: left;
+	padding: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top:4px;
+	
+}
+#mainwrapper {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    padding: 0;
+    text-align: left;
+    width: 990px;
+	height: 50px;
+	background-color: white;
+}
+
+#header-image {
+    background: none repeat scroll 0 0 #FFFFFF;
+    height: 29px;
+    margin: 0 0 -9px;
+    overflow: hidden;
+    padding: 10px 0 0;
+    position: relative;
+    width: 990px;
+}
+
+#header-image a {
+    left: 13px;
+    position: absolute;
+    top: 7px;
+}
+
+/*	Menu	*/
+#menu {
+    margin: 0 auto;
+    padding: 0;
+    background: url(../images/menu_bg.gif) no-repeat;
+    font-weight: bold;
+    list-style: none;
+    z-index: 10;
+	top:50px;
+	position:absolute;
+	width:725px;
+	float: left;
+}
+
+#menu a {
+    text-decoration: none;
+    font-variant: small-caps;
+    color: #E0E0E0;
+    display: inline-block;
+    width: 100%;
+}
+
+#menu .menu-link:hover, #menu .menu-item:hover .menu-link {
+    background-color: #4C4C4C;
+    color: white;
+}
+
+#menu #active, #menu #active:hover {
+    background-color: #F2F2F2;
+    color: #363636;
+}
+
+.menu-item {
+    float: left;
+    margin: 1px 0 0 10px;
+    text-align: center;
+    width: 129px;
+    border: 2px ridge silver;
+    cursor: pointer;
+    line-height: 28px;
+    height: 28px;
+    overflow: visible;
+	font-size: 13px;
+}
+
+.menu-item:hover {
+    background-color: #F2F2F2;
+    color: black;
+}
+
+.noscript:hover {
+    border-bottom: none;
+}
+
+.menu-item li {
+    text-align: left;
+    padding-left: 10px;
+}
+
+.menu-item ul {
+    border: 2px ridge silver;
+    border-top: none;
+    margin: 0 -2px;
+    background-color: #F2F2F2;
+    list-style: none;
+}
+
+.noscript ul {
+    display: none;
+    padding: 7px 0 0;
+    width: 100%;
+}
+
+.noscript:hover ul {
+    display: block;
+}
+
+.script ul {
+    overflow: hidden;
+    padding: 0;
+}
+
+.submenu li:hover, li.hover {
+    background-color: #4C4C4C;
+    color: white;
+}
+
+.clear {
+    clear: both;
+    visibility: hidden;
+}
+
+/*	Main	*/
+#main {
+    position: relative;
+    margin: 0 auto 10px;
+    width: 988px;
+    z-index: 5;
+    border: 1px solid #E0E0E0;
+    overflow: hidden;
+	padding: 10px 0;
+	background-color: white;
+}
+#promo{
+#onglets{
+	position: relative;
+	width: 990px;
+    margin: 20px auto 0;
+	overflow: hidden;
+}
+}
+#promos{
+	position: relative;
+	width: 990px;
+    margin: 20px auto 0;
+	padding: 10px;
+}
+.onglet{
+	background: url(../images/btn.gif) repeat-x;
+	line-height: 25px;
+	padding: 5px 10px;
+	margin: 0;
+	border: 1px solid gray;
+	font-weight: bold;
+	text-shadow: 1px 1px white;
+	color: black;
+	text-decoration: none;
+}
+.onglet:hover{
+	border-color: silver;
+	text-shadow: 0 -1px white;
+}
+.invisible {
+    display: none;
+}
+
+/*	Formulaire	*/
+#page-contact label{
+	padding: 5px;
+	width: 200px;
+	display: inline-block;
+}
+#page-contact textarea{
+	padding-left: 255px;
+}
+/*	Footer	*/
+#footer {
+    width: 100%;
+    color: white;
+    text-align: center;
+    background-color: #2D2D2D;
+    line-height: 20px;
+    font-size: smaller;
+    font-weight: bold;
+    clear: both;
+    margin-bottom: 10px;
+    bottom: 0;
+}</style></html>

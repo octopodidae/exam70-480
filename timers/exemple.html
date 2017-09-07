@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<p><img src="./orque.jpg" id="orque" alt="orque"></p>
+	<button id="myButton">Annuler le compte à rebours</button>
+	<script>
+
+		var timerId = setTimeout(function() {
+			alert("Vous n'êtes pas très réactif vous !")
+		}, 3000);
+
+
+		var myBtn = document.getElementById("myButton");
+
+		myBtn.addEventListener("click", function() {
+			clearTimeout(timerId);
+			alert("Le compte à rebours a bien été annulé."); // Et on prévient l'utilisateur
+		})
+
+		var myImg = document.getElementById("orque");
+
+		var opac = 1;
+
+		//var x;
+
+		function changerOpacity() {
+			//x = "toto";
+			//console.log(x);
+			console.log("je suis dans changerOpacity")
+			
+			console.log("opac = " + opac);
+			//console.log(typeof(opac));
+			myImg.style.opacity = opac;
+			if (opac > 0.2) {
+				opac  = opac - 0.1;
+			} else {
+				opac  = 1;
+			}
+			
+		}
+
+		var myTimer = setInterval(changerOpacity, 2000);
+		//console.log(x);
+
+		myImg.addEventListener("click", function(){
+			clearInterval(myTimer)
+		});
+
+		
+
+	</script>
+</body>
+</html>

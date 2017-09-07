@@ -21,16 +21,20 @@
     <div id="result"></div>
 
     <script>
+
+         var result = document.getElementById("result");
+
         window.onload = function() {
-            document.getElementById("yellowBox").addEventListener("click", yellowBoxClick);
+           
+            document.getElementById("yellowBox").addEventListener("mousemove", yellowBoxClick);
         }
 
         function yellowBoxClick() {
-            document.write("Client X : " + window.event.clientX + " Client Y : " + window.event.clientY);
-            document.write("<br />");
-            document.write("offsetX : " + window.event.offsetX + " offsetY : " + window.event.offsetY);
-            document.write("<br />");
-            document.write("screen X : " + window.event.screenX + " screen Y : " + window.event.screenY);
+            result.innerHTML = "Client X : " + window.event.clientX + " Client Y : " + window.event.clientY;
+            result.innerHTML += "<br />" ;
+            result.innerHTML += "offsetX : " + window.event.offsetX + " offsetY : " + window.event.offsetY;
+            result.innerHTML += "<br />";
+            result.innerHTML += "screen X : " + window.event.screenX + " screen Y : " + window.event.screenY;
         }
 
         /*

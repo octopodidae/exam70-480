@@ -1,0 +1,323 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="shortcut icon" href="favicon.ico" />
+        <title>Formations vidéo en ligne et en DVD video2brain</title>
+		<script type="text/javascript" src="scripts/general.js"></script>
+		<script type="text/javascript" src="scripts/onglets.js"></script>
+        <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+    <div id="header">
+        <div id="headerwrapper">
+            <div class="left">
+                <a href="#"><img src="images/v2b_logo.gif" alt="video2brain" border="0"/></a>
+            </div>
+            <div class="clearer">
+                <!-- -->
+            </div>
+            <ul id="menu">
+                <li class="menu-item">
+                    <a class="menu-link" href="./index.html">Accueil</a>
+                </li>
+                <li class="submenu noscript menu-item">
+                    <a id="active" class="menu-link" href="./actualites.html">Actualités</a>
+                    <ul>
+                        <li>
+                            Générales
+                        </li>
+                        <li>
+                            Formations
+                        </li>
+                        <li>
+                            Logiciels
+                        </li>
+                    </ul>
+                </li>
+                <li class="submenu noscript menu-item">
+                    <a class="menu-link" href="./">Partenaires</a>
+                    <ul>
+                        <li>
+                            Item 1
+                        </li>
+                        <li>
+                            Item 2
+                        </li>
+                        <li>
+                            Item 3
+                        </li>
+                        <li>
+                            Item 4
+                        </li>
+                        <li>
+                            Item 5
+                        </li>
+                        <li>
+                            Item 6
+                        </li>
+                    </ul>
+                </li>
+                <li class="submenu noscript menu-item">
+                    <a class="menu-link" href="./">Catalogues</a>
+                    <ul>
+                        <li>
+                            Pièces
+                        </li>
+                        <li>
+                            Pneus
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a class="menu-link" href="./contact.html">Contact</a>
+                </li>
+            </ul>
+            <hr class="clear" />
+        </div>
+    </div>
+    <div id="mainwrapper" class="mainwrapper-header-image">
+        <div id="header-image">
+            <div id="header-image-content">
+                <a href="#"><img src="images/banner_fr.jpg" alt="banniere" /></a>
+            </div>
+        </div>
+        <div id="content_main">
+        </div>
+    </div>
+    <div id="onglets">
+        <a href="#" class="onglet" rel="page-0">Paragraphes aléatoires</a>
+        <a href="#" class="onglet" rel="page-1">Liste d'éléments</a>
+        <a href="#" class="onglet" rel="page-2">Autres paragraphes</a>
+    </div>
+    <div id="main">
+        <div id="page-0">
+            <h2>Paragraphes aléatoires</h2>
+            <p>
+                Atque, ut Tullius ait, ut etiam ferae fame monitae plerumque ad eum locum ubi aliquando pastae sunt revertuntur, ita homines instar turbinis degressi montibus impeditis et arduis loca petivere mari confinia, per quae viis latebrosis sese convallibusque occultantes cum appeterent noctes luna etiam tum cornuta ideoque nondum solido splendore fulgente nauticos observabant quos cum in somnum sentirent effusos per ancoralia, quadrupedo gradu repentes seseque suspensis passibus iniectantes in scaphas eisdem sensim nihil opinantibus adsistebant et incendente aviditate saevitiam ne cedentium quidem ulli parcendo obtruncatis omnibus merces opimas velut viles nullis repugnantibus avertebant. haecque non diu sunt perpetrata.
+            </p>
+            <p>
+                Duplexque isdem diebus acciderat malum, quod et Theophilum insontem atrox interceperat casus, et Serenianus dignus exsecratione cunctorum, innoxius, modo non reclamante publico vigore, discessit.
+            </p>
+            <p>
+                Nec sane haec sola pernicies orientem diversis cladibus adfligebat. Namque et Isauri, quibus est usitatum saepe pacari saepeque inopinis excursibus cuncta miscere, ex latrociniis occultis et raris, alente inpunitate adulescentem in peius audaciam ad bella gravia proruperunt, diu quidem perduelles spiritus inrequietis motibus erigentes, hac tamen indignitate perciti vehementer, ut iactitabant, quod eorum capiti quidam consortes apud Iconium Pisidiae oppidum in amphitheatrali spectaculo feris praedatricibus obiecti sunt praeter morem.
+            </p>
+            <p>
+                Quis enim aut eum diligat quem metuat, aut eum a quo se metui putet? Coluntur tamen simulatione dumtaxat ad tempus. Quod si forte, ut fit plerumque, ceciderunt, tum intellegitur quam fuerint inopes amicorum. Quod Tarquinium dixisse ferunt, tum exsulantem se intellexisse quos fidos amicos habuisset, quos infidos, cum iam neutris gratiam referre posset.
+            </p>
+            <p>
+                Alios autem dicere aiunt multo etiam inhumanius (quem locum breviter paulo ante perstrinxi) praesidii adiumentique causa, non benevolentiae neque caritatis, amicitias esse expetendas; itaque, ut quisque minimum firmitatis haberet minimumque virium, ita amicitias appetere maxime; ex eo fieri ut mulierculae magis amicitiarum praesidia quaerant quam viri et inopes quam opulenti et calamitosi quam ii qui putentur beati.
+            </p>
+            <p>
+                Paphius quin etiam et Cornelius senatores, ambo venenorum artibus pravis se polluisse confessi, eodem pronuntiante Maximino sunt interfecti. pari sorte etiam procurator monetae extinctus est. Sericum enim et Asbolium supra dictos, quoniam cum hortaretur passim nominare, quos vellent, adiecta religione firmarat, nullum igni vel ferro se puniri iussurum, plumbi validis ictibus interemit. et post hoe flammis Campensem aruspicem dedit, in negotio eius nullo sacramento constrictus.
+            </p>
+            <p>
+                Novitates autem si spem adferunt, ut tamquam in herbis non fallacibus fructus appareat, non sunt illae quidem repudiandae, vetustas tamen suo loco conservanda; maxima est enim vis vetustatis et consuetudinis. Quin in ipso equo, cuius modo feci mentionem, si nulla res impediat, nemo est, quin eo, quo consuevit, libentius utatur quam intractato et novo. Nec vero in hoc quod est animal, sed in iis etiam quae sunt inanima, consuetudo valet, cum locis ipsis delectemur, montuosis etiam et silvestribus, in quibus diutius commorati sumus.
+            </p>
+            <p>
+                Homines enim eruditos et sobrios ut infaustos et inutiles vitant, eo quoque accedente quod et nomenclatores adsueti haec et talia venditare, mercede accepta lucris quosdam et prandiis inserunt subditicios ignobiles et obscuros.
+            </p>
+            <p>
+                Iamque non umbratis fallaciis res agebatur, sed qua palatium est extra muros, armatis omne circumdedit. ingressusque obscuro iam die, ablatis regiis indumentis Caesarem tunica texit et paludamento communi, eum post haec nihil passurum velut mandato principis iurandi crebritate confirmans et statim inquit exsurge et inopinum carpento privato inpositum ad Histriam duxit prope oppidum Polam, ubi quondam peremptum Constantini filium accepimus Crispum.
+            </p>
+            <p>
+                Emensis itaque difficultatibus multis et nive obrutis callibus plurimis ubi prope Rauracum ventum est ad supercilia fluminis Rheni, resistente multitudine Alamanna pontem suspendere navium conpage Romani vi nimia vetabantur ritu grandinis undique convolantibus telis, et cum id inpossibile videretur, imperator cogitationibus magnis attonitus, quid capesseret ambigebat.
+            </p>
+        </div>
+        <div id="page-1">
+            <h2>Liste d'éléments</h2>
+            <ul>
+                <li>
+                    Sed (saepe enim redeo ad Scipionem,
+                </li>
+                <li>
+                    Quam ob rem circumspecta cautela
+                </li>
+                <li>
+                    Hanc regionem praestitutis celebritati
+                </li>
+                <li>
+                    Proinde concepta rabie saeviore, quam
+                </li>
+                <li>
+                    Tempore quo primis auspiciis in mundanum
+                </li>
+                <li>
+                    Advenit post multos Scudilo Scutariorum
+                </li>
+                <li>
+                    Quid? qui se etiam nunc subsidiis
+                </li>
+                <li>
+                    Quibus occurrere bene pertinax miles
+                </li>
+                <li>
+                    Et interdum acciderat, ut siquid in
+                </li>
+                <li>
+                    Excogitatum est super his, ut homines
+                </li>
+                <li>
+                    Quam ob rem circumspecta cautela
+                </li>
+                <li>
+                    Ultima Syriarum est Palaestina per
+                </li>
+                <li>
+                    Siquis enim militarium vel honoratorum
+                </li>
+                <li>
+                    Inter haec Orfitus praefecti potestate
+                </li>
+                <li>
+                    Ego vero sic intellego, Patres
+                </li>
+                <li>
+                    Post hoc impie perpetratum quod in aliis
+                </li>
+                <li>
+                    Cognitis enim pilatorum caesorumque
+                </li>
+                <li>
+                    Equitis Romani autem esse filium
+                </li>
+                <li>
+                    Haec igitur lex in amicitia sanciatur,
+                </li>
+                <li>
+                    Quam ob rem cave Catoni anteponas ne
+                </li>
+                <li>
+                    Orientis vero limes in longum protentus
+                </li>
+                <li>
+                    Incenderat autem audaces usque ad
+                </li>
+                <li>
+                    Coactique aliquotiens nostri pedites ad
+                </li>
+                <li>
+                    Verum ad istam omnem orationem brevis
+                </li>
+                <li>
+                    Vide, quantum, inquam, fallare,
+                </li>
+                <li>
+                    Ut enim benefici liberalesque sumus, non
+                </li>
+                <li>
+                    Accenderat super his incitatum
+                </li>
+                <li>
+                    Iam virtutem ex consuetudine vitae
+                </li>
+                <li>
+                    Iam virtutem ex consuetudine vitae
+                </li>
+                <li>
+                    Nec vox accusatoris ulla licet
+                </li>
+                <li>
+                    Qui cum venisset ob haec festinatis
+                </li>
+                <li>
+                    Accedat huc suavitas quaedam oportet
+                </li>
+                <li>
+                    Tantum autem cuique tribuendum, primum
+                </li>
+                <li>
+                    Utque proeliorum periti rectores primo
+                </li>
+                <li>
+                    Ideo urbs venerabilis post superbas
+                </li>
+                <li>
+                    Homines enim eruditos et sobrios ut
+                </li>
+                <li>
+                    Excitavit hic ardor milites per
+                </li>
+                <li>
+                    Quam quidem partem accusationis
+                </li>
+                <li>
+                    Post hanc adclinis Libano monti
+                </li>
+                <li>
+                    Inter has ruinarum varietates a Nisibi
+                </li>
+            </ul>
+        </div>
+        <div id="page-2">
+            <h2>Autres paragraphes</h2>
+            <p align="justify">
+                Quanta autem vis amicitiae sit, ex hoc intellegi maxime potest, quod ex infinita societate generis humani, quam conciliavit ipsa natura, ita contracta res est et adducta in angustum ut omnis caritas aut inter duos aut inter paucos iungeretur.
+            </p>
+            <p align="justify">
+                Erat autem diritatis eius hoc quoque indicium nec obscurum nec latens, quod ludicris cruentis delectabatur et in circo sex vel septem aliquotiens vetitis certaminibus pugilum vicissim se concidentium perfusorumque sanguine specie ut lucratus ingentia laetabatur.
+            </p>
+            <p align="justify">
+                Post quorum necem nihilo lenius ferociens Gallus ut leo cadaveribus pastus multa huius modi scrutabatur. quae singula narrare non refert, me professione modum, quod evitandum est, excedamus.
+            </p>
+            <p align="justify">
+                Et licet quocumque oculos flexeris feminas adfatim multas spectare cirratas, quibus, si nupsissent, per aetatem ter iam nixus poterat suppetere liberorum, ad usque taedium pedibus pavimenta tergentes iactari volucriter gyris, dum exprimunt innumera simulacra, quae finxere fabulae theatrales.
+            </p>
+            <p align="justify">
+                Constituendi autem sunt qui sint in amicitia fines et quasi termini diligendi. De quibus tres video sententias ferri, quarum nullam probo, unam, ut eodem modo erga amicum adfecti simus, quo erga nosmet ipsos, alteram, ut nostra in amicos benevolentia illorum erga nos benevolentiae pariter aequaliterque respondeat, tertiam, ut, quanti quisque se ipse facit, tanti fiat ab amicis.
+            </p>
+            <p align="justify">
+                Quis enim aut eum diligat quem metuat, aut eum a quo se metui putet? Coluntur tamen simulatione dumtaxat ad tempus. Quod si forte, ut fit plerumque, ceciderunt, tum intellegitur quam fuerint inopes amicorum. Quod Tarquinium dixisse ferunt, tum exsulantem se intellexisse quos fidos amicos habuisset, quos infidos, cum iam neutris gratiam referre posset.
+            </p>
+            <p align="justify">
+                Quam ob rem id primum videamus, si placet, quatenus amor in amicitia progredi debeat. Numne, si Coriolanus habuit amicos, ferre contra patriam arma illi cum Coriolano debuerunt? num Vecellinum amici regnum adpetentem, num Maelium debuerunt iuvare?
+            </p>
+            <p align="justify">
+                Exsistit autem hoc loco quaedam quaestio subdifficilis, num quando amici novi, digni amicitia, veteribus sint anteponendi, ut equis vetulis teneros anteponere solemus. Indigna homine dubitatio! Non enim debent esse amicitiarum sicut aliarum rerum satietates; veterrima quaeque, ut ea vina, quae vetustatem ferunt, esse debet suavissima; verumque illud est, quod dicitur, multos modios salis simul edendos esse, ut amicitiae munus expletum sit.
+            </p>
+            <p align="justify">
+                Quae dum ita struuntur, indicatum est apud Tyrum indumentum regale textum occulte, incertum quo locante vel cuius usibus apparatum. ideoque rector provinciae tunc pater Apollinaris eiusdem nominis ut conscius ductus est aliique congregati sunt ex diversis civitatibus multi, qui atrocium criminum ponderibus urgebantur.
+            </p>
+            <p align="justify">
+                Et eodem impetu Domitianum praecipitem per scalas itidem funibus constrinxerunt, eosque coniunctos per ampla spatia civitatis acri raptavere discursu. iamque artuum et membrorum divulsa conpage superscandentes corpora mortuorum ad ultimam truncata deformitatem velut exsaturati mox abiecerunt in flumen.
+            </p>
+            <p align="justify">
+                Abusus enim multitudine hominum, quam tranquillis in rebus diutius rexit, ex agrestibus habitaculis urbes construxit multis opibus firmas et viribus, quarum ad praesens pleraeque licet Graecis nominibus appellentur, quae isdem ad arbitrium inposita sunt conditoris, primigenia tamen nomina non amittunt, quae eis Assyria lingua institutores veteres indiderunt.
+            </p>
+            <p align="justify">
+                Et quoniam mirari posse quosdam peregrinos existimo haec lecturos forsitan, si contigerit, quamobrem cum oratio ad ea monstranda deflexerit quae Romae gererentur, nihil praeter seditiones narratur et tabernas et vilitates harum similis alias, summatim causas perstringam nusquam a veritate sponte propria digressurus.
+            </p>
+            <p align="justify">
+                Et hanc quidem praeter oppida multa duae civitates exornant Seleucia opus Seleuci regis, et Claudiopolis quam deduxit coloniam Claudius Caesar. Isaura enim antehac nimium potens, olim subversa ut rebellatrix interneciva aegre vestigia claritudinis pristinae monstrat admodum pauca.
+            </p>
+            <p align="justify">
+                Cognitis enim pilatorum caesorumque funeribus nemo deinde ad has stationes appulit navem, sed ut Scironis praerupta letalia declinantes litoribus Cypriis contigui navigabant, quae Isauriae scopulis sunt controversa.
+            </p>
+            <p align="justify">
+                Accedebant enim eius asperitati, ubi inminuta vel laesa amplitudo imperii dicebatur, et iracundae suspicionum quantitati proximorum cruentae blanditiae exaggerantium incidentia et dolere inpendio simulantium, si principis periclitetur vita, a cuius salute velut filo pendere statum orbis terrarum fictis vocibus exclamabant.
+            </p>
+            <p align="justify">
+                Thalassius vero ea tempestate praefectus praetorio praesens ipse quoque adrogantis ingenii, considerans incitationem eius ad multorum augeri discrimina, non maturitate vel consiliis mitigabat, ut aliquotiens celsae potestates iras principum molliverunt, sed adversando iurgandoque cum parum congrueret, eum ad rabiem potius evibrabat, Augustum actus eius exaggerando creberrime docens, idque, incertum qua mente, ne lateret adfectans. quibus mox Caesar acrius efferatus, velut contumaciae quoddam vexillum altius erigens, sine respectu salutis alienae vel suae ad vertenda opposita instar rapidi fluminis irrevocabili impetu ferebatur.
+            </p>
+            <p align="justify">
+                Post quorum necem nihilo lenius ferociens Gallus ut leo cadaveribus pastus multa huius modi scrutabatur. quae singula narrare non refert, me professione modum, quod evitandum est, excedamus.
+            </p>
+            <p align="justify">
+                Proinde die funestis interrogationibus praestituto imaginarius iudex equitum resedit magister adhibitis aliis iam quae essent agenda praedoctis, et adsistebant hinc inde notarii, quid quaesitum esset, quidve responsum, cursim ad Caesarem perferentes, cuius imperio truci, stimulis reginae exsertantis aurem subinde per aulaeum, nec diluere obiecta permissi nec defensi periere conplures.
+            </p>
+            <p align="justify">
+                Denique Antiochensis ordinis vertices sub uno elogio iussit occidi ideo efferatus, quod ei celebrari vilitatem intempestivam urgenti, cum inpenderet inopia, gravius rationabili responderunt; et perissent ad unum ni comes orientis tunc Honoratus fixa constantia restitisset.
+            </p>
+            <p align="justify">
+                Sin autem ad adulescentiam perduxissent, dirimi tamen interdum contentione vel uxoriae condicionis vel commodi alicuius, quod idem adipisci uterque non posset. Quod si qui longius in amicitia provecti essent, tamen saepe labefactari, si in honoris contentionem incidissent; pestem enim nullam maiorem esse amicitiis quam in plerisque pecuniae cupiditatem, in optimis quibusque honoris certamen et gloriae; ex quo inimicitias maximas saepe inter amicissimos exstitisse.
+            </p>
+        </div>
+    </div>
+    <div id="footer">
+        <span>&copy; Copyright 2010 video2brain. Tous droits r&eacute;serv&eacute;s.
+            &nbsp;&bull;&nbsp;
+            video2brain et le logo de video2brain sont des marques d&eacute;pos&eacute;es de video2brain</span>
+    </div>
+    </div>
+</body>
+</html>

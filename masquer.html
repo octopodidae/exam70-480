@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		
+		div
+		{
+			background-color: orange;
+			width: 200px;
+			height: 200px;
+			display: inline-block;
+		}
+
+		#mySpan
+		{
+			visibility: hidden;
+			/*display: none;*/
+		}
+
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+	<span id="mySpan">Lorem ipsum dolor sit amet</span>
+	<div id="div2"></div>
+	<!-- 
+	visibility: hidden rend le bloc concerné invisible. Cependant, il conserve toujours son emplacement et les blocs adjacents restent à leur place
+	display:none retire le bloc de l'affichage courant. Son emplacement est ainsi occupé, selon les cas, par les blocs adjacents, comme si le bloc n'était pas là !
+	-->
+</body>
+</html>

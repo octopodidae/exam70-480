@@ -8,6 +8,10 @@
 
 <body>
 
+<p><textarea>Et voilà du texte !</textarea></p>
+
+<p>Votre couleur préférée : <input id="myCheckbox" type="checkbox"></p>
+
 <p><input id="text" type="text" size="60" value="Vous n'avez pas le focus !" /></p>
 <p><input type="text" id="my_input" size="60"value="propriété disabled devient un boolean en js"></p>
 <label><input type="radio" name="check" value="1" class="radio"/> Case n°1</label><br />
@@ -43,31 +47,35 @@
     var myInput = document.getElementById("my_input");
     myInput.disabled = true;
 
-/*    function check() {
+    /*function check() {
         var radios = document.querySelectorAll("input.radio");
         var i =0, l = radios.length;
         for(;i<l;i++){
             if (radios[i].checked) {
-                console.log("Le radio checked is : " +radios[i].value);
+                console.log("Le radio checked is : " + radios[i].value);
             }
         }
     }*/
 
     function check() {
-        var inputs = document.querySelectorAll('input[type=radio]:checked'),
+
             inputsLength = inputs.length;
+            console.log(inputsLength);
 
         for (var i = 0; i < inputsLength; i++) {
             alert('La case cochée est la n°' + inputs[i].value);
         }
     }
 
-    var list = document.getElementById("list");
+
+ 
+   var list = document.getElementById("list");
     console.log(list.options);
     list.addEventListener("change", function(e) {
 
         console.log(list.options[list.selectedIndex].innerHTML);
-    })
+    }) /**/
+
 
 
 

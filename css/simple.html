@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Simple page</title>
+</head>
+<body>
+	<h1>Une simple page HTML</h1>    
+    	<p>
+    	Ceci est une simple page HTML.
+    	</p>
+
+	<p>Elle est aussi basique que possible. Elle contient :</p>
+
+	<ul id="unordered">
+		<li>Un titre H1</li>
+		<li>Deux paragraphes</li>
+		<li>Une liste non ordonnée</li>
+	</ul>
+    <script>
+        var myList = document.getElementById('unordered');
+        myList.style.color = "orange";
+        myList.style.backgroundColor = "black";
+        //myList.style.background-color = "black";
+        myList.style.fontWeight = 100;
+    </script>
+</body>
+</html>

@@ -2,13 +2,13 @@
 var emailField = document.getElementById("email");
 
 emailField.onfocus = function() {
-	if ( emailField.value == "Votre e-mail") {
-		emailField.value = "";
+	if ( this.value == "Votre e-mail") {
+		this.value = "";
 	}
 };
 
 emailField.onblur = function() {
-	if ( emailField.value == "") {
-		emailField.value = "Votre e-mail";
+	if ( this.value == "") {
+		this.value = "Votre e-mail";
 	}
 };

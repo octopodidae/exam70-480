@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Formatage du texte</title>
+	<style>
+		@font-face { /* .eot: Embedded OpenType. Fonctionne sur Internet Explorer uniquement, toutes versions. Ce format est propriétaire, produit par Microsoft. */
+			font-family: 'cac_champagneregular';
+    		src: url('cac_champagne-webfont.eot');
+    		src: url('cac_champagne-webfont.eot?#iefix') format('embedded-opentype'),
+         	url('cac_champagne-webfont.woff2') format('woff2'),
+        	url('cac_champagne-webfont.woff') format('woff'),
+         	url('cac_champagne-webfont.ttf') format('truetype'),
+         	url('cac_champagne-webfont.svg#cac_champagneregular') format('svg');
+    		
+
+		} /*
+		WOFF - Recommended, works in all modern browsers
+		TTF - Not recommended, replaced by WOFF
+		EOT - Not recommended, only necessary for IE older than IE9
+		SVG - No longer supported or required for any browser
+		*/
+		p
+		{
+		    font-size: 16px;/*  Paragraphes de 14 pixels */
+		    font-family: cac_champagneregular, "Arial Black", Arial, Verdana, sans-serif;
+		    /*text-align: justify;*/
+		    padding: 15px;
+		}
+		h1
+		{
+		    font-size: xx-large;  /*Titres de 40 pixels */
+		    font-family: cac_champagneregular, "Arial Black", Arial, Verdana, sans-serif;
+		    
+		}/**/
+		h2 
+		{
+			font-style: oblique;  /* italic, oblique, normal*/
+			font-weight: 900;
+			text-decoration: overline;
+
+			/* 
+			underline: souligné.
+			line-through: barré.
+			overline: ligne au-dessus.
+			blink: clignotant. Ne fonctionne pas sur tous les navigateurs (Internet Explorer et Google Chrome, notamment).
+			none: normal (par défaut)
+*/
+		}
+		div {
+			background-color: coral;
+			/*width: 800px;
+			margin: 0;
+			position: relative;*/
+		}
+		.imageflottante {
+			width: 4%;
+			height: 4%;
+			float: left;
+		}
+	</style>
+</head>
+<body>
+	<h1>Mon super titre</h1>
+	<h2>Mon titre h2</h2>
+	<div>
+		<p><img src="./flash.png" class="imageflottante" alt="Image flottante" />Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, cumque, fugiat. Eveniet vel voluptatibus nobis, aperiam odio accusantium voluptatum facilis deserunt maxime commodi, vitae harum temporibus distinctio. Quidem, reiciendis, pariatur.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus, odio autem animi, maiores fugit cumque ullam tenetur culpa ipsa quo quas voluptatibus similique. Omnis accusantium culpa, nulla quasi iure quidem.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium labore, quas. Totam quia quod, expedita architecto ab unde. Velit magni possimus at, quos excepturi, vero? Dolorum maxime, eveniet molestias dolores.Lorem ipsum dolor sit amet, consectetur adipisicing elit. A quos expedita repudiandae soluta quod, necessitatibus nobis numquam optio iure natus, atque consequatur harum neque enim consectetur! Nisi ex facere nihil.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, quo quas! Doloribus, quaerat esse pariatur rerum porro assumenda, facere non veniam ab id repellendus dolorum ipsa molestias amet vitae adipisci.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis dicta id non fugit eligendi dolorem iste ducimus voluptas placeat ullam optio distinctio harum perferendis, enim fuga vero sit, iure nihil!</p>
+		<p class="dessous">Ce texte est écrit sous l'image flottante.</p>
+		<p>Bonjour et bienvenu sur mon site</p>
+		<p>Pour le moment mon site est un peu <em>vide</em>. Patientez encore un peu</p>
+		<p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nesciunt rem exercitationem ratione est, mollitia a veritatis maiores temporibus quibusdam ipsa, obcaecati pariatur unde impedit quas. Omnis, voluptas quam maxime?</span>
+		<span>Repudiandae, dolorum! Ipsam odit reprehenderit, temporibus earum. Corrupti cumque soluta rerum non modi nisi earum vel. Laborum illum labore autem ea. Eaque cum assumenda sint esse molestias labore ut quae.</span>
+		<span>Laboriosam non, asperiores, adipisci dolor a at natus dicta, hic ratione blanditiis, deserunt enim amet nulla commodi. Commodi labore perferendis non distinctio, pariatur natus quos ab. Rerum, nemo! Minima, sit?</span>
+		<span>Blanditiis, consectetur enim atque reprehenderit ipsam optio magnam, minima dolorum cum quasi voluptatibus odio. Veniam sunt totam similique, vitae corrupti provident praesentium, quis odio natus ipsam voluptatum, id eaque. Eos?</span>
+		<span>Sit, vel repellendus repudiandae provident molestiae. Perspiciatis architecto, repellat saepe culpa vitae. Ducimus aliquam, error impedit. Nobis numquam porro veritatis dolores, odio necessitatibus cumque ad, doloremque inventore a possimus autem.</span></p>
+	</div>
+	
+</body>
+</html>

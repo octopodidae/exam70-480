@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8">
+		<title>les-multi-colonnes</title>
+		<style>
+			section {
+			/*-webkit-column-count:4;  Opera, Safari, Google Chrome */
+			/*-moz-column-count: 4;  Firefox */
+			/*column-count: 4;  Internet Explorer */
+			/*columns: 4 100px;  */
+			/*-webkit-column-gap: 100px;
+			-moz-column-gap: 100px;*/
+			/*column-gap: 100px;  ne fonctionne pas en % */
+			column-rule: 2px dashed #555;
+			-webkit-column-count: 4;
+			-moz-column-count: 4;
+			column-count: 4;
+			text-align: justify;
+			-webkit-hyphens: auto;
+			-moz-hyphens: auto;
+			-ms-hyphens: auto;
+			hyphens: auto; /*&shy */
+			}
+			h1 {
+				/* Le titre s'étalera sur toutes les colonnes */
+				
+				-webkit-column-span: all;
+				-moz-column-span: all;
+				column-span: all;
+			}
+			#myP {
+				break-before: column;
+				-webkit-column-break-before: always;
+			}
+		</style>
+	</head>
+	<body>
+		<section>
+			<!-- Mon titre au milieu-->
+			<h1>Ce titre prend de la place ! Ce titre prend de la place ! Ce titre prend de la place !</h1>
+			<p>Parfois, vous voulez absolument éviter qu'un contenu soit "coupé en deux" parce qu'on arrive en bas de la colonne. Ou vous aimeriez qu'un texte commence obligatoirement en haut d'une colonne. Eh bien c'est possible grâce à ces propriétés
+			Seuls Opera et Internet Explorer comprennent ces propriétés. Les navigateurs Google Chrome et Safari acceptent une syntaxe un peu différente : -webkit-column-break-before ,  -webkit-column-break-inside  et -webkit-column-break-after. Les valeurs sont aussi différentes :  always  pour forcer le saut de colonne,  avoid  pour l'éviter.</p>
+			
+			<p id="myP">Si on veut adopter un style proche des journaux, on peut combiner les colonnes avec un alignement justifié. Cela permet d'avoir des colonnes propres, de même largeur. Cependant, le texte justifié sur les navigateurs n'est pas vraiment idéal sans système de césure.
+				Jusqu'à présent, le Web ne permettait pas ce type de mise en page. Nous étions condamnés au mieux à bidouiller, au pire à écrire des pages qui faisaient parfois plusieurs kilomètres de large.
+			Ce temps est révolu ! Grâce à CSS3, on peut maintenant automatiquement créer une mise en page du texte sur plusieurs colonnes de façon très efficace.</p>
+			<p>Jusqu'à présent, le Web ne permettait pas ce type de mise en page. Nous étions condamnés au mieux à bidouiller, au pire à écrire des pages qui faisaient parfois plusieurs kilomètres de large.
+			Ce temps est révolu ! Grâce à CSS3, on peut maintenant automatiquement créer une mise en page du texte sur plusieurs colonnes de façon très efficace.</p>
+		</section>
+	</body>
+</html>
