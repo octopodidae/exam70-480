@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Drawing lines</title>
+	<style>
+		#drawingSurface {
+			border: 1px solid grey;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="drawingSurface" width="600" height="400">
+		Your browser does not support HTML5
+	</canvas>
+	<script>
+		
+		// top-left corner : (0,0)
+		// bottom-left : (0,400)
+		// bottom-right : (600,400)
+		// top-right : (600,0)
+
+		window.onload = function () {
+
+			var c = document.getElementById("drawingSurface"); // get a reference to the canvas element
+			var ctx = c.getContext("2d"); // 2d context // Now, <canvas> supports only a 2d context
+
+			/* Drawing lines */
+
+			ctx.beginPath(); // Resets/begins a new drawing path
+			ctx.moveTo(10,10); // Moves the context to the point set in the beginPath method
+			ctx.lineTo(225,350); // Sets the destination end point for the line
+			ctx.lineTo(300,10);
+			ctx.lineTo(400, 350);
+			ctx.lineWidth = 5; // change the thickness
+			ctx.strokeStyle = "orange"; // change the color
+			ctx.lineCap = "round"; // control how the end of the line will render // round, butt, square
+			// In this example, the line has a width of 5. With a round cap set on the line, the total line length would be
+			// extended by 5.
+			// square : style carré (dépasse du point d'arrivée)
+			// butt : tracé "coupé" carré (ne dépasse pas)
+			// round : dépasse
+			ctx.lineJoin = "round";
+			//ctx.fillStyle = "coral";
+			//ctx.fill();
+			ctx.stroke(); // Strokes the line, which makes the line visible
+
+		}
+
+		
+		
+
+	</script>
+</body>
+</html>

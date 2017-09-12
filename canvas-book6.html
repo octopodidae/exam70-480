@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>build rectangles</title>
+	<style>
+		#drawingSurface {
+			border: 1px solid grey;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="drawingSurface" width="600" height="400">
+		Your browser does not support HTML5
+	</canvas>
+	<script>
+		
+		// top-left corner : (0,0)
+		// bottom-left : (0,400)
+		// bottom-right : (600,400)
+		// top-right : (600,0)
+
+		window.onload = function () {
+
+			var c = document.getElementById("drawingSurface"); // get a reference to the canvas element
+			var ctx = c.getContext("2d"); // 2d context // Now, <canvas> supports only a 2d context
+			
+			/* rect() method */
+			/*
+			x,y The x-coordinate and y-coordinate define the starting position of the rectangle. This is
+			the top-left corner of the rectangle.
+			width This defines the width of the rectangle.
+			height This defines the height of the rectangle.
+			*/
+
+			ctx.beginPath();
+			//ctx.arc(300, 200, 75, 0, 2*Math.PI, false);
+			/*ctx.rect(300,200,150,75); // (startx, starty, hauteur, largeur) */
+
+			/*center rectangle */
+			var x, y;
+			x = 150;
+			y = 75;
+			ctx.rect(300-(x/2), 200-(y/2), x, y);/* */
+
+			ctx.lineWidth = 30;
+			ctx.strokeStyle = "blue";
+			ctx.lineCap = "round";
+			ctx.lineJoin = "round";
+			ctx.stroke();
+			ctx.fillStyle = "aqua";
+			ctx.fill();
+		}
+	</script>
+</body>
+</html>

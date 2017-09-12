@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas</title>
+	<style>
+		#mon_canvas {
+			border: 1px solid black;
+		}
+		h1 {
+			background-color: purple;
+			border-radius: 15px;
+			box-shadow: 5px 5px 30px darkblue; /* offset-x | offset-y | blur-radius | color */
+			color: white; 
+			text-indent: 20px;
+			font-variant: small-caps;
+		}
+	</style>
+</head>
+<body>
+	<h1>Dégradés, motifs et images</h1>
+	
+	<canvas id="mon_canvas"></canvas>
+
+	
+	<script>
+
+		var c = document.getElementById("mon_canvas");
+		c.width = 350;
+		c.height = 350;
+		var ctx = c.getContext("2d");
+
+		/*
+		createRadialGradient( x0, y0, r0 , x1 , y1, r1 ) où le couple x0,y0 est le point central du cercle de départ et le couple  x1,y1 de celui d'arrivée.
+		*/
+
+		var gradient = ctx.createRadialGradient(0,0,50,0,150,250);
+		gradient.addColorStop(0,"blue"); // Départ
+		gradient.addColorStop(0.5,"yellow"); // Intermédiaire
+		gradient.addColorStop(1,"green"); // Arrivée
+		ctx.fillStyle = gradient; // // Affectation au remplissage
+		ctx.fillRect(0,0,c.width,c.height)
+
+
+
+
+
+		
+
+
+	</script>
+</body>
+</html>

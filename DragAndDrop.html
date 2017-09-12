@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Drag & Drop</title>
+	<style>
+		#dropper {
+		    padding-top: 40px;
+		    width: 400px;
+		    height: 60px;
+		    border: 2px solid #222;
+		    background-color: #888;
+		}
+		div {
+		    margin: 50px auto;
+		    text-align: center;
+		}
+		#aDiv::select {
+			background: orange;
+		}
+	</style>
+</head>
+<body>
+	
+	<div id="draggable" draggable="true">Je suis déplaçable !</div>
+	<div id="aDiv" draggable="true">Je ne suis pas déplaçable !</div>
+	<div id="dropper">Je n'accepte pas les éléments déplacés par défaut!</div>
+	<p><a href="http://georezo.net">GeoreZo</a></p>
+	<p><img src="zozor.jpg" alt="zozor"></p>
+	<script>
+		
+		// Pour la source 2 events : dragstart dragend
+
+		// Pour la cible (zone de drop) : dragenter dragover dragleave drop
+
+		/*
+			dragenter, qui se déclenche lorsqu'un élément en cours de déplacement entre dans la zone de drop.
+			dragover, qui se déclenche lorsqu'un élément en cours de déplacement se déplace dans la zone de drop.
+			dragleave, qui se déclenche lorsqu'un élément en cours de déplacement quitte la zone de drop.
+			drop, qui se déclenche lorsqu'un élément en cours de déplacement est déposé dans la zone de drop.
+		*/
+
+
+		var dragImg = new Image() // Il est conseillé de précharger l'image, sinon elle risque de ne pas s'afficher pendant le déplacement
+		dragImg.src = "zozor.jpg";
+
+		var aDiv = document.querySelector("#draggable");
+		aDiv.draggable = true;
+
+		var cible = document.querySelector("#dropper");
+
+		aDiv.ondragstart = function(e) {
+			console.log("dragstart (event  sur la source)");
+			e.dataTransfer.setData("text/plain", "Ce texte sera transmis à l'élément HTML de réception");
+			e.dataTransfer.setDragImage(dragImg, 40, 40); // Une position de 40x40 pixels centrera l'image (de 80x80 pixels) sous le curseur
+		}
+		/*aDiv.ondragend = function() {
+			console.log("dragend (event  sur la source)"); 
+		}*/
+
+		cible.addEventListener("dragover", function(e) {
+			e.preventDefault();// Annule l'interdiction de drop
+		})
+
+		/*cible.addEventListener("drop", function(e) {
+			e.preventDefault(); // Cette méthode est toujours nécessaire pour éviter une éventuelle redirection inattendue
+			alert("Vous avez bien déposé votre élément (target event");
+		})*/
+
+		cible.addEventListener("dragenter", function(e) {
+			cible.style.borderStyle = 'dashed';
+		})
+
+		cible.addEventListener("dragleave", function(e) {
+			cible.style.borderStyle = 'solid';
+		})
+
+		// Cet événement détecte n'importe quel drag & drop qui se termine, autant le mettre sur « document » :
+		document.ondragend = function() {
+			console.log("Un Drag & Drop vient de se terminer mais l'événement dragend ne sait pas si c'est un succès ou non.");
+		}
+
+		cible.addEventListener("drop", function(e) {
+			e.preventDefault();  // Cette méthode est toujours nécessaire pour éviter une éventuelle redirection inattendue
+			cible.style.borderStyle = 'solid';
+			console.log('Vous avez bien déposé votre élément ! (drop)');
+			//console.log(e.dataTransfer.getData("text/plain"));
+			var newP = document.createElement("p");
+			newP.appendChild(document.createTextNode(e.dataTransfer.getData("text/plain")));
+			this.appendChild(newP);
+
+			var files = e.dataTransfer.files;
+			var len = files.length;
+			var filenames;
+			for (var i = 0; i < len; i++) {
+				filenames += files[i].name;
+			}	
+			console.log(files.length + " fichiers : " + filenames)
+
+		})
+
+	</script>
+</body>
+</html>

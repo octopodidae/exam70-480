@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas</title>
+	<style>
+		#mon_canvas {
+			border: 1px solid black;
+		}
+		h1 {
+			background-color: purple;
+			border-radius: 15px;
+			box-shadow: 5px 5px 30px darkblue; /* offset-x | offset-y | blur-radius | color */
+			color: white; 
+			text-indent: 20px;
+			font-variant: small-caps;
+		}
+	</style>
+</head>
+<body>
+	<h1>Tracés et chemins</h1>
+	<canvas id="mon_canvas" width="350" height="350">
+		 <p>Désolé, votre navigateur ne supporte pas Canvas. Mettez-vous à jour</p>
+	</canvas>
+	
+	<script>
+
+		// Le point de référence (0,0) est situé en haut à gauche
+
+		
+		var c = document.getElementById("mon_canvas");
+		var ctx = c.getContext("2d");
+
+		ctx.beginPath(); // Initialisation du tracé
+		ctx.moveTo(50,50); // Le tracé part du point 50,50
+		ctx.lineTo(200,200); // Un segment est ajouté vers 200,200 
+		ctx.moveTo(200,50); // Puis on saute jusqu'à 200,50
+		ctx.lineTo(50,200);	// // Puis on trace jusqu'à 50,200
+		ctx.closePath() // Fermeture du chemin (facultative)
+
+		/*La forme n'apparait qu'une fois appelée l'une des deux méthodes fill() pour remplir et stroke() pour le contour.*/
+		ctx.strokeStyle = "orange"; // Propriété
+		ctx.lineWidth = 10; //La propriété lineWidth affecte l'épaisseur du trait, qui est de 1 pixel par défaut.
+		ctx.stroke(); // contour
+
+	</script>
+</body>
+</html>

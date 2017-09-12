@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Drawing curves, arc</title>
+	<style>
+		#drawingSurface {
+			border: 1px solid grey;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="drawingSurface" width="600" height="400">
+		Your browser does not support HTML5
+	</canvas>
+	<script>
+		
+		// top-left corner : (0,0)
+		// bottom-left : (0,400)
+		// bottom-right : (600,400)
+		// top-right : (600,0)
+
+		window.onload = function () {
+
+			var c = document.getElementById("drawingSurface"); // get a reference to the canvas element
+			var ctx = c.getContext("2d"); // 2d context // Now, <canvas> supports only a 2d context
+
+			/* 3 méthodes :
+				- arc :  arc( x, y, radius, startAngle, endAngle, counterclockwise )
+				- quadradticCurveTo : quadraticCurveTo( cp1x, cp1y, destx, desty )
+					A more complex arc that allows you to control the steepness (pente) of the curve
+				- BezierCurveTo : bezierCurveTo( cp1x, cp1y, cp2x, cp2y, destx, desty )
+			*/
+
+			/* ARC */
+			// arc( x, y, radius, startAngle, endAngle, counterclockwise )
+			// X, Y The first two parameters are the X and Y coordinates for the center of the circle.
+			// Raduis : The third parameter is the radius. This is the length of the distance from the
+			// center point of the circle to the curve.
+			// startAngle, endAngle : The fourth and fifth parameters specify the starting and ending angles of the
+			// arc to be drawn. This is measured in radians, not in degrees.
+			// counterclockwise The final parameter specifies the drawing direction of the arc.
+
+
+			ctx.beginPath();
+			ctx.arc(150, 100, 75, 0, 2*Math.PI, false);
+			ctx.lineWidth = 25;
+			ctx.strokeStyle = "green";
+			ctx.stroke();
+
+			ctx.beginPath();
+			ctx.arc(450, 100, 75, 1.5*Math.PI, 2*Math.PI, false);
+			ctx.lineWidth = 25;
+			ctx.strokeStyle = "blue";
+			ctx.stroke();
+
+			ctx.beginPath();
+			ctx.arc(150, 300, 75, 1*Math.PI, 1.5*Math.PI, false);
+			ctx.lineWidth = 25;
+			ctx.strokeStyle = "cyan";
+			ctx.stroke();
+
+			ctx.beginPath();
+			ctx.arc(450, 300, 75, .5*Math.PI, 1*Math.PI, false);
+			ctx.lineWidth = 25;
+			ctx.strokeStyle = "red";
+			ctx.stroke();
+
+			/* 
+			This math is necessary to get the value in radians because the parameters for startAngle and
+			endAngle are specified in radians, not in degrees
+			*/
+
+
+		}
+
+		
+		
+
+	</script>
+</body>
+</html>

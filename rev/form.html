@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Formulaire</title>
+</head>
+<body>
+	<input id="text" type="text" size="60" value="Vous n'avez pas le focus !" />
+	<p><textarea></textarea></p>
+	<p>
+		<input type="text" disabled="disabled" id="myInputDisabled"/>
+	</p>
+	<p>
+		<button id="myBtn">Désactiver l'input</button>
+	</p>
+	<label><input type="radio" name="check" value="1" /> Case n°1</label><br />
+	<label><input type="radio" name="check" value="2" /> Case n°2</label><br />
+	<label><input type="radio" name="check" value="3" /> Case n°3</label><br />
+	<label><input type="radio" name="check" value="4" /> Case n°4</label>
+	<br /><br />
+	<input id="myBtn2" type="button" value="Afficher la case cochée" onclick="check();" />
+	<br><br><br>
+	<select id="list">
+	    <option>Orange</option>
+	    <option>Vert</option>
+	    <option>Purple</option>
+	</select>
+<script>
+		
+		var myInput = document.getElementById("text");
+		console.log(myInput.value);
+		var myTextArea = document.querySelector("textarea");
+		var myInputDisabled = document.getElementById("myInputDisabled");
+
+		document.getElementById("myBtn").onclick = function() {
+			myInputDisabled.disabled = false;
+		}
+
+		myInput.addEventListener("focus", function(e) {
+			e.target.value = "Vous avez le focus :)";
+			console.log("Event type : " + e.type);
+		});
+
+		myInput.addEventListener("blur", function(e) {
+			this.value = this.defaultValue	;
+			console.log("Event type : " + e.type);
+		});
+
+		myTextArea.onchange = function() {
+			window.localStorage.setItem("myKey", myTextArea.value);
+		}
+
+		if (localStorage.length>0) {
+			myTextArea.value = window.localStorage.getItem("myKey");
+		}
+
+		function check() {
+			var myRadios = document.querySelectorAll("[type=radio]");
+			for (var i=0; i<myRadios.length; i++) {
+				if(myRadios[i].checked == true){
+					console.log("Case cochée n° "  + myRadios[i].value);
+					break;
+				}
+			}
+		}
+
+		var myList = document.getElementById("list");
+
+		myList.onchange = function() {
+			console.log(myList.options[myList.selectedIndex].innerHTML);
+		}
+
+		
+	
+</script>
+</body>
+</html>

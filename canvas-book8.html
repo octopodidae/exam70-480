@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>fillRect() method</title>
+	<style>
+		#drawingSurface {
+			border: 1px solid grey;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="drawingSurface" width="600" height="400">
+		Your browser does not support HTML5
+	</canvas>
+	<script>
+		
+		// top-left corner : (0,0)
+		// bottom-left : (0,400)
+		// bottom-right : (600,400)
+		// top-right : (600,0)
+
+		window.onload = function () {
+
+			var c = document.getElementById("drawingSurface"); // get a reference to the canvas element
+			var ctx = c.getContext("2d"); // 2d context // Now, <canvas> supports only a 2d context
+
+			var x, y;
+			x = 150;
+			y = 75;
+
+			ctx.fillStyle = "orange";
+			ctx.fillRect(300-(x/2), 200-(y/2), x, y);
+			
+			/* special fill method specifically for rect called
+			fillRect. With this method, you can create and fill your rectangle in one call:*/ 
+		}
+	</script>
+</body>
+</html>

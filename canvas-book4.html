@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Drawing curves, bezier curve</title>
+	<style>
+		#drawingSurface {
+			border: 1px solid grey;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="drawingSurface" width="600" height="400">
+		Your browser does not support HTML5
+	</canvas>
+	<script>
+		
+		// top-left corner : (0,0)
+		// bottom-left : (0,400)
+		// bottom-right : (600,400)
+		// top-right : (600,0)
+
+		window.onload = function () {
+
+			var c = document.getElementById("drawingSurface"); // get a reference to the canvas element
+			var ctx = c.getContext("2d"); // 2d context // Now, <canvas> supports only a 2d context
+			
+			/* 
+			A Bezier curve is similar to the quadratic curve except that it has two control points instead of just one.
+			*/
+
+			ctx.beginPath();
+			ctx.moveTo(125,20); // start
+			ctx.bezierCurveTo(0,200,300,300,50,400); // BezierCurveTo : bezierCurveTo( cp1x, cp1y, cp2x, cp2y, destx, desty )
+			ctx.lineWidth = 5;
+			ctx.strokeStyle = "#f00";
+			ctx.stroke();
+
+			/*
+			controlX, controlY The first two parameters specify the first control point that is used to stretch
+			out the curve.
+			Control2X, control2Y The second two parameters specify the second control point that is used to stretch out the curve.
+			endX, endY The final two parameters specify the end point for the curve.
+			*/
+
+		}
+
+		
+		
+
+	</script>
+</body>
+</html>

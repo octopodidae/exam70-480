@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Drawing curves, bezier curve</title>
+	<style>
+		#drawingSurface {
+			border: 1px solid grey;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="drawingSurface" width="600" height="400">
+		Your browser does not support HTML5
+	</canvas>
+	<script>
+		
+		// top-left corner : (0,0)
+		// bottom-left : (0,400)
+		// bottom-right : (600,400)
+		// top-right : (600,0)
+
+		window.onload = function () {
+
+			var c = document.getElementById("drawingSurface"); // get a reference to the canvas element
+			var ctx = c.getContext("2d"); // 2d context // Now, <canvas> supports only a 2d context
+			
+			// beginPath method starts a new line
+
+			ctx.beginPath();
+			ctx.arc(300, 200, 75, 1.75*Math.PI, 1.25 * Math.PI, false); // arc :  arc( x, y, radius, startAngle, endAngle, counterclockwise )
+			ctx.lineTo(150,125); 
+			ctx.quadraticCurveTo(300, 0, 450, 125); // quadraticCurveTo( cp1x, cp1y, destx, desty )
+			ctx.lineTo(353,144); 
+			ctx.strokeStyle = "purple";
+			ctx.lineCap = "round";
+			ctx.lineWidth = 10;
+			ctx.fillStyle = "aqua";
+			ctx.fill();
+			ctx.stroke();
+		
+		}
+
+		
+		
+
+	</script>
+</body>
+</html>

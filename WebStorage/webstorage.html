@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8"/>
+		<title>Web Storage</title>
+		<style>
+		section {
+			margin-top: 15px;
+		}
+		</style>
+	</head>
+	<body>
+		<section>
+			Key:
+			<input type="text" id="toStorageKey"/>
+			Value:
+			<input type="text" id="toStorageValue"/><br/>
+		</section>
+		<section>
+			<button type="button" id="btnAdd">Add To Storage</button>
+			<button type="button" id="btnRemove">Remove from Storage</button>
+			<button type="button" id="btnClear">Clear Storage</button>
+		</section>
+		<div id="storage">
+			<p>Current Storage Contents</p>
+		</div>
+		<textarea id="message" name="message" onchange="sessionStorage.message=this.value"></textarea>
+		<br>
+		<p>Vous avez vu cette page <span id="visites"></span> fois</p>
+		<script>
+
+			window.onload = function () {
+				// Détection
+				if (typeof localStorage != "undefined") {
+					 // Récupération de la valeur dans web storage
+					var nbvisites = localStorage.getItem("visites");
+					// Vérification de la présence du compteur
+					if(nbvisites!=null) {
+						// Si oui, on convertit en nombre entier la chaîne de texte qui fut stockée
+						nbvisites = parseInt(nbvisites);
+					} else {
+						nbvisites = 1;
+					}
+					// Incrémentation
+					nbvisites++;
+					// Stockage à nouveau en attendant la prochaine visite...
+					localStorage.setItem("visites", nbvisites);
+					// Affichage dans la page
+					document.getElementById("visites").innerHTML = nbvisites;
+				} else {
+					alert("localStorage n'est pas supporté");
+				}
+
+				LoadFromStorage();
+
+				var aKey = document.getElementById("toStorageKey"),
+					aValue = document.getElementById("toStorageValue");
+
+				document.getElementById("btnAdd").onclick = function () {
+					localStorage.setItem(aKey.value, aValue.value);
+					LoadFromStorage();
+				}
+				document.getElementById("btnRemove").onclick = function () {
+					localStorage.removeItem(aKey.value);
+					LoadFromStorage();
+				}
+				document.getElementById("btnClear").onclick = function () {
+					localStorage.clear();
+					LoadFromStorage();
+				}
+				function LoadFromStorage() {
+
+					var storageDiv = document.getElementById("storage");
+					var tbl = document.createElement("table");
+					tbl.setAttribute("id", "storageTable");
+
+					if(localStorage.length>0) {
+						for(var i = 1, l = localStorage.length; i < l; i++) {
+							var row = document.createElement("tr");
+							var key = document.createElement("td");
+							var val = document.createElement("td");
+							key.innerHTML = localStorage.key(i);
+							val.innerHTML = localStorage.getItem(key.innerHTML);
+							row.appendChild(key);
+							row.appendChild(val);
+							tbl.appendChild(row);
+						}
+					}
+					else 
+					{
+						var row = document.createElement("tr");
+						var col = document.createElement("td");
+						var msg = document.createTextNode("No data in local storage");
+						row.appendChild(col);
+						col.appendChild(msg);
+						tbl.appendChild(row);
+
+					}
+					if (document.getElementById("storageTable")) {
+						storageDiv.removeChild(storageDiv.lastChild);
+						storageDiv.appendChild(tbl);
+					}
+					else {
+						storageDiv.appendChild(tbl);
+					}/**/
+				}
+				
+
+				if( "message" in sessionStorage) {
+					alert("Message récupéré");
+					document.getElementById("message").value = sessionStorage.getItem("message");
+				} else {
+					alert("sessionStorage n'est pas supporté");
+				}
+
+				// JSON
+				// Stockage
+				var myObject = {
+					prop1: "valeur1",
+					prop2: "valeur2"
+				};
+
+				var myJsonObj = JSON.stringify(myObject);
+				sessionStorage.setItem("object", myJsonObj);//
+
+				// lecture
+				var monobjet_json  = sessionStorage.getItem("object");
+				var monobjet = JSON.parse(monobjet_json);
+				console.log(monobjet);
+
+
+			}
+
+
+		
+
+		</script>
+	</body>
+</html>

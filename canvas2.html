@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas</title>
+	<style>
+		#mon_canvas {
+			border: 1px solid black;
+		}
+		h1 {
+			background-color: purple;
+			border-radius: 15px;
+			box-shadow: 5px 5px 30px darkblue; /* offset-x | offset-y | blur-radius | color */
+			color: white; 
+			text-indent: 20px;
+			font-variant: small-caps;
+		}
+	</style>
+</head>
+<body>
+	<h1>Styles de contour et de remplissage, Styles de ligne</h1>
+	<canvas id="mon_canvas" width="350" height="350">
+		 <p>Désolé, votre navigateur ne supporte pas Canvas. Mettez-vous à jour</p>
+	</canvas>
+	
+	<script>
+
+		// Le point de référence (0,0) est situé en haut à gauche
+
+		
+		var c = document.getElementById("mon_canvas");
+		var ctx = c.getContext("2d");
+
+		// La voile du bateau
+		ctx.beginPath(); // Intitialisation
+		ctx.moveTo(150,80); // Le tracé part du point 150,80
+		ctx.lineTo(300,230); // Un segment est ajouté vers 300,230
+		ctx.lineTo(150,230); // Un segment est ajouté vers 150,230
+		ctx.closePath(); // Fermeture du chemin
+		ctx.fillStyle = "lightblue"; // Definition de la couleur de remplissage
+		ctx.fill(); // Remplissage du dernier chemin tracé
+
+		// Coque du bateau
+		ctx.beginPath(); // Début d'un autre chemin
+		ctx. moveTo(50,250);
+		ctx.lineTo(100,300);
+		ctx.lineTo(250,300);
+		ctx.lineTo(300,250);
+		ctx.fillStyle = "peru"; // Définition de la couleur de remplissage
+		ctx.strokeStyle = "sienna"; // Définition de la couleur de contour
+		ctx.lineWidth = 5; // Définition de la largeur de ligne
+		ctx.fill(); // Application du remplissage
+		ctx.stroke(); // Application du contour
+
+		// Mât
+		ctx.beginPath();
+		ctx.moveTo(140,50);
+		ctx.lineTo(140,250);
+		ctx.lineWidth = 10;
+		ctx.lineCap = "round"; // autres valeurs possibles : 'square', 'butt'
+		ctx.lineJoin = "round"; // autres valeurs possibles : 'bevel', 'mitter'
+		ctx.stroke();
+
+
+
+	</script>
+</body>
+</html>

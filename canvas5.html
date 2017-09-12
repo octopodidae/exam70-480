@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Canvas</title>
+	<style>
+		#mon_canvas {
+			border: 1px solid black;
+		}
+		h1 {
+			background-color: purple;
+			border-radius: 15px;
+			box-shadow: 5px 5px 30px darkblue; /* offset-x | offset-y | blur-radius | color */
+			color: white; 
+			text-indent: 20px;
+			font-variant: small-caps;
+		}
+	</style>
+</head>
+<body>
+	<h1>Arcs, cercles et courbes</h1>
+	
+	<canvas id="mon_canvas" width="350" height="350"></canvas>
+
+	
+	<script>
+
+		/* arc( x, y, radius, startAngle, endAngle, sensAntiHoraire ) */
+
+		/*
+			configuration trigonométrique : les angles sont définis en radians avec Math.PI (un tour complet de cercle = 2*Math.PI) et le sens de rotation est contraire aux aiguilles d'une montre lorsqu'il vaut true.
+		*/
+
+		var c = document.getElementById("mon_canvas");
+		var ctx = c.getContext("2d");
+		ctx.lineWidth = 5;
+
+		// Visage
+		ctx.beginPath();
+		ctx.arc(150, 150, 100, 0, Math.PI*2, true);
+
+		ctx.fillStyle = "bisque";
+		ctx.strokeStyle = "coral";
+		ctx.fill();
+		ctx.stroke();
+
+		// Bouche
+		ctx.beginPath();
+		ctx.arc(150, 150, 60, 0, Math.PI, false);
+		ctx.lineWidth = 8;
+		ctx.strokeStyle = "#369";
+		ctx.stroke();
+
+		// Yeux
+		ctx.beginPath();
+		ctx.strokeStyle = "#369";
+		ctx.arc(180,130,15,0,Math.PI*2,false);
+		ctx.stroke();
+
+		ctx.beginPath();
+		ctx.arc(120,130,15,0,Math.PI*2,false);/**/
+		ctx.stroke();
+
+
+
+
+	
+
+
+	</script>
+</body>
+</html>

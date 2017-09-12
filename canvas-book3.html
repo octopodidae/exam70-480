@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Drawing curves, quadraticArc</title>
+	<style>
+		#drawingSurface {
+			border: 1px solid grey;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="drawingSurface" width="600" height="400">
+		Your browser does not support HTML5
+	</canvas>
+	<script>
+		
+		// top-left corner : (0,0)
+		// bottom-left : (0,400)
+		// bottom-right : (600,400)
+		// top-right : (600,0)
+
+		window.onload = function () {
+
+			var c = document.getElementById("drawingSurface"); // get a reference to the canvas element
+			var ctx = c.getContext("2d"); // 2d context // Now, <canvas> supports only a 2d context
+
+
+			/*
+			Parameters required for the quadraticCurveTo method :
+
+				controlX, controlY These parameters define the control point, relative to the top left of the
+				canvas, that is used to “stretch” the curve away from the line formed by the
+				start and end points.
+
+				endX, endY This is the point where the curve should end.
+
+
+			*/
+			ctx.beginPath();
+			ctx.moveTo(10,380); // start
+			ctx.quadraticCurveTo(300, -250, 580, 380); // 580, 380 -> end
+			ctx.lineWidth = 25;
+			ctx.strokeStyle = "purple";
+			ctx.stroke();
+
+			// you get a steeper (plus raide) curve 
+
+
+		}
+
+		
+		
+
+	</script>
+</body>
+</html>
