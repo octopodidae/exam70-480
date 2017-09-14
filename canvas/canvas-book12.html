@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>strokeText method</title>
+	<style>
+		#drawingSurface {
+			border: 1px solid grey;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="drawingSurface" width="600" height="400">
+		Your browser does not support HTML5
+	</canvas>
+	<script>
+		
+		// top-left corner : (0,0)
+		// bottom-left : (0,400)
+		// bottom-right : (600,400)
+		// top-right : (600,0)
+
+		window.onload = function() {
+			var c = document.getElementById("drawingSurface"); // get a reference to the canvas element
+			var ctx = c.getContext("2d"); // 2d context // Now, <canvas> supports only a 2d context
+
+			// fillText('Hello Kiwi!', coordx, coordy) 
+			// strokeText('Hello Kiwi!', coordx, coordy)
+
+			ctx.strokeText("1. Text with default font", 100, 100);
+
+			ctx.font = "24px arial";
+			ctx.strokeText("2. Text with altered font", 100, 125);
+
+			ctx.font = "24px arial";
+			ctx.strokeStyle = "red";
+			ctx.strokeText("3. Text with colored font", 100, 160);
+
+			/* 
+			notice that your text is outlined. This is the default
+			behavior when you increase the font size; it’s drawn as outlined.
+			To draw solid-colored text,
+			add the following code, which sets the fillStyle property and calls the fillText method instead
+			of the strokeStyle and StrokeText methods
+			*/
+
+			ctx.font = "24px Verdana";
+			ctx.fillStyle = "purple";
+			ctx.textAlign = "center";
+			ctx.fillText("4. Text with colored font", c.width/2, c.height/2);
+
+			/*
+			By setting the textAlign property to the value center, you are telling the context to consider
+			the specified (x,y) coordinate as the center point of the string instead of the beginning point
+			of the string. So, you divide the canvas width and height by two to get the center point of the
+			canvas, and you get a string centered horizontally and vertically.
+			*/
+
+		}
+		
+
+
+		    	
+	</script>
+</body>
+</html>

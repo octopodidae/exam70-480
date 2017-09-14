@@ -1,0 +1,61 @@
+div
+{
+    margin: 100px;
+    width: 200px;
+    height: 150px;
+    background-color: purple;
+}
+
+@-webkit-keyframes movemydiv {
+    from {
+        transform: translateX(0px);
+    }
+
+    30% {
+        transform: translateX(150px);
+    }
+
+    60% {
+        transform: translateX(150px) rotate(30deg);
+    }
+
+    80% {
+        transform: translate(100px, 80px) rotate(30deg);
+    }
+
+    to {
+        transform: translate(100px, 80px) rotate(30deg);
+        border-radius: 30px;
+        background-color: blue;
+    }
+}
+
+@keyframes movemydiv {
+    from {
+        transform: translateX(0px);
+    }
+
+    30% {
+        transform: translateX(150px);
+    }
+
+    60% {
+        transform: translateX(150px) rotate(30deg);
+    }
+
+    80% {
+        transform: translate(100px, 80px) rotate(30deg);
+    }
+
+    to {
+        transform: translate(100px, 80px) rotate(30deg);
+        border-radius: 30px;
+        background-color: red;
+    }
+}
+
+div:hover
+{
+    -webkit-animation: movemydiv 2s steps(3);
+    animation: movemydiv 2s steps(3);
+}

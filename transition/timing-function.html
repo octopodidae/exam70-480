@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Les fonctions de transition</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+	<style>
+		#myP {
+			background: #ddd;
+			width: 300px;
+			margin: 0;
+			padding: 2em;
+			-webkit-transition-property: width;
+			-webkit-transition-duration: 3s;
+
+		}
+		body {
+			background: rgb(40,40,50);
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<form action="#" id="choose-transition" action="get">
+			
+			<select name="timing-function" class="form-control">
+				<option value="ease">ease</option>
+				<option value="linear">linear</option>
+				<option value="ease-in">ease-in</option>
+				<option value="ease-out">ease-out</option>
+				<option value="ease-in-out">ease-in-out</option>
+			</select>
+			<p><input type="submit" value="Go" class="form-control"></p>
+
+		</form>
+
+		<hr>
+		<p id="myP">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga culpa cupiditate, eveniet! Tempore quisquam deserunt est reprehenderit aspernatur dignissimos, quos atque iure amet modi minima voluptatem ipsam totam, quasi molestias.</p>
+	</div>
+<script>
+	
+	var myForm = document.querySelector("form");
+	var mySelect = document.querySelector("select");
+	var myOpt = mySelect.options[mySelect.options.selectedIndex].value;
+	//console.log(myOpt.value);
+	var myP = document.getElementById("myP");
+
+	myForm.onsubmit = function() {
+		myP.style.webkitTransitionTimingFunction = myOpt;
+		if (myP.style.width != "600px") {
+			myP.style.width = "600px";
+		}
+		else {
+			myP.style.width = "300px";
+		}
+		return false;
+	}
+
+	
+
+
+
+</script>
+</body>
+</html>

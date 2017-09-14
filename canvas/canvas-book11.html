@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Drawing images</title>
+	<style>
+		#drawingSurface {
+			border: 1px solid grey;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="drawingSurface" width="600" height="400">
+		Your browser does not support HTML5
+	</canvas>
+	<script>
+		
+		// top-left corner : (0,0)
+		// bottom-left : (0,400)
+		// bottom-right : (600,400)
+		// top-right : (600,0)
+
+		var c = document.getElementById("drawingSurface"); // get a reference to the canvas element
+		var ctx = c.getContext("2d"); // 2d context // Now, <canvas> supports only a 2d context
+
+		// drawImage method of the context object
+
+		
+		var image = new Image(); 
+		image.src = './texture.jpg';
+
+		image.onload = function(){
+			ctx.drawImage(this,50,50); // the image’s top-left corner is drawn at the specified (x,y).
+			/*
+			ctxt.drawImage(img, 0,0,img.width * .5, img.height * .5);
+			This reduces the image size by 50 percent.
+			*/
+		};
+
+		    	
+	</script>
+</body>
+</html>

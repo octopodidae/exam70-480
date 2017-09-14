@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+div {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    position: relative;
+    color: white;
+    font-size: 2em;
+    font-family: "Comic Sans MS"; 
+    text-align: center;
+
+    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    -webkit-animation-iteration-count: infinite; /* Safari 4.0 - 8.0 */
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes example {
+    0%   {background-color:aqua; left:0px; top:0px;}
+    25%  {background-color:blue; left:800px; top:0px; transform: rotate(360deg);}
+    50%  {background-color:purple; left:800px; top:600px;}
+    75%  {background-color:pink; left:0px; top:600px;transform: rotate(360deg);}
+    100% {background-color:coral; left:0px; top:0px;}
+}
+
+/* Standard syntax */
+@keyframes example {
+    0%   {background-color:aqua; left:0px; top:0px;}
+    25%  {background-color:blue; left:800px; top:0px;transform: rotate(360deg);}
+    50%  {background-color:purple; left:800px; top:600px;}
+    75%  {background-color:pink; left:0px; top:600px;}
+    100% {background-color:coral; left:0px; top:0px;}
+}
+</style>
+</head>
+<body>
+
+<div><br>CSS</div>
+
+</body>
+</html>

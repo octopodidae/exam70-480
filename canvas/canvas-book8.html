@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CanvasGradient object</title>
+	<style>
+		#drawingSurface {
+			border: 1px solid grey;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="drawingSurface" width="600" height="400">
+		Your browser does not support HTML5
+	</canvas>
+	<script>
+		
+		// top-left corner : (0,0)
+		// bottom-left : (0,400)
+		// bottom-right : (600,400)
+		// top-right : (600,0)
+
+		window.onload = function () {
+
+			var c = document.getElementById("drawingSurface"); // get a reference to the canvas element
+			var ctx = c.getContext("2d"); // 2d context // Now, <canvas> supports only a 2d context
+
+			// You first call the
+			// createLinearGradient method available on the context object to get a CanvasGradient object.
+			var myGradient = ctx.createLinearGradient(50,50,550,350); // createLinearGradient( x0, y0, x1, y1 )
+			// -> Create CanvasGradient object
+			console.log(myGradient);
+			myGradient.addColorStop(0.3, "aqua"); // addColorStop méthode de l'objet CanvasGradient
+			myGradient.addColorStop(0.8, "blue"); // addColorStop(p,couleur)
+			myGradient.addColorStop(1, "purple");
+			ctx.rect(0,0,c.width,c.height);
+			ctx.lineWidth = 3;
+			ctx.stroke();
+			ctx.fillStyle = myGradient;
+			ctx.fill();
+
+			/* 
+		
+				1. Create CanvasGradient object avec context.createLinearGradient( x0, y0, x1, y1 )
+				2. Add stops -> méthode addColorStop(p, color) appelée depuis l'object CanvasGradient (le premier paramètre est la position de la couleur dans le dégradé, entre 0 (départ) et (fin)).
+				3. Création de la forme : ctx.rect(0,0,c.width,c.height);
+				4. Remplissage de la forme  ctx.fillStyle = myGradient; ctx.fill();
+
+			*/
+		}
+	</script>
+</body>
+</html>

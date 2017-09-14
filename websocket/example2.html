@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>So Web Sockets</title>
+	<style>
+		body{
+		font-family:Calibri, sans-serif;
+		font-size:14px;
+		width:800px;
+		margin:auto;
+	}
+
+	h1, h2, h3, h4, h5, h6{ 
+		text-align:center; 
+		color: rgb(177, 202, 0); 
+		text-shadow: -2em -0.5em 2px #DDDDDD;
+	}
+
+	table{
+		width: 100%;
+	}
+
+	input[type="text"]{
+		padding: 0.5em;
+		color: #333;
+		width: 100%;
+	}
+
+	input[type="submit"], .submit_like{
+		padding: 0.3em 1em;
+		border-radius: 1px;
+		background-color: rgba(177, 202, 0, 0.1);
+		background-color: #CCCCCC;
+		border: 1px gray solid;
+		color: black;
+		text-decoration: none;
+	}
+	input[type="submit"]:focus{
+		box-shadow: 0 0 5px rgb(177, 202, 0);
+	}
+	input[type="submit"]:active{
+		box-shadow: 0 0 10px rgb(177, 202, 0);
+	}
+
+	#operations{
+		list-style-type: none;
+		padding: 0;
+	}
+
+	.w50{ width: 50%; }
+	.w25{ width: 25%; }
+
+	.fleft{ float: left; }
+	.fright{ float: right; }
+
+	.tacenter{ text-align:center; }
+
+	.websocketmsg{ 
+		font-family: monospace;
+		color: rgb(177, 202, 0); 
+		font-weight: bold;
+	}
+	.websocketstatus{
+		color: gray;
+		font-style: italic;
+	}
+	.websocketerror{
+		color: red;
+	}
+	</style>
+</head>
+<body>
+	<h1>So Web Sockets</h1>
+	<form name="send_message" method="POST" onSubmit="return control(this);" action="javascript:Send()">
+	<table class="w50 fright">
+		<tr>
+			<td colspan="3"><input type="text" name="msg" placeholder="Saisissez votre message..."/></td>
+		</tr>
+		<tr>
+			<td class="tacenter"><input name="submit" type="submit" value="Envoyer"/></td>
+			<td class="tacenter"><a href="javascript:Connect('ws://echo.websocket.org');" class="submit_like">Connexion</a></td>
+			<td class="tacenter"><a href="javascript:Close()" class="submit_like">Déconnexion</a></td>
+		</tr>
+	</table>
+	</form>
+	<ul class="w50 fleft" id="operations"></ul>
+	<script>
+		
+		ws = null;
+
+		function ReadyState(int_val) {
+			switch(int_val)
+			{
+				case WebSocket.CONNECTING: //  ws.readyState = 0 La tentative de connexion est en cours.
+					return "Connexion en cours...";
+				case WebSocket.OPEN: //  ws.readyState = 1 La connexion est établie.
+					return "Connecté !";
+				case WebSocket.CLOSING: //  ws.readyState = 2 La tentative de déconnexion est en cours.
+					return "Déconnexion en cours...";
+				case WebSocket.CLOSED: //  ws.readyState = 3 Le canal est fermé.
+					return "Déonnecté.";
+			}
+		}
+
+		function Log(str, class_attr) 
+		{
+			var list = document.getElementById("operations");
+			var li = document.createElement("li");
+			if(class_attr !== undefined)
+				li.setAttribute("class", class_attr);
+			li.innerHTML = str;
+
+			list.insertBefore(li, list.firstChild)
+		}
+		/*
+		 * Creates a new WebSocket and try to open a connection with uri.
+		 */
+
+		 function Connect(uri) {
+		 	if(ws !== null) {
+			 	Log("Vous êtes déjà connecté.", "websocketerror");
+			 	return;
+			 }
+
+			 try {
+
+			 	//Assurons-nous que la classe WebSocket existe sur notre navigateur
+			 	if(!window.WebSocket )
+			 		throw "Impossible d'utiliser WebSocket. Votre navigateur ne l'implémente pas"
+
+			 	Log("Tentative de connexion à " + uri);
+			 	ws = new WebSocket(uri);
+
+			 	if (ws === undefined)
+			 		throw "Impossible de créer un point de sortie.";
+
+			 	Log(ReadyState(ws.readyState), "websocketstatus");
+
+			 	ws.onopen = function() {
+			 		Log(ReadyState(ws.readyState), "websocketstatus");
+			 	};
+
+			 	ws.onclose = function(e) {
+			 		if(e.wasClean)
+			 		{
+			 			Log("Connexion proprement terminée.", "websocketstatus");
+			 		}
+			 		else
+			 		{
+			 			Log("reason : " + e.reason + " - code : " + e.code, "websocketerror");
+			 		}
+			 		ws = null;
+			 	};
+
+			 	ws.onerror = function(e) {
+			 		Log("Une erreur est survenue.", "websocketerror")
+			 	}
+
+			 	ws.onmessage = function(e) {
+			 		Log("reçu&nbsp&nbsp;>" + e.data, "websocketmsg");
+			 	}
+
+			 }
+			 catch(error) {
+			 	Log(str, "websocketerror");
+			 }
+			 
+		 }
+
+		 /**
+		 * \brief Ensures the form is ready to be sent.
+		 * \param f The form.
+		 * \return bool .
+		 */
+		 function control(f) {
+		 	if(f.msg.value.length === 0) {
+		 		Log("Vous n'avez pas saisi de message") ;
+		 		return false;
+		 	} 
+		 	else 
+		 	{
+		 		return true;
+		 	}
+		 }
+		 
+		 /*
+		 * Ends the connection on ws.
+		 * This function only calls WebSocket.close() method. It may take a few moments
+		 * until the connection is really closed.
+		 */
+
+		 function Close(){
+		 	if(ws === null)
+		 	{
+		 		Log("Vous n'êtes pas connecté.", "websocketerror");
+		 		return; 
+		 	}
+		 	ws.close();
+		 	Log(ReadyState(ws.readyState), "websocketstatus") ;
+		 }
+
+		 /**
+		 * \brief Send the text provided on the HTML form input.
+		 */
+
+		 function Send() {
+
+		 	if(ws === null)
+		 	{
+		 		Log("Vous n'êtes pas connecté.", "websocketerror");
+				return;
+		 	}
+
+		 	var f = document.forms.send_message;
+
+		 	if(!f)
+		 	{
+		 		console.log("Impossible de trouver le formulaire. Envoi annulé.");
+				return;
+		 	}
+
+		 	ws.send(f.msg.value);
+		 	Log("envoyé> " + f.msg.value, "websocketmsg");
+		 	
+		 }
+
+		var f = document.forms.send_message;
+		if(!f)
+		{
+			Log("Impossible de trouver le formulaire. Arrêt.");
+		}
+		f.msg.focus();
+
+		Connect("ws://echo.websocket.org");
+
+	</script>
+</body>
+</html>

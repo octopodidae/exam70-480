@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Transitions</title>
+	<style>
+		ul.photos {
+			list-style: none;
+			margin: 0;
+		}
+
+		li.photos {
+			position: relative;/**/
+			display: inline-block;
+			margin : 0 5px;
+			width: 150px;
+			height: 150px;
+		}
+		.photos img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 150px;
+			border: 3px solid #000;
+			z-index: 0;
+			-webkit-transition-property: width, height;
+			-webkit-transition-duration: 2s;
+			-webkit-transition-timing-function: ease-out;
+
+		}
+		
+		img:hover {
+			width: 250px;
+			z-index: 100;
+		}
+ 
+
+		#myDiv {
+			width: 200px;
+			height: 200px;
+			background-color: blue;	
+			transition: background-color 2s ease, transform 3s ease 2s;
+		}
+
+		#myDiv:hover {
+			background-color: purple;
+			transform: rotate(360deg);
+
+		}
+
+		.para {
+			background-color:  #eee;
+			-webkit-transition-property: background-color;
+			-webkit-transition-duration: 3s;
+		}
+
+		.para:hover, .para:focus {
+			background-color: orange;
+		}
+
+		#myP {
+			color: black;
+			-webkit-transition-property: padding-left color;
+			-webkit-transition-duration: 3s;
+			-webkit-transition-timing-function: ease-out;
+			-webkit-transition-timing-function: ease-out;
+			font-size: 24px;
+			font-variant: small-caps;
+		}
+
+		#myP:hover {
+			color: orange;
+			margin-left: 600px;
+		}
+
+		ul.menu {
+			margin:100px;
+			list-style:none;
+			font: 1em "lucida grande",arial;
+		}
+		.menu li {
+			float:left;
+			clear:left;/**/
+			background:#333;
+			-webkit-transition-property: background-color, padding-left;
+			-webkit-transition-duration: .5s, .3s;
+			-webkit-transition-timing-function: linear, ease-out;
+		}
+		
+		a {
+			display:block;
+			padding:3px 8px;
+			color:#fff;
+			text-decoration:none;	
+		}
+
+		.menu li:hover {
+			float:left;
+			clear:left;/**/
+			background: #09f;
+			padding-left: 15px;
+		}
+
+		/*   transition-timing-function: cubic-bezier(.43,-0.83,.53,1.73); */
+
+
+	</style>
+</head>
+<body>
+	
+	<div id="myDiv"></div>
+	<p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, nostrum laborum incidunt a laudantium? Sit, officia minus laborum consequuntur itaque doloribus nihil aperiam quisquam ipsum excepturi incidunt esse sapiente et.</p>
+	<p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi maxime fuga qui provident ratione eligendi, iste praesentium consectetur voluptatibus, ad esse porro itaque, quisquam labore quam iure. Recusandae, facere, odio.</p>
+	<hr>
+	<p id="myP">Survolez-moi !</p>
+	<hr>
+	<h1>Transition CSS3 : dimensions</h1>
+
+		<ul >
+		  <li class="photos"><img alt="" src="1.jpg" /></li>
+		  <li class="photos"><img alt="" src="2.jpg" /></li>
+		  <li class="photos"><img alt="" src="3.jpg" /></li>
+		  <li class="photos"><img alt="" src="4.jpg" /></li>
+		  <li class="photos"><img alt="" src="5.jpg" /></li>
+		  
+		</ul>
+	<hr>
+
+  	<ul class="menu">
+		<li><a href="#">Page d'accueil</a></li>
+		<li><a href="#">Informations</a></li>
+		<li><a href="#">Photographies</a></li>
+		<li><a href="#">Contactez-nous</a></li>
+	</ul>
+
+
+</body>
+</html>

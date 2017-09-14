@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>SVG</title>
+</head>
+<body>
+	<svg> <!-- container -->
+		 <circle id="circle" cx="50" cy="50" r="50" fill="green" onmouseover="redFct(evt);" onmouseout="greenFct();"/>	
+		<rect id="ligthStandard" x="15" y="0" width="80" height="200" rx="20" ry="20" style="fill:black;"" />	
+		<circle id="redLight" cx="55" cy="40" r="25" style="stroke:black; stroke-width: 1px;fill: #FF0000;"/>
+		<circle id="yellowLight" cx="55" cy="100" r="25" fill="yellow" style="stroke:black; stroke-width: 1px;fill: yellow;"/>
+		<circle id="greenLight" cx="55" cy="160" r="25" fill="yellow" style="stroke:black; stroke-width: 1px;fill: #0f0;" /> 
+		<line x1="200" y1="200" x2="250" y2="250" stroke="black" stroke-width="2" />
+		<line x1="250" y1="200" x2="300" y2="300" stroke="red" stroke-width="10" />
+		<line x1="300" y1="200" x2="350" y2="350" stroke="blue" stroke-width="5" stroke-dasharray="5,3,2" />
+		<!--<polygon points="10,15 30,35 10,85 100,85, 70,35,100,15" fill="purple"/>-->
+
+	</svg>
+
+	
+	<script>
+		function redFct(evt) {
+			var circle = evt.target;
+			circle.setAttribute("style", "fill: red");
+		}
+		function greenFct() {
+			this.circle.setAttribute("style", "fill: green");
+		}
+	</script>
+</body>
+</html>

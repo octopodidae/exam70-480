@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>fillRect() method</title>
+	<title>Fill pattern</title>
 	<style>
 		#drawingSurface {
 			border: 1px solid grey;
@@ -20,21 +20,31 @@
 		// bottom-right : (600,400)
 		// top-right : (600,0)
 
-		window.onload = function () {
-
 			var c = document.getElementById("drawingSurface"); // get a reference to the canvas element
 			var ctx = c.getContext("2d"); // 2d context // Now, <canvas> supports only a 2d context
 
-			var x, y;
-			x = 150;
-			y = 75;
+			ctx.lineWidth = 3;
+			ctx.strokeStyle = "black";
 
-			ctx.fillStyle = "orange";
-			ctx.fillRect(300-(x/2), 200-(y/2), x, y);
-			
-			/* special fill method specifically for rect called
-			fillRect. With this method, you can create and fill your rectangle in one call:*/ 
-		}
+			var image = new Image(); 
+
+			image.src = 'texture.jpg';
+			image.onload = function(){ 
+				var motif = ctx.createPattern( this, 'repeat' );
+				ctx.fillStyle = motif;
+				ctx.rect( 50, 50, 500, 300 );
+				ctx.fill();
+				ctx.stroke();
+			};
+
+			/*
+			You need to assign an event handler to the
+			onload event of the Image object to ensure that you draw the pattern only after the image
+			loads. Otherwise, the code could run before the picture is rendered, and the pattern won’t
+			display.
+			*/
+
+	
 	</script>
 </body>
 </html>
