@@ -157,9 +157,9 @@
 			 		Log("Une erreur est survenue.", "websocketerror")
 			 	}
 
-			 	ws.onmessage = function(e) {
+			 	ws.onmessage = function(e) { // event onmessage -> Réception des données
 			 		Log("reçu&nbsp&nbsp;>" + e.data, "websocketmsg");
-			 	}
+			 	} 
 
 			 }
 			 catch(error) {
@@ -220,7 +220,7 @@
 				return;
 		 	}
 
-		 	ws.send(f.msg.value);
+		 	ws.send(f.msg.value); // méthode send() -> Envoi des données
 		 	Log("envoyé> " + f.msg.value, "websocketmsg");
 		 	
 		 }

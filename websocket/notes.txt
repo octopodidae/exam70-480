@@ -1,0 +1,41 @@
+ws = new WebSocket("ws://echo.websocket.org");
+ws.send(data) --> if (ws.readyState == WebSocket.OPEN) // 1
+ws.onmessage = function(e) --> réception des données -> e.data 
+ws.onclose = function(e) --> e.code e.reason
+
+onopen
+onerror
+onclose -> Si la connexion échoue alors error sera levé
+L’objet reçu avec l’évènement close nous permet de savoir comment s’est déroulé la fermeture du canal. L’attribut wasClean est un booléen tandis que reason est une chaîne de caractères contenant une information intelligible. 
+wasClean -> connexion proprement terminée
+
+
+
+
+propriété readyState 
+état de la connexion
+
+ws.readyState = 0 
+WebSocket.CONNECTING = 0
+La tentative de connexion est en cours.
+
+ws.readyState = 1
+WebSocket.OPEN = 1
+La connexion est établie.
+
+ws.readyState = 2 
+WebSocket.CLOSING = 2
+La tentative de déconnexion est en cours.
+
+ws.readyState = 3 
+WebSocket.CLOSED = 3
+Le canal est fermé.
+
+
+Les WebSocket fournissent deux méthodes :
+send( data_string) pour envoyer un message au serveur.
+close() pour fermer la socket.
+
+Les messages envoyés par le serveur sont notifiés par l’événement onmessage contenant le message du serveur sous forme de chaîne. 
+
+. Les événements onerror, onopen et onclose permettent de suivre en temps réel l’état de la connexion
