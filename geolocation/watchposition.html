@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Geolocation</title>
+</head>
+<body>
+	<div id="result">
+		
+	</div>
+	<script>
+		
+		var watcher;
+		var geoLocator;
+
+		window.onload = function() {
+			
+			
+			geoLocator = navigator.geolocation;
+			var posOptions = {enableHigthAccuracy: true, timeout: 45000};
+
+			watcher = geoLocator.watchPosition(successPos, errorPos, posOptions);
+
+		}
+
+		function successPos(pos) {
+			var p = document.createElement("p");
+			p.innerText = "Lat : " + pos.coords.latitude + "\n" + "Long : " + pos.coords.longitude;
+			document.getElementById("result").appendChild(p);
+			
+			//geoLocator.clearWatch(watcher);
+		}
+
+		function errorPos(err) {
+			var p = document.createElement("p");
+			p.innerText = "error : " + err.message + "\n" + " code : " + err.code;
+			document.getElementById("result").appendChild(p);
+		}
+
+
+		/*
+			=========================
+			watchPosition()
+			=========================
+			geoLocator.watchPosition(successCallBack,errorCallback,positionOptions)
+			The method calls the success callback method every time the Geolocation API detects a new location continues forever unless it you stop it --> clearWatch method (You could call this method in either the success or the error
+			callback—)
+
+		*/
+	</script>
+</body>
+</html>
+
+

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Color</title>
+		<style>
+		html, body {
+			background-color: rgb(50,50,50);
+			margin-top: 2%;
+		}
+		#container {
+			width: 50%;
+			margin: 0 auto;
+		}
+		.colorInfo {
+			font-size: 1.25em;
+			font-family: monospace;
+			color: #4C4C4C;
+			width: 240px;
+			background-color: #FFFFFF;
+			padding: 10px;
+			border: 2px solid #57585A;
+			border-radius: 20px;
+			margin: 0 auto;
+		}
+		.colorInfo p span {
+			background-color: #FFFFFF;
+			padding: 0 5px;
+			border-radius: 5px;
+		}
+		.colorInfo input[type=range] {
+			width: 100%;
+			display: block;
+		}
+		#myDiv {
+			width: 260px;
+			height: 260px;
+			border: 2px solid #57585A;
+			border-radius: 20px;
+			margin: 0 auto;
+		}
+
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<div class="colorInfo">
+				<p>Red : <span id="redValue">150</span></p>
+				<input id="redControl" type="range" max=255 min=0 value=150 step=1/>
+				<p>Green : <span id="greenValue">0</span></p>
+				<input id="greenControl" type="range" max=255 min=0 value=0 step=1/>
+				<p>Blue : <span id="blueValue">80</span></p>
+				<input id="blueControl" type="range" max=255 min=0 value=80 step=1/>
+			</div>
+			<br>
+			<div id="myDiv"></div>
+		</div>
+		<script>
+
+			var redControl = document.getElementById("redControl");
+			var greenControl = document.getElementById("greenControl");
+			var blueControl = document.getElementById("blueControl");
+			var redValue = document.getElementById("redValue");
+			var greenValue = document.getElementById("greenValue");
+			var blueValue = document.getElementById("blueValue");
+			var myDiv = document.getElementById("myDiv");
+
+			redControl.addEventListener("change", function() {
+				redValue.redValue = this.value;
+				myDiv.style.backgroundColor = "rgb(" + redValue.textContent + "," + greenValue.textContent + "," + 
+				 blueValue.textContent + ")";
+			})
+			
+			greenControl.addEventListener("change", function() {
+				greenValue.textContent = this.value;
+			})
+
+			blueControl.addEventListener("change", function() {
+				blueValue.textContent = this.value;
+			})
+
+		</script>
+	</body>
+</html>

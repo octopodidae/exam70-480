@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Geolocation</title>
+</head>
+<body>
+
+<div id="result">
+	
+</div>
+	<script>
+		
+		window.onload = function() {
+			var geolocator = window.navigator.geolocation;
+			var options = {	enableHighAccuracy: true, timeout: 45000};
+			geolocator.getCurrentPosition(successPosition, errorPosition, options);
+		}
+		function successPosition(pos) {
+			var p = document.createElement("p");
+			p.textContent = "Latitute : " + pos.coords.latitude +  " Longitute : " + pos.coords.longitudee;
+			document.getElementById("result").appendChild(p);
+			/*alert(pos.coords.lat);*/
+		}
+		function errorPosition(err) {
+			var p = document.createElement("p");
+			p.innerHTML = "error : " + err.message + " code : " + err.code;
+			document.getElementById("result").appendChild(p);
+			/*alert(err);*/
+		}
+
+
+		/*
+			************ NOTES ************
+
+			3 méthodes :
+
+				- getCurrentPosition()
+				- watchPosition()
+				- clearWatch()
+
+			
+			=========================
+			getCurrentPosition()
+			=========================
+			sucess and error callback
+			=========================
+
+				The success method receives a position object --> two properties: coords and timestamp
+			The timestamp property indicates the time at which the coords were received.
+			The coords property is itself a coordinates object that contains the latitude, longitude, altitude, heading, and speed
+
+				The error method receives an error object.
+			The positionError object contains two properties --> code and message
+
+			=========================
+			watchPosition()
+			=========================
+			geoLocator.watchPosition(successCallBack,errorCallback,positionOptions)
+			The method calls the success callback method every time the Geolocation API detects a new location continues forever unless it you stop it --> clearWatch method (You could call this method in either the success or the error
+			callback)
+
+			
+
+		*/
+	</script>
+</body>
+</html>
+
+
