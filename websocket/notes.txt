@@ -38,4 +38,4 @@ close() pour fermer la socket.
 
 Les messages envoyés par le serveur sont notifiés par l’événement onmessage contenant le message du serveur sous forme de chaîne. 
 
-. Les événements onerror, onopen et onclose permettent de suivre en temps réel l’état de la connexion
+Les événements onerror, onopen et onclose permettent de suivre en temps réel l’état de la connex

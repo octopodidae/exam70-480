@@ -1,0 +1,51 @@
+/* audio et video --> HTMLMediaEelemnt Object
+myPlayer instanceof HTMLMediaElement = true
+
+/* PROPERTIES */
+
+controls --> true or false 
+This attribute tells the browser to include its built-in video controls, such as play and
+pause. If this is omitted, the user has no visible way to play the content. You would
+use autoplay or provide some other mechanism through JavaScript to play the video.
+
+paused --> true or false
+
+currentTime--> Temps écoulé en secondes
+
+volume --> de 0 à 1 (0 muet, 0.5 la moité du volume, 1 à fond)
+
+duration --> Durée totale en secodes
+
+autoplay --> true or false
+
+height/width --> These attributes control the amount of space the video will occupy on the page.
+Omitting these causes the video to display in its native size.
+
+loop --> This attribute tells the browser to continuously play the video after it completes. If
+this attribute is omitted, the video stops after it plays through completely.
+
+poster --> This attribute specifies an image to show in the place allocated to the video until the
+user starts to play the video. Use this when you’re not using autoplay. It’s very useful
+for providing a professional image or artwork to represent the video. If it’s omitted,
+the poster appears in the first frame of the video.
+
+
+/* METHODES */
+
+méthode paused() --> Pauses the video at its current position.
+méthode play() --> Plays the video from its current position.
+
+
+
+/* PAS DE METHODE STOP */
+Pour faire un stop --> méthode pause() + player.currentTime = 0
+myPlayer.pause();
+myPlayer.currentTime = 0;
+
+/* EVENEMENT ontimeupdate */
+ Cet événement est déclenché continuellement pendant la lecture.
+
+
+Pour avancer our reculer
+myPlayer.currentTime -=10;
+myPlayer.currentTime +=10;

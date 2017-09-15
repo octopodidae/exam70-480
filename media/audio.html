@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Audio</title>
+	<style>
+	body {
+		font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	}
+
+	#divPlayer {
+		width: 300px;
+		margin-left: auto;
+		margin-right: auto;
+		border: 1px solid #aaa;
+		border-radius: 2px;
+		box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+		padding: 20px;
+		margin-top: 50px;
+	}
+
+	h1 {
+		font-size: 17px;
+		line-height: 30px;
+		margin: 0;
+		padding: 0;
+		margin-bottom: 25px;
+		border-bottom: #000 1px solid;
+	}
+
+	button, input[type='button'], input[type='submit'] {
+		border-radius: 2px;
+		box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+		background: -webkit-linear-gradient(#fafafa, #f4f4f4 40%, #e5e5e5);
+		background: -moz-linear-gradient(#fafafa, #f4f4f4 40%, #e5e5e5);
+		border: 1px solid #aaa;
+		color: #444;
+		margin-bottom: 0px;
+		min-width: 4em;
+		padding: 3px 12px 3px 12px;
+		font-size: 12px;
+		cursor: pointer;
+	}
+
+	button:hover, input[type='button']:hover, input[type='submit']:hover {
+		-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+		background: #ebebeb -webkit-linear-gradient(#fefefe, #f8f8f8 40%, #e9e9e9);
+		background: #ebebeb -moz-linear-gradient(#fefefe, #f8f8f8 40%, #e9e9e9);
+		border-color: #999;
+		color: #222;
+	}
+
+	.control {
+		width: 78px;	
+	}
+
+	#progressBarControl {
+		width: 210px;
+		height: 15px;
+		border: 1px solid #aaa;
+		border-radius: 2px;
+		box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+		margin-bottom: 5px;
+		display: inline-block;
+	}
+
+	#progressBar {
+		width: 0px;
+		background: aqua;
+		height: 15px;
+		text-align: right;
+		line-height: 15px;
+		font-size: 9px;
+		white-space: nowrap;
+		cursor: pointer;
+	}
+
+	#progressTime {
+		font-size: 10px;
+		color: #666;
+	}
+
+	.volume {
+		vertical-align: bottom;
+		display: inline-block;
+		height: 25px;
+		white-space: nowrap;
+		position: relative;
+		width: 45px;
+	}
+
+	.volume a {
+		display: inline-block;
+		background: #ebebeb;
+		width: 8px;
+		vertical-align: bottom;
+		margin-left: 0px;
+		margin-right: 0px;
+		cursor: pointer;
+		border-left: 1px solid #fff;
+		position: absolute;
+		bottom: 0;	
+	}
+
+
+	.stick1 { height: 5px;  left: 0px; }
+	.stick2 { height: 10px; left: 9px; }
+	.stick3 { height: 15px; left: 18px; }
+	.stick4 { height: 20px; left: 27px; }
+	.stick5 { height: 25px; left: 36px; }
+
+	footer {
+		display: block;
+		font-size: 12px;
+		color: #999;
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		padding: 10px;
+	}
+
+	footer a {
+		color: #999;
+		text-decoration: underline;
+	}
+
+	footer a:hover {
+		color: #666;
+		text-decoration: none;
+	}
+	</style>
+</head>
+<body>
+
+	<!--<audio id="audioPlayer" src="mario.mp3" controls="controls"></audio>  
+
+	-->
+
+	<audio id="audioPlayer" controls>
+		<source src="mario.ogg">
+		<source src="mario.mp3">
+	</audio><!---->
+<hr>
+	<div id="divPlayer">
+		  <h1>Lite-Player</h1>
+		<audio id="audioPlayer" ontimeupdate="update(this);">
+			<!--<source src="mario.ogg">-->
+			<source src="mario.mp3">
+		</audio>
+
+		<div>
+		    <div id="progressBarControl">
+		        <div id="progressBar" onclick="clickProgress('audioPlayer', this, event)">Pas de lecture</div>
+		    </div>
+		    <span id="progressTime">00:00</span>
+		</div>
+
+		<button class="control" onclick="play('audioPlayer', this)">Play</button>
+		<button class="control" onclick="stop('audioPlayer')">Stop</button>
+	<span class="volume">
+	    <a class="stick1" onclick="volume('audioPlayer', 0)"></a>
+	    <a class="stick2" onclick="volume('audioPlayer', 0.3)"></a>
+	    <a class="stick3" onclick="volume('audioPlayer', 0.5)"></a>
+	    <a class="stick4" onclick="volume('audioPlayer', 0.7)"></a>
+	    <a class="stick5" onclick="volume('audioPlayer', 1)"></a>
+	</span>
+	</div>
+
+<footer>Musique libre <em>Home</em> du groupe <a href="#">mario</a></footer>
+
+<script>
+	
+	
+
+	function play(idPlayer, btnPlay) {
+		var myPlayer = document.querySelector("#" + idPlayer);
+		if (myPlayer.paused) {
+			myPlayer.play();
+			btnPlay.textContent = "Pause";
+		} else {
+			btnPlay.textContent = "Play";
+			myPlayer.pause();
+		}
+
+	}
+
+	function stop(idPlayer) {
+		var myPlayer = document.querySelector("#" + idPlayer);
+		myPlayer.pause();
+		myPlayer.currentTime = 0;
+		if(myPlayer.paused) {
+			document.querySelector("button").textContent = "Play";
+		}
+	}
+
+	function volume(idPlayer, vol) {
+		var myPlayer = document.querySelector("#" + idPlayer);
+		myPlayer.volume = vol;
+	}
+
+	function update(player) {
+
+		var duration = player.duration; // Durée totale
+		var time = player.currentTime; // Temps écoulé
+		var fraction = time/duration;
+		var percent = Math.ceil(fraction * 100);
+
+		var progress = document.querySelector("#progressBar");
+
+		progress.style.width = percent + "%";
+		progress.textContent = percent + "%";
+
+		document.querySelector('#progressTime').textContent = formatTime(time);
+
+
+	}
+
+	function formatTime(time) {
+	    var hours = Math.floor(time / 3600);
+	    var mins  = Math.floor((time % 3600) / 60);
+	    var secs  = Math.floor(time % 60);
+		
+	    if (secs < 10) {
+	        secs = "0" + secs;
+	    }
+		
+	    if (hours) {
+	        if (mins < 10) {
+	            mins = "0" + mins;
+	        }
+			
+	        return hours + ":" + mins + ":" + secs; // hh:mm:ss
+	    } else {
+	        return mins + ":" + secs; // mm:ss
+	    }
+	}
+
+
+	function getMousePosition(event) {
+		return {
+			x: event.pageX,
+			y: event.pageY
+		}
+	}
+
+	function getPosition(element){
+    	var top = 0, left = 0;
+	    
+	    do {
+	        top  += element.offsetTop;
+	        left += element.offsetLeft;
+	    } while (element = element.offsetParent);
+	    
+	    return { x: left, y: top };
+	}
+
+	function clickProgress(idPlayer, control, event) {
+	    var parent = getPosition(control);    // La position absolue de la progressBar
+	    var target = getMousePosition(event); // L'endroit de la progressBar où on a cliqué
+	    var player = document.querySelector('#' + idPlayer);
+	  
+	    var x = target.x - parent.x; 
+	    var wrapperWidth = document.querySelector('#progressBarControl').offsetWidth;
+	    
+	    var percent = Math.ceil((x / wrapperWidth) * 100);    
+	    var duration = player.duration;
+	    
+	    player.currentTime = (duration * percent) / 100;
+	}
+
+
+
+	/*player.play(); // lecture*/
+
+	//player.pause(); // pause
+
+	/* il n'y a pas de méthode stop()
+	Pour ce faire, il suffit de faire « Pause » et d'indiquer que la lecture doit se remettre au début, avec la propriété currentTime, exprimée en secondes 
+	*/
+
+	// player.cuurentTime = 0;
+
+	/*function play(id, control) {
+		 
+		 var player = document.querySelector('#' + id);
+
+		 if(player.paused) {
+		 	player.play();
+		 	control.textContent = "Pause";
+		 } else {
+		 	player.pause();
+		 	control.textContent = "Play";
+		 }
+	}
+
+	function stop(id) {
+		 var player = document.querySelector('#' + id);
+		 player.currentTime = 0;
+		 player.pause();
+	}
+
+	function volume(id, vol) {
+		var player = document.getElementById(id);
+		player.volume = vol; // de 0 à 1
+	}*/
+
+</script>
+</body>
+</html>

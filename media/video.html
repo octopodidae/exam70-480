@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Vidéo</title>
+		<style>
+			button {
+				display: inline-block;
+			}
+		</style>
+	</head>
+	<body>
+	
+	<video height="400" width="600" id="sampleVideo"><!-- controls poster="player.png" -->
+		<source src="https://www.w3schools.com/html/mov_bbb.mp4"  type="video/mp4"/>
+		<source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg"/>
+	</video>
+	<p>
+	<button id="backBtn" onclick="back();">Back</button>
+	<button id="playBtn" onclick="play();">Play</button>
+	<button id="pauseBtn"  onclick="pause();">Pause</button>
+	</p>
+	
+	<script>
+		var myPlayer = document.getElementById("sampleVideo");
+		var backBtn = document.getElementById("backBtn");
+		var playBtn = document.getElementById("playBtn");
+		var pauseBtn = document.getElementById("pauseBtn");
+		function back() {
+			myPlayer.pause();
+			myPlayer.currentTime -=1;
+		}
+		function play() {
+			myPlayer.play();
+		}
+		function pause() {
+			if (!myPlayer.paused) {
+				myPlayer.pause();
+			}
+		}
+	</script>
+</body>
+</html>
