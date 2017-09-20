@@ -66,17 +66,21 @@
 			var myDiv = document.getElementById("myDiv");
 
 			redControl.addEventListener("change", function() {
-				redValue.redValue = this.value;
+				redValue.textContent = this.value;
 				myDiv.style.backgroundColor = "rgb(" + redValue.textContent + "," + greenValue.textContent + "," + 
 				 blueValue.textContent + ")";
 			})
 			
 			greenControl.addEventListener("change", function() {
 				greenValue.textContent = this.value;
+				myDiv.style.backgroundColor = "rgb(" + redValue.textContent + "," + greenValue.textContent + "," + 
+				 blueValue.textContent + ")";
 			})
 
 			blueControl.addEventListener("change", function() {
 				blueValue.textContent = this.value;
+				myDiv.style.backgroundColor = "rgb(" + redValue.textContent + "," + greenValue.textContent + "," + 
+				 blueValue.textContent + ")";
 			})
 
 		</script>

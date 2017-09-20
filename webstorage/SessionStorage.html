@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+
+        <title>Session Storage</title>
+
+        <!-- Feuilles de style -->
+        <link rel="stylesheet" href="../css/reset.css"  />
+        <link rel="stylesheet" href="../css/styles.css"  />
+        
+        
+        <script>
+        	var nom;
+        	var prenom;
+        	
+        	function onSessionStorage(){
+        		sessionStorage.setItem("prenom", "Pablo");//
+        		sessionStorage.setItem("nom", "Picasso");//
+        		 
+        		prenom = sessionStorage.getItem("prenom");
+        		 nom = sessionStorage.getItem("nom");
+        		 
+        		alert(prenom + " " + nom);
+        		
+        	}
+        	
+        	
+        	function onReset(){
+        		sessionStorage.removeItem("prenom");
+        		
+        		prenom = sessionStorage.getItem("prenom");
+        		nom = sessionStorage.getItem("nom");
+        		 
+        		alert(prenom + " " + nom);
+        		
+        		/*sessionStorage.clear();
+        		
+        		prenom = sessionStorage.getItem("prenom");
+                nom = sessionStorage.getItem("nom");
+        		
+        		 alert(prenom + " " + nom);*/
+        		
+        	}
+        	
+        	
+        	function afficheStorage(){
+        		
+        		console.log(sessionStorage.prenom);
+        		
+        	}
+        
+        
+        
+        
+        </script>
+
+       
+
+    </head>
+
+    <body onload="onSessionStorage()">
+        <div>
+            <header>
+                <h1>Local Storage</h1>
+            </header>
+
+            <div>
+
+              	<input id="reset" type="button" value="Reset" onclick="onReset()" />
+              	
+              	
+              	<input id="affiche" type="button" value="AfficheStorage" onclick="afficheStorage()" />
+            </div>
+            <footer>
+                <p>
+                    
+                </p>
+            </footer>
+        </div>
+    </body>
+</html>

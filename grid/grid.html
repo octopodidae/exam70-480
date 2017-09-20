@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Grid layout</title>
+    <style>
+        body {
+            width: 960px;
+            margin: 0 auto;
+        }
+        #mainGrid {
+            display: grid;
+            display: -ms-grid;
+            grid-template-columns: 25% 25% 25% 25%; /* repeat(4, 25%);*/
+            grid-template-rows: 300px 300px;
+            -ms-grid-columns: 25%[4];
+            -ms-grid-rows: 300px[2];
+        }
+        #mainGrid > div:nth-child(1) {
+            grid-column: 1;
+            grid-row: 1;
+            -ms-grid-column: 1;
+            -ms-grid-row: 1;
+            background-color: deepskyblue;
+        }
+
+        #mainGrid > div:nth-child(2) {
+            grid-column: 2;
+            grid-row: 1;
+            -ms-grid-column: 2;
+            -ms-grid-row: 1;
+            background-color: aqua;
+        }
+
+        #mainGrid > div:nth-child(3) {
+            grid-column: 3;
+            grid-row: 1;
+            -ms-grid-column: 3;
+            -ms-grid-row: 1;
+            background-color: red;
+        }
+
+        #mainGrid > div:nth-child(4) {
+            grid-column: 4;
+            grid-row: 1;
+            -ms-grid-column: 4;
+            -ms-grid-row: 1;
+            background-color: green;
+        }
+
+        #mainGrid > div:nth-child(5) {
+            grid-column: 1;
+            grid-row: 2;
+            -ms-grid-column: 1;
+            -ms-grid-row: 2;
+            background-color: magenta;
+        }
+
+        #mainGrid > div:nth-child(6) {
+            grid-column: 2;
+            grid-row: 2;
+            -ms-grid-column: 2;
+            -ms-grid-row: 2;
+            background-color: yellow;
+        }
+
+        #mainGrid > div:nth-child(7) {
+            grid-column: 3/ span 2;
+            grid-row: 2;
+            -ms-grid-column: 3;
+            -ms-grid-row: 2;
+            -ms-grid-column-span: 2;
+            background-color: darkorange;
+        }
+
+        /*#mainGrid > div:nth-child(8) {
+            grid-column: 4;
+            grid-row: 2;
+            background-color: olive;
+        }*/
+    </style>
+</head>
+<body>
+<div id="mainGrid"> <!-- grid container -->
+    <!-- grid items-->
+    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusantium amet beatae consequuntur, cupiditate,
+        ea harum illum ipsam magnam nemo nobis obcaecati officiis omnis quaerat quas, quia quo sapiente sunt?
+    </div>
+    <div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid beatae consequatur consequuntur culpa debitis deleniti
+        deserunt ducimus, eaque enim incidunt iusto, molestiae molestias nostrum qui reiciendis reprehenderit totam vero voluptatem.
+    </div>
+    <div>Lorem ipsum dolor sit a
+        dit pariatur praesentium quisquam, recusandae rem reprehenderit sint sunt ullam ut.
+    </div>
+    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem deserunt dolorum et illum, inventore iste iure,
+        numquam placeat provident recusandae similique veniam voluptates? Consequuntur maiores, placeat. Ad minus quasi qui?
+    </div>
+    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aperiam blanditiis earum facilis id magni maxime nostrum quia vel vero?
+        Asperiores, pariatur saepe! Blanditiis eveniet excepturi illum libero nobis numquam.
+    </div>
+    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci at blanditiis deleniti dicta ea eaque est hic incidunt inventore ipsam laboriosam,
+        non odio officia, pariatur placeat quis recusandae repellat, voluptate.
+    </div>
+    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis dignissimos earum eos hic laborum nihil perferendis reprehenderit soluta?
+        Consequuntur doloribus esse hic! Aliquam corporis, delectus ea fuga ipsam omnis sed.
+    </div>
+   <!-- <div>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquid dignissimos distinctio dolorum maiores, minus recusandae saepe ut?
+    Accusamus alias autem culpa dolore eius eum odit sint sunt voluptate voluptates.
+    </div>-->
+</div>
+</body>
+</html>

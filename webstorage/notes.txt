@@ -1,0 +1,18 @@
+les données de webStorage sont accessibles pour un même navigateur dans plusieurs onglets ou fenêtres
+
+window.localStorage.setItem("prenom", "Henri");
+localStorage.setItem("nom", "Matisse"); 
+Une fois que la clé existe
+// OR // localStorage.nom = "Durand"
+
+
+window.localStorage.getItem("prenom"); // OR // localStorage.prenom
+localStorage.getItem("nom"); // OR // localStorage.nom
+
+
+
+localStorage.clear(); // Remove tout le storage
+sessionStorage.clear(); // Remove tout le storage
+
+sessionStorage.removeItem("key"); // Remove seulement une clé
+localStorage.removeItem("key"); // Remove seulement une clé

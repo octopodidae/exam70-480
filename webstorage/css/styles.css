@@ -1,0 +1,85 @@
+html {
+	background-color: #333;
+	margin: 0px;
+	padding: 0px;
+}
+body {
+	width: 500px;
+	padding: 20px;
+	margin: 10px auto;
+	background-color: #EEEEEE;
+	font-family: Helvetica, Arial, sans-serif;
+	color: #333;
+	-moz-box-shadow: 0px 0px 10px #000;
+}
+
+p {
+	margin: 10px 0px 20px 0px;
+}
+
+h1 {
+	font-size:24px;
+	padding: 20px;
+	margin: -20px -20px 20px -20px;
+
+
+background: #fcf6bd; /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZjZjZiZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZmNmMDAiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+background: -moz-linear-gradient(top,  #fcf6bd 0%, #efcf00 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fcf6bd), color-stop(100%,#efcf00)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #fcf6bd 0%,#efcf00 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #fcf6bd 0%,#efcf00 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #fcf6bd 0%,#efcf00 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #fcf6bd 0%,#efcf00 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcf6bd', endColorstr='#efcf00',GradientType=0 ); /* IE6-8 */
+
+
+	
+	
+	
+	text-shadow: 0px 1px 0px #CAE9F9;
+	-moz-box-shadow: 0px 1px 0px #fff;
+	-webkit-box-shadow: 0px 1px 0px #fff;
+	box-shadow: 0px 1px 0px #fff;
+}
+h3{
+	margin-top: 30px;
+	margin-bottom: 10px;
+	
+	
+	
+	
+
+
+	
+}
+
+footer {
+	display: block;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	margin: 20px -20px -20px -20px;
+	background-color: #C4C3C4;
+	font-size: 100%;
+}
+footer p {
+	padding: 0px 20px 0px 20px;
+	margin: 0px;
+}
+
+.clearfix {
+	clear: both;
+}
+fieldset{
+	padding:10px;
+	margin-bottom:10px;
+	border: 1px solid;
+	border-color: #555555;
+}
+
+#container{
+	background-color: #FFFFFF;
+	
+}
+

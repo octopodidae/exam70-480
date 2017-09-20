@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+    <style>
+        html, body {
+            height: 100%;
+            width: 100% ;
+        }
+        #blogPage {
+            display: grid;
+            display: -ms-grid;
+            columns: 15% 1fr 25%;
+            rows: repeat(5, 20%); /* 20% 20% 20% 20% 20%  */
+            -ms-grid-columns: 15% 1fr 25%;
+            -ms-grid-rows: 20% 20% 20% 20% 20%;
+            width: 90%;
+            height: 95%;
+            border: 1px dotted black;
+            margin: auto;
+        }
+
+        #blogPage > header {
+            grid-column: 1/ span 3;;
+            grid-row: 1;
+
+            -ms-grid-column: 1;
+            -ms-grid-row: 1;
+            -ms-grid-column-span: 3;/*  */
+
+            border: 1px dotted black;
+            background-color: aqua;
+        }
+        #blogPage > footer {
+            grid-column: 1/ span 3;
+            grid-row: 5
+            
+            -ms-grid-column: 1;
+            -ms-grid-row: 5;
+            -ms-grid-column-span: 3;
+
+            border: 1px dotted black;
+            background-color: aqua;
+        }
+        #blogPage > article {
+            grid-column: 2;
+            grid-row: 2/ span 3;
+           
+            -ms-grid-column: 2;
+            -ms-grid-row: 2;
+            -ms-grid-row-span: 3;
+
+            border: 1px dotted black;
+            background-color: coral;
+        }
+        #blogPage > #calendar {
+            grid-column: 3;
+            grid-row: 3;
+
+            -ms-grid-column: 3;
+            -ms-grid-row: 3;
+            
+            border: 1px dotted black;
+            background-color: darkolivegreen;
+        }
+        #blogPage > #blogRoll {
+            grid-column: 3;
+            grid-row: 4;
+
+            -ms-grid-column: 3;
+            -ms-grid-row: 4;
+
+            border: 1px dotted black;
+            background-color: greenyellow;
+        }
+        #blogPage > #aboutMe {
+            grid-column: 1;
+            grid-row: 2/ span 3;
+           
+            -ms-grid-column: 1;
+            -ms-grid-row: 2;
+            -ms-grid-row-span: 3;
+
+            border: 1px dotted black;
+            background-color: darkorange;
+        }
+        #blogPage > #bloghistory {
+            grid-column: 3;
+            grid-row: 2;
+
+            -ms-grid-column: 3;
+            -ms-grid-row: 2;
+
+            border: 1px dotted black;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+
+<div id="blogPage">
+    <header>My Blog Header</header>
+    <article>My Blog's Main Body</article>
+    <footer>My Blog Footer
+        Lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias aliquid aperiam architecto atque commodi consequuntur earum excepturi expedita, fugit inventore magnam placeat provident qui quidem
+        quos rerum totam vero, voluptatibus.ipsum dolor sit amet, consectetur adipisicing elit. Amet architecto assumenda, cum cupiditate debitis distinctio earum et ipsum laborum quaerat recusandae sunt suscipit veniam! Alias doloribus enim nemo perferendis quos!
+
+    </footer>
+    <aside id="calendar">A calendar</aside>
+    <aside id="blogRoll">My favorite blogs</aside>
+    <aside id="aboutMe">Who am I?</aside>
+    <aside id="bloghistory">My blog history</aside>
+</div>
+
+</body>
+
+</html>

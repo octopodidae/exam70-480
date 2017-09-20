@@ -1,0 +1,56 @@
+/****** CONTENEUR PRINCIPAL ******/
+--> Flex container
+
+Le principe de Flexbox est d'avoir un conteneur,
+avec plusieurs éléments à l'intérieur. Avec display: flex; sur le conteneur,
+les éléments à l'intérieur sont agencés en mode Flexbox (horizontalement par défaut - flex-direction: row;).
+
+Flexbox peut gérer toutes les directions.
+Avec flex-direction, on peut indiquer si les éléments sont agencés horizontalement
+(par  défaut - flex-direction: row; ) ou verticalement (flex-direction: column;).
+Cela définit ce qu'on appelle l'axe principal.
+
+L'alignement des éléments se fait sur l'axe principal avec justify-content,
+et sur l'axe secondaire avec align-items.
+AXE principal défini par flex-direction
+(horizontal si flex-direction: row - vertical si flex-direction: column)
+
+justify-content property horizontally aligns the flexible container's items
+    - flex-start
+    - flex-end
+    - center
+    - space-between
+    - space-around
+
+The align-items property vertically aligns the flexible container's items
+    - stretch
+    - flex-start
+    - flex-end
+    - center
+    - baseline
+
+
+
+Avec flex-wrap, on peut autoriser les éléments à revenir à la ligne s'ils n'ont plus d'espace.
+
+S'il y a plusieurs lignes, on peut indiquer comment les lignes doivent se répartir entre elles avec align-content
+
+
+flex-flow = flex-direction + flex-wrap
+
+
+
+/****** ELEMENTS ******/
+--> Flex items
+Inside a flex container there is one or more flex items.
+
+Chaque élément peut être réagencé en CSS avec order (pas besoin de toucher au code HTML !).
+
+Avec la super-propriété flex, on peut autoriser nos éléments à occuper plus ou moins d'espace restant.
+The flex property specifies the length of the flex item,
+relative to the rest of the flex items inside the same container.
+
+
+The align-self property of flex items overrides the flex container's align-items property for that item.
+
+

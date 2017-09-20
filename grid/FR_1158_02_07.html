@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Faire appel aux standards</title>
+<!--<link rel="stylesheet" href="FR_1158_02_07.css">-->
+    <style>
+        .container{
+            width: 960px;
+            margin: 0 auto;
+            display: grid; /* grid container */
+            display: -ms-grid;
+            grid-template-columns: repeat(12, 1fr); /*  = repeat(12, 80px) ou
+            80px 80px 80px 80px 80px 80px 80px 80px 80px 80px 80px 80px*/
+            grid-template-rows: repeat(3, auto); /* auto s'adapte aux contenus */
+            -ms-grid-columns: 80px 80px 80px 80px 80px 80px 80px 80px 80px 80px 80px;
+            -ms-grid-rows: 320px 320px 320px 320px;
+        }
+        header{
+            grid-column: 1/ span 12;
+            grid-row: 1; /* 1ere  ligne */
+
+            -ms-grid-column: 1;
+            -ms-grid-row: 1; 
+            -ms-grid-column-span: 12;
+
+            background-color: lavender;
+        }
+        nav ul{
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+
+            display: -ms-grid;
+            -ms-grid-columns: 1fr[6];
+
+        }
+        nav li {
+            grid-auto-flow: columns;
+            -ms-grid-auto-flow: columns;
+            list-style: none;
+        }
+        aside{
+            grid-column: 1/ span 4;
+            grid-row: 2;  /* 2eme  ligne */
+            background-color: lightpink;
+
+            -ms-grid-column: 1;
+            -ms-grid-row: 2; 
+            -ms-grid-column-span: 4;
+        }
+        main {
+            grid-column: 5/ span 8;
+            grid-row: 2;  /* 2eme  ligne */
+            background-color: lightblue;
+
+            -ms-grid-column: 5;
+            -ms-grid-row: 2; 
+            -ms-grid-column-span: 8;
+        }
+        footer{
+            grid-column: 1/ span 12;
+            grid-row: 3; /* 3eme  ligne */
+            background-color: lavender;
+
+            -ms-grid-column: 1;
+            -ms-grid-row: 3; 
+            -ms-grid-column-span: 12;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto voluptatibus cum blanditiis deserunt ut fuga cumque, magnam repellat, quasi minima dignissimos neque, at recusandae voluptate accusantium voluptas voluptates ducimus atque.
+          <h1>Titre de la page</h1>
+          <nav >
+            <ul>
+              <li>Menu 01</li>
+              <li>Menu 02</li>
+              <li>Menu 03</li>
+              <li>Menu 04</li>
+              <li>Menu 05</li>
+              <li>Menu 06</li>
+            </ul>
+          </nav> <!-- -->
+        </header>
+        <aside><img src="../css/Chapitre_02/FR_1158_02.png" alt=""/>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, accusamus, natus, magnam veniam animi hic dolore dolores sequi odio sapiente in impedit enim voluptatem accusantium tempore illum vero molestias labore.</p>
+        </aside>
+        <main>
+          <article>
+            <h2>Titre d'article</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis perspiciatis cum facere commodi consequatur facilis sit labore incidunt obcaecati voluptatibus nihil sunt quidem velit quam asperiores quo, atque repudiandae ipsam?</p>
+            <p>Voluptatem quam magni debitis aliquam. Ullam officia alias iusto id quis possimus mollitia consequuntur, ut eligendi culpa impedit, laudantium earum! Tempore labore animi dolorum dolorem aperiam rem ad maiores eveniet.</p>
+            <p>Culpa quia, facilis nobis excepturi tenetur fuga ipsum voluptates, corrupti animi numquam aliquid a ipsam tempora. Dicta ullam unde fugiat excepturi, ex laudantium blanditiis, inventore eligendi ipsa beatae repellat voluptate?</p>
+          </article>
+          <article>
+            <h2>Titre d'article</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quasi veniam fugiat quae. Est perferendis tempora cupiditate nihil, dolor quae aliquid non repellat pariatur eveniet ex deserunt odit hic ullam!</p>
+            <p>Quaerat, eius, ipsum veritatis nulla vitae ex tenetur ullam suscipit mollitia consequatur quas eveniet laborum ratione enim ipsam explicabo. Architecto deleniti sunt totam, at facere itaque quo. Reiciendis, ratione, consectetur.</p>
+            <p>Ad perferendis animi vero, quisquam illum ea maiores ab laboriosam, in non voluptate facere placeat explicabo blanditiis magnam cupiditate, molestiae tempora sunt. Beatae facilis tempora amet vero laudantium cupiditate, consequuntur!</p>
+          </article>
+        </main><!---->
+        <footer>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias inventore ad labore totam deserunt optio et, soluta deleniti consectetur molestiae culpa, cupiditate. Vero quo cumque nemo, sequi tempore, eaque quaerat!</p>
+        </footer> 
+    </div>
+</body>
+</html>

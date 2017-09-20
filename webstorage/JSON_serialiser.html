@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+
+        <title>Local Storage</title>
+
+        <!-- Feuilles de style -->
+        <link rel="stylesheet" href="../css/reset.css"  />
+        <link rel="stylesheet" href="../css/styles.css"  />
+
+        <script>
+			function onSauve() {
+
+                var myObj = {
+                    nom: document.getElementById("nom").value,
+                    prenom: document.getElementById("prenom").value,
+                    profession: document.getElementById("profession").value
+                }
+
+                window.sessionStorage.setItem("personne", JSON.stringify(myObj));
+
+            }
+
+			function onRestore() {
+			 
+					var jsonObj = JSON.parse(sessionStorage.getItem('datas'));
+					document.getElementById('nom').value = jsonObj.nom;
+					document.getElementById('prenom').value = jsonObj.prenom;
+					document.getElementById('profession').value = jsonObj.profession;
+
+				
+			}
+
+        </script>
+
+    </head>
+
+    <body>
+        <div>
+            <header>
+                <h1>Sérialiser avec JSON</h1>
+            </header>
+
+            <div>
+
+                <form>
+                    <p>
+                        <label>Nom</label>
+                    </p>
+                    <p>
+                        <input id="nom" name="nom" type="text" >
+                    </p>
+                    <p>
+                        <label>Prénom</label>
+                    </p>
+
+                    <p>
+                        <input id="prenom" name="prenom" type="text" >
+                    </p>
+
+                    <p>
+                        <label>Profession</label>
+                    </p>
+                    <p>
+                        <input id="profession" name="profession" type="texte" >
+                    </p>
+                    <p>
+
+                        <input type="button" value="Sauve" id="sauve" onclick="onSauve()">
+                        <input type="reset" value="Effacer le formulaire">
+                        <input type="button" value="Restaure" id="restore" onclick="onRestore()">
+                    </p>
+                </form>
+
+            </div>
+            <footer>
+                <p>
+                   
+                </p>
+            </footer>
+        </div>
+    </body>
+</html>

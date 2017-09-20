@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+
+        <title>Local Storage</title>
+
+        <!-- Feuilles de style -->
+        <link rel="stylesheet" href="../css/reset.css"  />
+        <link rel="stylesheet" href="../css/styles.css"  />
+
+        <script>
+			//"use strict";
+
+			// Définition des éléments du formulaire
+			window.addEventListener("load", function(event) {
+				var key = document.getElementById("key");
+				var value = document.getElementById("value");
+				var add = document.getElementById("add");
+				var remove = document.getElementById("remove");
+				var clear = document.getElementById("clear");
+				var eventReceived = document.getElementById("eventReceived");
+
+				// Ajout d'un écouteur d'évènement pour ajouter une clé au Local Storage
+				add.addEventListener("click", function(event) {
+					if (key.value !== "") {
+						try {
+							localStorage.setItem(key.value, value.value);
+						} catch (e) {
+							alert("EImpossible de rajouter des valeurs");
+						}
+						refreshContents();
+					}
+				});
+
+				// Ajout d'un écouteur d'évènement pour supprimer une clé au Local Storage
+				remove.addEventListener("click", function(event) {
+					if (key.value !== "") {
+						localStorage.removeItem(key.value);
+						refreshContents();
+					}
+				});
+
+			
+				clear.addEventListener("click", function(event) {
+					localStorage.clear();
+					refreshContents();
+				});
+
+              
+				window.addEventListener("storage", function(event) {
+					var k = event.key;
+					var newValue = event.newValue;
+					var oldValue = event.oldValue;
+					var url = event.url;
+					var storageArea = event.storageArea;
+					
+
+					console.log("Key :" + event.key);
+					console.log("newValue :" + newValue);
+					console.log("oldValue :" + oldValue);
+					console.log("url :" + url);
+					console.log("storageArea :" + storageArea);
+
+					refreshContents();
+				});
+
+				
+				function refreshContents() {
+					var str = "";
+					for (var i = 0, len = localStorage.length; i < len; i++) {
+						var k = localStorage.key(i);
+						var v = localStorage.getItem(k);
+						str += "'" + k + "' = '" + v + "'<br />";
+					}
+					key.value = "";
+					value.value = "";
+					eventReceived.innerHTML = str;
+				}
+
+				refreshContents();
+			});
+
+        </script>
+
+    </head>
+
+    <body>
+        <div>
+            <header>
+                <h1>Storage Event</h1>
+            </header>
+
+            <div>
+
+                <p>
+                    Clé :
+                    <input type="text" id="key" />
+                </p>
+
+                <p>
+                    Valeur :
+                    <input type="text" id="value" />
+                </p>
+
+                <p>
+                    <input type="button" id="add" value="Ajouter au Storage" />
+                </p>
+
+                <p>
+                    <input type="button" id="remove" value="Supprimer du Storage" />
+                </p>
+
+                <p>
+                    <input type="button" id="clear" value="Effacer le Storage" />
+                </p>
+
+                <p>
+                    Contenu du Local Storage recu par l'évènement : <br />
+                    <span id="eventReceived"></span>
+                </p>
+
+            </div>
+            <footer>
+                <p>
+                    
+                </p>
+            </footer>
+        </div>
+    </body>
+</html>

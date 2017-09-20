@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Le mode flex-box</title>
+	<style>
+		body {
+			font-family:  "Avant Garde",Avantgarde,sans-serif;
+			color: grey;
+			font-size:20px;
+			line-height:20px;
+		}
+		
+		section {
+			width: 80%;
+			margin: 10px auto;
+			background-color: rgba(255, 153, 51, 0.25);
+		}
+		div{
+			outline: 1px solid red;
+			/*flex-grow: 1;*/
+		}
+		.flex {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+		}
+		.milieu {
+			/*flex-grow: 2;
+			order: 1;*/
+			
+		}
+		.debut {
+			/*order: 3;*/
+			
+		}
+		.fin {
+			/*order: 2;*/
+		}
+
+	</style>
+</head>
+<body>
+	<section class="flex">
+		<div class="debut">Début</div>
+		<div class="milieu">Milieu</div>
+		<div class="fin">Fin</div>
+    </section>
+</body>
+</html>

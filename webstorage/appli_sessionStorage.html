@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+
+        <title>Session Storage</title>
+
+        <!-- Feuilles de style -->
+        <link rel="stylesheet" href="../css/reset.css"  />
+        <link rel="stylesheet" href="../css/styles.css"  />
+
+        <script>
+			function onRestore() {
+
+				if ( typeof sessionStorage != 'undefined') {
+					
+						
+						document.getElementById('nom').value = sessionStorage.nom;
+						document.getElementById('prenom').value = sessionStorage.prenom;
+						document.getElementById('profession').value = sessionStorage.profession;
+					
+				} else {
+					alert("sessionStorage n'est pas supporté");
+				}
+
+			}
+
+        </script>
+
+    </head>
+
+    <body>
+        <div>
+            <header>
+                <h1>localSession vs sessionStorage</h1>
+            </header>
+
+            <div>
+
+                <form>
+                    <p>
+                        <label>Nom</label>
+                    </p>
+                    <p>
+                        <input id="nom" name="nom" type="text" onchange="sessionStorage.nom=this.value">
+                    </p>
+                    <p>
+                        <label>Prénom</label>
+                    </p>
+
+                    <p>
+                        <input id="prenom" name="prenom" type="text" onchange="sessionStorage.prenom=this.value">
+                    </p>
+
+                    <p>
+                        <label>Profession</label>
+                    </p>
+                    <p>
+                        <input id="profession" name="profession" type="texte" onchange="sessionStorage.profession=this.value">
+                    </p>
+                    <p>
+
+                        <input type="reset" value="Effacer le formulaire">
+                        <input type="button" value="Restaure" onclick="onRestore()">
+                    </p>
+                </form>
+
+            </div>
+            <footer>
+                <p>
+                    
+                </p>
+            </footer>
+        </div>
+    </body>
+</html>

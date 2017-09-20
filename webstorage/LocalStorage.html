@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+
+        <title>Local Storage</title>
+
+        <!-- Feuilles de style -->
+        <link rel="stylesheet" href="../css/reset.css"  />
+        <link rel="stylesheet" href="../css/styles.css"  />
+        
+        
+        <script>
+        	var nom;
+        	var prenom;
+        	
+        	function onLocalStorage(){
+        		localStorage.setItem("prenom", "Henri");
+        		localStorage.setItem("nom", "Matisse");
+        		 
+        		prenom = localStorage.getItem("prenom");
+        		 nom = localStorage.getItem("nom");
+        		 
+        		alert(prenom + " " + nom);// 
+        		
+        	}
+        	
+        	
+        	function onReset(){
+        		/*localStorage.removeItem("prenom");
+        		
+        		 
+        		 alert(prenom + " " + nom);*/
+        		
+        		localStorage.clear();
+        		
+        		prenom = localStorage.getItem("prenom");
+        		 nom = localStorage.getItem("nom");
+        		
+        		 alert(prenom + " " + nom);
+        		
+        	}
+        	
+        	
+        	function afficheStorage(){
+        		
+        		console.log(localStorage.prenom);
+        		
+        	}
+        
+        
+        
+        
+        </script>
+
+       
+
+    </head>
+
+    <body onload="onLocalStorage()">
+        <div>
+            <header>
+                <h1>Local Storage</h1>
+            </header>
+
+            <div>
+
+              	<input id="reset" type="button" value="Reset" onclick="onReset()" />
+              	
+              	
+              	<input id="affiche" type="button" value="AfficheStorage" onclick="afficheStorage()" />
+            </div>
+            <footer>
+                <p>
+                    
+                </p>
+            </footer>
+        </div>
+    </body>
+</html>

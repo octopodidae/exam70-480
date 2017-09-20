@@ -1,0 +1,46 @@
+******************************
+        grid container
+******************************
+
+display: -ms-grid;
+
+-ms-grid-columns
+Spécifie la largeur de chaque colonne dans la grille. Chaque colonne est délimitée par un espace.
+
+-ms-grid-rows
+Spécifie la hauteur de chaque ligne dans la grille. Chaque ligne est délimitée par un espace.
+
+-------
+exemple
+-------
+-ms-grid-columns: auto 100px 1fr 2fr;
+
+Colonne 1 (mot clé auto) : la colonne est dimensionnée selon son contenu.
+Colonne 2 ("100px") : la largeur de la colonne est de 100 pixels.
+Colonne 3 ("1fr") : la colonne occupe une unité de fraction de l’espace restant.
+Colonne 4 ("2fr") : la colonne occupe deux unités de fraction de l’espace restant.
+
+-ms-grid-rows: 50px 5em auto;
+
+Ligne 1 ("50px") : la hauteur de la ligne est de 50 pixels.
+Ligne 2 ("5em") : la hauteur de la ligne est de 5 ems.
+Colonne 3 (mot clé auto) : la colonne est dimensionnée selon son contenu.
+
+-ms-grid-columns: 10px (250px 10px)[4]; --> syntaxe de répétition
+ tracés de colonne qui se répètent : une colonne de 250px suivie d’une marge de 10px
+
+******************************
+       items grid
+******************************
+
+-ms-grid-column
+Indique dans quelle colonne de la grille l’élément de grille doit être placé.
+
+-ms-grid-row
+Indique dans quelle ligne de la grille l’élément de grille doit être placé
+
+-ms-grid-column-span
+Spécifie le nombre de colonnes de la grille sur lesquels l’élément peut s’étendre. La valeur par défaut est "1".
+
+-ms-grid-row-span
+Spécifie le nombre de lignes de la grille sur lesquels l’élément peut s’étendre. La valeur par défaut est "1".
