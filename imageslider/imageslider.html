@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Titre de la page</title>
+  <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+  <button id="prev" class="btn btn-primary">Previous</button>
+  <img id="slider" src=".\imgs\IMG_3118.JPG" width="20%" height="20%"></img>
+  <button id="next" class="btn btn-primary">Next</button>
+
+  <script type="text/javascript">
+
+  	window.onload = function() {
+
+  		//var path = "./imgs/";
+	  	//var slider = document.getElementById("slider");
+	  	var images = [
+	  		"./imgs/IMG_3221.JPG",
+	  		"./imgs/IMG_3261.JPG",
+	  		"./imgs/12571039_10153847077859814_886229007_n.jpg",
+	  		"./imgs/12512123_10153847081399814_923406117_n.jpg",
+	  		];
+	  	var num = 0;
+	  	var next = document.getElementById("next");
+	  	var prev = document.getElementById("prev");
+
+	  	next.onclick = function () {
+		  var slider = document.getElementById("slider");
+		  num++;
+		  if(num >= images.length) {
+		    num = 0;
+		  }
+		  slider.src = images[num];
+		 }
+
+		prev.onclick = function () {
+		  var slider = document.getElementById("slider");
+		  num--;
+		  if(num < 0) {
+		    num = images.length-1;
+		  }
+		  slider.src = images[num];
+		}
+
+  	}
+
+  	
+  </script>
+</body>
+</html>

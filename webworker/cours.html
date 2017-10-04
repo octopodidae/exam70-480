@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Worker Process</title>
+</head>
+<body>
+    <canvas id="c" width="1200" height="600" style="border: 2px solid black; position: absolute; top: 50px; left: 50px;"></canvas>
+    <input id="intensiveWork" type="button" value="Do Work" /><span id="workResult"></span>
+    <input id="speedy" type="range" min="0" max="10" value="10" style="position:relative;" step="1"/><!-- -->
+    <input id="stopWorker" type="button" value="Stop Work" />
+    <input type="text" id="inputValue" value="100000000">
+
+    <script>
+
+    window.requestAnimFrame = (function (callback) {
+        return window.requestAnimationFrame || window.webkitRequestAnimationFrame
+            || window.mozRequestAnimationFrame || window.oRequestAnimationFrame ||
+            window.msRequestAnimationFrame ||
+            function (callback) {
+                window.setTimeout(callback, 1000 / 30);
+            };
+    })();
+
+    window.setTimeout(getDirection, 30000);
+    var x = 176, y = 176, w = 600, h = 600, r = 26;
+    var d,c,s;
+    var rColor,gColor,bColor;
+    var hd = "r";
+    var horizontal = true;
+    window.onload = function () {
+        try{
+            c = document.getElementById("c");
+            w = c.width;
+            h = c.height;
+            s = parseInt( document.getElementById("speedy").value);
+            getDirection();
+            drawBall();
+            document.onkeydown = function () {
+                switch (window.event.keyCode) {
+                    case 40:
+                        horizontal = false;
+                        hd = "d";
+                        break;
+                    case 37:
+                        horizontal = true;
+                        hd = "l";
+                        break;
+                    case 38:
+                        horizontal = false;
+                        hd = "u";
+                        break;
+                    case 39:
+                        horizontal = true;
+                        hd = "r";
+                        break;
+                }
+            }
+        } catch (e) {
+            alert(e.message);
+        }
+    }
+    function increaseSpeed() {
+        s++;
+        document.getElementById("speedy").value = s;
+    }
+    function decreaseSpeed() {
+        s--;
+        document.getElementById("speedy").value = s;
+    }
+    function changeDirection() {
+        var cx = window.event.offsetX;
+        var cy = window.event.offsetY;
+        x = cx;
+        y = cy;
+        document.getElementById("speedy").value = s;
+    }
+    function setNewPoint(d) {
+        try{
+            switch (horizontal) {
+                case true:
+                    if (x < (w - r) && hd == "r")
+                        x += s;
+                    else if(x > r && hd == "l")
+                        x -= s;
+                    break;
+                case false:
+                    if (y < (h - r) && hd == "d")
+                        y += s;
+                    else if (y > r && hd == "u")
+                        y -= s;
+                    break;
+            }
+            if (x >= (w - r))
+                hd = "l";
+            if (x <= r)
+                hd = "r";
+            if (y >= (h - r))
+                hd = "u";
+            if (y <= r)
+                hd = "d";
+        } catch (e) {
+            alert(e.message);
+        }
+    }
+    function getDirection() {
+        horizontal = !horizontal;
+        var d = Math.ceil(Math.random() * 2);
+        if (horizontal) {
+            if (d == 1) {
+                hd = "r";
+            } else {
+                hd = "l";
+            }
+        } else {
+            if (d == 1) {
+                hd = "u";
+            } else {
+                hd = "d";
+            }
+        }
+    }
+    function drawBall() {
+        try {
+            var rgbFill = "orange";
+            var rgbStroke = "orange";
+            setNewPoint(d);
+            var ctxt = c.getContext("2d");
+            ctxt.clearRect(0, 0, c.width, c.height);
+            ctxt.beginPath();
+            ctxt.lineWidth = "5";
+            ctxt.strokeStyle = rgbStroke;
+            ctxt.arc(x, y, r, 0, 360);
+            ctxt.fillStyle = rgbFill;
+            ctxt.fill();
+            ctxt.stroke();
+            s = parseInt( document.getElementById("speedy").value);
+            requestAnimFrame(function () {
+                drawBall();
+            });
+        } catch (e) {
+            alert(e.message);
+        }
+    }
+
+    /*function DoIntensiveWork() {
+        var result = document.getElementById("workResult");
+        result.innerText = "";
+        var work = 100000000;
+        var i = 0;
+        var a = new Array(work);
+        var sum=0;
+        for (i = 0; i < work; i++) {
+            a[i] = i * i
+            sum += i * i;
+        }
+        result.innerText = sum;
+    }
+
+   document.getElementById("intensiveWork").onclick = function () { DoIntensiveWork(); };*/
+
+    //
+
+   document.getElementById("intensiveWork").onclick = function () {
+        var result = document.getElementById("workResult");
+        result.innerText = "";
+        var worker = new Worker("CalculateWorker.js"); // This instantiates a new worker process
+       // and specifies what file contains the code to be run on the worker thread.
+       // Then we can send and receive messages from the web worker.
+
+       /*
+       Web Workers run in an isolated thread.
+       As a result, the code that they execute needs to be contained in a separate file.
+       But before we do that, the first thing to do is create a new Worker object in your main page.
+       The constructor takes the name of the worker script
+        */
+        worker.onmessage = function (evt) { // the onmessage is assigned a function to handle the result of the worker thread
+            // Pour recevoir les messages envoyés par le worker
+            try {
+                result.innerText = evt.data; // When the web worker posts a message, the code within the event listener is executed.
+                // The data from the web worker is stored in event.data.
+            } catch (e) {
+                alert(e.message);
+            }
+        }
+        worker.onerror = function (err) { // The onerror is assigned a function to handle any error conditions
+            alert(err.message + err.filename + err.lineno);
+            /*  filename, qui indique le fichier qui a produit l'erreur ;
+                lineno, qui nous renseigne sur ligne où l'erreur s'est produite. */
+        }
+       worker.postMessage(""); // Starts the worker by calling the postMessage() method//
+       // the postMessage is called to invoke the worker.
+
+       /*var value = document.getElementById("inputValue").value;
+       value = parseInt(value);;*/
+       //console.log(value)
+        // worker.postMessage(value);
+       /* The postMessage method accepts a parameter that enables it to pass data to the worker that
+        it might need to operate on or with. The postMessage parameter is a string—it can take any
+        serializable object such as native data types, JSON objects, or XML. The parameter can’t be a
+        function.*/
+
+   };
+
+
+    document.getElementById("stopWorker").onclick = function () {
+        worker.terminate(); // Si vous avez besoin d'arrêter immédiatement un worker en cours d'exécution,
+        // vous pouvez le faire en appelant terminate()
+    }
+
+    /* Since web workers are in external files, they do not have access to the following JavaScript objects:
+            The window object
+            The document object
+            The parent object
+     */
+
+    </script>
+</body>
+</html>

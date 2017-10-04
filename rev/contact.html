@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="shortcut icon" href="favicon.ico" />
+        <title>Formations vidéo en ligne et en DVD video2brain</title>
+		<script type="text/javascript" src="scripts/general.js"></script>
+		<script type="text/javascript" src="scripts/formulaire.js"></script>
+        <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+    <div id="header">
+        <div id="headerwrapper">
+            <div class="left">
+                <a href="#"><img src="images/v2b_logo.gif" alt="video2brain" border="0"/></a>
+            </div>
+            <div class="clearer">
+                <!-- -->
+            </div>
+            <ul id="menu">
+                <li class="menu-item">
+                    <a class="menu-link" href="./index.html">Accueil</a>
+                </li>
+                <li class="submenu noscript menu-item">
+                    <a class="menu-link" href="./actualites.html">Actualités</a>
+                    <ul>
+                        <li>
+                            Générales
+                        </li>
+                        <li>
+                            Formations
+                        </li>
+                        <li>
+                            Logiciels
+                        </li>
+                    </ul>
+                </li>
+                <li class="submenu noscript menu-item">
+                    <a class="menu-link" href="./">Partenaires</a>
+                    <ul>
+                        <li>
+                            Item 1
+                        </li>
+                        <li>
+                            Item 2
+                        </li>
+                        <li>
+                            Item 3
+                        </li>
+                        <li>
+                            Item 4
+                        </li>
+                        <li>
+                            Item 5
+                        </li>
+                        <li>
+                            Item 6
+                        </li>
+                    </ul>
+                </li>
+                <li class="submenu noscript menu-item">
+                    <a class="menu-link" href="./">Catalogues</a>
+                    <ul>
+                        <li>
+                            Pièces
+                        </li>
+                        <li>
+                            Pneus
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a id="active" class="menu-link" href="./contact.html">Contact</a>
+                </li>
+            </ul>
+            <hr class="clear" />
+        </div>
+    </div>
+    <div id="mainwrapper" class="mainwrapper-header-image">
+        <div id="header-image">
+            <div id="header-image-content">
+                <a href="#" onclick="return false;"><img src="images/banner_fr.jpg" alt="banniere" /></a>
+            </div>
+        </div>
+        <div id="content_main">
+        </div>
+    </div>
+    <div id="main">
+    	<h2>Contacter video2brain :</h2>
+        <form method="post" action="#" id="page-contact" onsubmit="return isValide();">
+        	<label for="contact-nom">Nom :</label><input class="champ-texte" id="contact-nom" value="Nom" onfocus="changeCasse(this, true);" onblur="changeCasse(this, false);" /><span id="contact-nom-err" class="contact-err">Valeur non conforme !</span><br />
+			<label for="contact-prenom">Prénom :</label><input class="champ-texte" id="contact-prenom" value="Prénom" onfocus="changeCasse(this, true);" onblur="changeCasse(this,false);" /><span id="contact-prenom-err" class="contact-err">Valeur non conforme !</span><br />
+			<label for="contact-tel">Téléphone : (0123456789)</label><input class="champ-texte" id="contact-tel" value="Téléphone" onfocus="changeCasse(this, true);" onblur="changeCasse(this,false);" /><span id="contact-tel-err" class="contact-err">Valeur non conforme !</span><br />
+			<label for="contact-naissance">Date de naissance : (jj/mm/aaaa)</label><input class="champ-texte" id="contact-naissance" value="jj/mm/aaaa" onfocus="changeCasse(this, true);" onblur="changeCasse(this,false);" /><span id="contact-naissance-err" class="contact-err">Valeur non conforme !</span><br />
+			<label for="contact-mail">Adresse mail :</label><input class="champ-texte" id="contact-mail" value="Adresse mail" onfocus="changeCasse(this, true);" onblur="changeCasse(this,false);" /><span id="contact-mail-err" class="contact-err">Valeur non conforme !</span><br />
+			<label>Message :</label><textarea></textarea><br />
+			<p>Tous les champs sont obligatoires.</p>
+			<input type="submit" value="Envoyer le message" />
+        </form>
+    </div>
+    <div id="footer">
+        <span>&copy; Copyright 2010 video2brain. Tous droits r&eacute;serv&eacute;s.
+            &nbsp;&bull;&nbsp;
+            video2brain et le logo de video2brain sont des marques d&eacute;pos&eacute;es de video2brain</span>
+    </div>
+    </div>
+</body>
+</html>

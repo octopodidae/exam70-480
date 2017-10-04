@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Drag & Drop</title>
+    <style>
+        div {
+            display: inline-block;
+        }
+
+        #div2 {
+            background-color: #6A9AE1;
+            border: 1px dotted red;
+            width: 150px;
+            height: 150px;
+            margin: 0 100px;
+        }
+
+
+        #div1 {
+            background-color: lightgreen;
+            border: 1px dotted green;
+            width: 150px;
+            height: 150px;
+            margin: 0 100px;
+        }
+        .scale {
+            transform: scale(1.5);
+        }
+
+    </style>
+</head>
+<body>
+<h2>Drag and Drop</h2>
+<p>Drag the image back and forth between the two div elements.</p>
+
+<div id="div1">
+    <img src="img_w3slogo.gif" draggable id="drag1" width="88" height="31">
+</div>
+
+<div id="div2"></div>
+<script>
+
+        var img = document.getElementById("drag1");
+        var cible = document.getElementById("div2");
+
+        // ondragstart sur l'élément déplaçable
+
+        img.ondragstart = function (e) {
+            e.dataTransfer.setData("text", this.id)
+            console.log("ondragstart - " + this.id);
+        }
+
+        // ondragenter, ondragleave, ondragover, ondrop sur la cible
+
+        cible.ondragenter = function (e) {
+           this.classList.add("scale");
+        }
+
+        cible.ondragleave = function (e) {
+            this.classList.remove("scale");
+        }
+
+         // event.preventDefault() or window.event.returnValue = false sur ondragover et ondrop
+        cible.ondragover = function (e) {
+           e.preventDefault();
+        }
+
+        cible.ondrop = function (e) {
+            e.preventDefault();
+            var idSrc = e.dataTransfer.getData("text");
+            this.appendChild(document.getElementById(idSrc)); // NE PAS OUBLIER D'AJOUTER LA SOURCE DANS LA CIBLE
+        }
+
+</script>
+</body>
+</html>

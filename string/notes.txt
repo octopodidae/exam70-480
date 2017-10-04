@@ -1,0 +1,27 @@
+substring(a, b) permet d'extraire une chaîne à partir de la position a (incluse) jusqu'à la position b (exclue).
+
+*************************************************************
+
+substr(a, n) accepte deux paramètres : le premier est la position de début, et le deuxième le nombre de caractères à extraire.
+
+*************************************************************
+
+slice() ressemble très fortement à substring(), mais avec une option en plus. Une valeur négative est transmise pour la position de fin, slice() va extraire la chaîne jusqu'à la fin, en décomptant le nombre de caractères indiqué.
+
+
+*************************************************************
+
+La méthode split() permet de couper une chaîne de caractères à chaque fois qu'une sous-chaîne est rencontrée. Les « morceaux » résultant de la coupe de la chaîne sont placés dans un tableau.
+
+var myCSV = 'Pauline,Guillaume,Clarisse'; // CSV = Comma-Separated Values
+
+var splitted = myCSV.split(','); // On coupe à chaque fois qu'une virgule est rencontrée
+
+alert(splitted.length); // 3
+
+*************************************************************
+
+var chaine = new String("bob")
+true
+typeof chaine
+"object"

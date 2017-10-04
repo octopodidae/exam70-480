@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title>jQuery post form data using .ajax() method by codeofaninja.com</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<script
+		src="https://code.jquery.com/jquery-3.2.1.min.js"
+		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+		crossorigin="anonymous"></script>
+    </head>
+<body>
+
+<div class="container">
+<h1>jQuery post form data using .ajax() method</h1>
+<div>Fill out and submit the form below to get response.</div>
+ 
+<!-- our form -->  
+
+<form id='userForm'>
+    <div><input type='text' name='firstname' placeholder='Firstname' class="form-control"/></div>
+    <div><input type='text' name='lastname' placeholder='Lastname' class="form-control"/></div>
+    <div><input type='text' name='email' placeholder='Email' class="form-control"/></div>
+    <div><input type='submit' value='Submit' class="btn btn-primary" class="form-control"/></div>
+</form>
+</div>
+ 
+<!-- where the response will be displayed -->
+<div id='response'></div>
+<script>
+
+	$(document).ready(function() {
+
+		$("#userForm").submit(function(e) {
+			
+			//e.preventDefault();  
+			
+			console.log( $(this).serialize() );
+
+			// show that something is loading
+        	$('#response').html("<b>Loading response...</b>");
+
+        	/*
+	         * 'post_receiver.php' - where you will pass the form data
+	         * $(this).serialize() - to easily read form data
+	         * function(data){... - data contains the response from post_receiver.php
+	         */
+
+	         $.ajax({
+	         	type: "POST",
+	         	url: "post_receiver.php",
+	         	data: $(this).serialize(),
+	         	success: function(data, textStatus, jqXHR ) {
+	         		$('#response').html(data);
+	         		console.log("textStatus : " + textStatus);
+	         	},
+	         	error: function(jqXHR, textstatus, errorThrown ) {
+	         		alert( "Posting failed." );
+	         		console.log("textstatus : " + textstatus + " - errorThrown  : " + errorThrown );
+	         	}
+	         })/*.done(function(data) {
+	         	// show the response
+            	$('#response').html(data);
+	         }).fail(function() {
+	         	 // just in case posting your form failed
+            	alert( "Posting failed." );
+	         })*/
+
+	        // to prevent refreshing the whole page page
+			return false;
+
+		})
+
+	})
+	
+</script>
+</body>
+</html>

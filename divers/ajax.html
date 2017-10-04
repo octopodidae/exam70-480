@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX</title>
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous">
+
+    </script>
+</head>
+
+<input type="text" placeholder="user" id="user">
+<input type="text" placeholder="age" id="age">
+<input type="submit" id="more_com" value="Envoyer">
+
+<div id="result"></div>
+
+<body>
+
+<script>
+
+    // Sans jQuery
+    /*var xhr = null;
+
+    if(window.XMLHttpRequest || window.ActiveXObject){
+        if(window.ActiveXObject){
+            try{
+                xhr = new ActiveXObject("Msxml2.XMLHTTP");
+            }catch(e){
+                xhr = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+        }else{
+            xhr = new XMLHttpRequest();
+        }
+    }else{
+        alert("Votre navigateur ne supporte pas l'objet XMLHTTPRequest...");
+        return;
+    }*/
+
+    // Avec jQuery
+
+
+    $( document ).ready(function() {
+
+       $("#more_com").click(function(){
+
+            var mon_user = $("#user").val();
+            var age = $("#age").val();
+            var result = $("#result");
+            /*
+            * Utilisons $.ajax pour créer une instance de XmlHttpRequest
+            */
+
+              /* $.ajax({
+                    url: "more_com.php?user=" + mon_user, // La ressource ciblée
+                    type: "GET",
+                    //data: "user=" + mon_user  + '&age=' + age, // Le paramètre data n'est plus renseigné, nous ne faisons plus passer de variable
+                    dataType : 'html', // Le type de données à recevoir, ici, du HTML.
+                    success: function(data) { //
+                        result.html(data);
+                    },
+                   // La fonction à appeler si la requête n'a pas abouti
+                   error : function(error){
+                       // J'affiche un message d'erreur
+                       result.html("Désolé, aucun résultat trouvé.");
+                   }
+               });*/
+
+             /* $.get("more_com.php?user=" + mon_user, function(data) {
+                    result.html(data);
+                  }
+              )*/
+
+           $.post(
+               'more_com.php', // Le fichier cible côté serveur.
+               {
+                   user : mon_user,
+                   age: age// Nous supposons que ce formulaire existe dans le DOM.
+
+               },
+               function(data) {
+                   result.html(data);
+               }
+
+           );
+
+
+        });
+
+    });
+
+    /*
+    Si votre requête est de type GET, rien ne vous empêche de faire passer des paramètres avec GET
+    pour les utiliser côté serveur dans l'array$_GET.
+    Pour cela, vous pouvez utiliser le paramètredata.
+    Avec un peu de concaténation, on s'en sort très bien.
+
+     */
+
+
+</script>
+</body>
+</html>

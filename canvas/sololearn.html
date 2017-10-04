@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Solo Learn</title>
+	<style>
+		
+		
+	</style>
+</head>
+<body>
+	<canvas id="myCanvas" width="800" height="600">
+		
+	</canvas>
+	<script>
+		
+	var can = document.getElementById("myCanvas");
+	var ctx = can.getContext("2d");
+
+	ctx.fillStyle = "orange";
+	ctx.strokeStyle = "black";
+	ctx.lineWidth = 18;
+	ctx.lineCap = "round";
+	ctx.rect(10, 10, 200,200);
+	ctx.fill();
+	ctx.stroke();
+
+
+	ctx.beginPath();
+	ctx.arc(110, 110, 75, 0, 2*Math.PI, false);
+	ctx.lineWidth = 25;
+	ctx.strokeStyle = "red";
+	ctx.stroke();
+
+	ctx.font="bold 6em Tahoma";
+	/*ctx.textAlign = "P";*/
+	ctx.fillStyle = "rgba(0,0,0,.4)";
+	ctx.fillText("B", 80, 140);
+	/*ctx.translate(310,0);
+	ctx.fillText("L", 10, 30);*/
+	ctx.scale(1.5, 4);
+	ctx.fillText("B", 140,100);
+	ctx.rotate( (Math.PI / 180) * 25);
+	ctx.fillStyle = "rgba(0,0,0,.8)";
+	ctx.fillText("B", 80, 100);
+	
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>String</title>
+</head>
+<body>
+	
+	<textarea onkeyup="listenKey(event)"></textarea>
+
+	<script>
+		function listenKey(event) {
+
+			var key = event.keyCode;
+			alert('La touche numéro ' + key + ' a été pressée. Le caractère ' + String.fromCharCode(key) + ' a été inséré.');
+
+		}
+	</script>
+	
+
+</body>
+</html>

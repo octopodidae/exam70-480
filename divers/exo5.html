@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fonction de création d'éléments</title>
+</head>
+<body>
+
+<script>
+
+    function createSimpleNode(name, options, text) {
+        var node = document.createElement(name); /* On crée l'élément */
+
+        for (var o in options) { /* On boucle sur les attributs */
+            node.setAttribute(o, options[o]);
+        }
+
+        if (text) { /* Si du texte est défini, on l'insère */
+            node.innerHTML = text;
+        }
+
+        return node; /* Et on retourne l'élément créé */
+    }
+
+    var image = createSimpleNode('img', { src: 'pix.png', alt: 'Image idiote' });
+    var link  = createSimpleNode('a', {
+        'class': 'external',
+        href: 'www.siteduzero.com'
+    }, 'Lien vers le Site du Zéro');
+
+</script>
+</body>
+</html>

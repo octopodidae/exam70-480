@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Un formulaire de connexion en AJAX</title>
+    <script  src="https://code.jquery.com/jquery-3.2.1.min.js"
+             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+             crossorigin="anonymous">
+
+    </script>
+</head>
+
+<body>
+
+<h1>Un formulaire de connexion en AJAX</h1>
+
+<form>
+    <p>
+        Nom d'utilisateur : <input type="text" id="username" />
+        Mot de passe : <input type="password" id="password" />
+        <input type="submit" id="submit" value="Se connecter !" />
+    </p>
+</form>
+<div id="resultat"></div>
+
+<script>
+
+    $(document).ready(function(){
+
+        $("#submit").click(function(){
+
+            $.post(
+                'connexion.php', // Un script PHP que l'on va créer juste après
+
+                {
+                    username : $("#username").val(),  // Nous récupérons la valeur de nos input que l'on fait passer à connexion.php
+                    password : $("#password").val()
+                },
+
+                function(data){
+
+                    if(data == 'Success'){
+                        // Le membre est connecté. Ajoutons lui un message dans la page HTML.
+                        alert("Vous avez été connecté avec succès !");
+                        $("#resultat").html("<p>Vous avez été connecté avec succès !</p>");
+
+                    }
+                    else{
+                        // Le membre n'a pas été connecté. (data vaut ici "failed")
+                        alert("Erreur lors de la connexion...");
+                        $("#resultat").html("<p>Erreur lors de la connexion...</p>");
+
+                    }
+
+                },
+
+                'text'
+            );
+
+        });
+
+    });
+
+
+</script>
+</body>
+</html>

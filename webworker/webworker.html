@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Worker example</title>
+</head>
+<body>
+<button onClick="ping()">Ping</button>
+<script>
+    var worker = new Worker('worker.js');
+    worker.onmessage = function (event) {
+        console.log(event.data);
+    }
+    var ping = function() {
+        worker.postMessage("ping");
+    }
+</script>
+</body>
+</html>

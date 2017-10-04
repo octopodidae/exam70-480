@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Le positionnement</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+		/*body {
+            display: flex;
+            flex-direction:row;
+            flex-wrap: wrap;
+            justify-content: space-between;!* *!
+            align-items: center;
+        }
+        div:nth-child(2) {
+            flex-grow: 3;
+        }*/
+        div {
+			border: 1px solid red;
+			background-color:rgba(255,153,51,0.25);
+			height: 100px;
+			margin: 10px;
+			width:100px;
+			/*float:left;*/
+		}
+	/* static relative fixed absolute */
+		.relative {
+			position:relative;
+			top:50px;
+			left: 50px;
+		}/**/
+		.fixe {
+			position:fixed;
+		}/**/
+	</style>
+</head>
+<body>
+    <div>01</div>
+    <div>02</div>
+    <div class="relative">03</div>
+    <div>04</div>
+    <div class="fixe">05</div>
+    <div>06</div>
+    <div>07</div>
+    <div>08</div>
+    <div>09</div>
+    <div>10</div>
+    <div>11</div>
+    <div>12</div>
+    <div>13</div>
+    <div>14</div>
+    <div>15</div>
+    <div>16</div>
+    <div>17</div>
+    <div>18</div>
+    <div>19</div>
+    <div>20</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Le titre de la page</title>
+</head>
+
+<body>
+<div>
+    <p id="myP">Un peu de texte, <a>un lien</a> et <strong>une portion en emphase</strong></p>
+</div>
+
+<div><p>Paragraphe 1</p> <p>Paragraphe 2</p><p>Paragraphe 3</p></div>
+
+<script>
+    /*var paragraph = document.getElementById('myP');
+    var first = paragraph.firstChild;
+    var last = paragraph.lastChild;
+
+    alert(first.nodeName.toLowerCase());
+    alert(last.nodeName.toLowerCase());*/
+
+    function insertAfter(newElement, afterElement) {
+        var parent = afterElement.parentNode;
+
+        if (parent.lastChild === afterElement) { // Si le dernier élément est le même que l'élément après lequel on veut insérer, il suffit de faire appendChild()
+            parent.appendChild(newElement);
+        } else { // Dans le cas contraire, on fait un insertBefore() sur l'élément suivant
+            parent.insertBefore(newElement, afterElement.nextSibling);
+        }
+    }
+
+</script>
+</body>
+</html>

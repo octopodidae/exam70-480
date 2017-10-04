@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exo2</title>
+</head>
+<body>
+
+<script>
+
+    var myDiv = document.createElement("div");
+    myDiv.id = "divTP2";
+
+    var myP = document.createElement("p");
+    var txtP = document.createTextNode("Langages basés sur ECMAScript :");
+    myP.appendChild(txtP);
+
+    myDiv.appendChild(myP);
+
+    var list = document.createElement("ul");
+
+    var itemstxt = [
+       document.createTextNode("JavaScript"),
+       document.createTextNode("JScript"),
+       document.createTextNode("ActionScript"),
+       document.createTextNode("EX4")
+    ]
+
+    for (var i = 0; i < itemstxt.length; i++ ) {
+        var li = document.createElement("li");
+        li.appendChild(itemstxt[i]);
+        list.appendChild(li);
+    }
+    myDiv.appendChild(list);
+    document.body.appendChild(myDiv);
+
+</script>
+</body>
+</html>

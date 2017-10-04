@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Top 5</title>
+		<meta charset="UTF-8" />
+		<style>
+			/* C'est l'occasion pour vous montrer :root ! */
+		:root
+		{
+		background-color: #e3e3e3;
+		}
+				
+		/* Notre tableau en lui-même */
+		table
+		{
+		width: 500px;
+		margin: 0 auto;
+		border-top: 0px;
+		border-collapse: collapse;
+		font-size: 16px;
+		}
+		/* Son en-tête */
+		thead
+		{
+		background-color: #8f5bff;
+		border-left: 2px solid #8f5bff;
+		border-right: 2px solid #8f5bff;
+		border-top: 2px solid #621df7;
+		color: #f3f3f3;
+		}
+				
+		/* Son corps */
+		tbody
+		{
+		background-color: #f3f3f3;
+		border: 2px solid #8f5bff;
+		}
+		tbody tr:first-child{
+		font-size: 24px;
+		font-weight: bold;
+		color: orange;
+		}
+		tbody tr:nth-child(2){
+		font-size: 24px;
+		font-weight: bold;
+		}
+		tbody tr:nth-child(3){
+		font-size: 24px;
+		font-weight: bold;
+		}
+		tbody tr:last-child{
+		color: blue;
+		font-size: 10px;
+		font-style: italic;
+		}
+		tbody tr:nth-last-child(2){
+		color: blue;
+		font-size: 10px;
+		font-style: italic;
+		}
+		[title|=big] {
+		border: 5px solid red;
+		}
+		[title~=blue] {
+		border: 5px solid blue;
+		}
+		input.commentaire[id][type="text"][placeholder~="ici"]{
+		background: green;
+		color: white;
+		}
+		ul
+		{
+		width: 300px;
+		margin: auto;
+		border: 2px solid #000;
+		padding: 0px;
+		list-style: none;
+		}
+			/* Les objets de la liste, toujours rien de nouveau ! */
+		li
+		{
+		padding-left: 5px;
+		}
+		li[id^="total"] {
+		color: orange;
+		}
+		li[id$="titre"] {
+		color: purple;
+		}
+		li[id*="inventaire"] {
+		font-size: 1.5em;
+		}
+		#images {
+			width: 600px;
+			margin: auto;
+		}
+		</style>
+	</head>
+	<body>
+		<table>
+			<thead>
+				<tr>
+					<th colspan="2">TOP 5 DES JOUEURS !</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>Alex Térieur</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>Mona Bruti</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>Théo Bligé</td>
+				</tr>
+				<tr>
+					<td>4</td>
+					<td>Jean Bon</td>
+				</tr>
+				<tr>
+					<td>5</td>
+					<td>Justine Goutte</td>
+				</tr>
+			</tbody>
+		</table>
+		<br><br>
+		<div id="images">
+			<p>The image with the title attribute containing the word "flower" gets a yellow border.</p>
+			<img src="klematis.jpg" title="klematis-flower" width="150" height="113">
+			<img src="img_flwr.gif" title="big-flowers" width="224" height="162">
+			<img src="landscape.jpg" title="pink-flower-big-landscape " width="160" height="120">
+			<br>
+			<img src="klematis.jpg" title="abc xyz blue toto" width="150" height="113">
+			<img src="img_flwr.gif" title="toto abc" width="224" height="162">
+			<img src="landscape.jpg" title="xyz" width="160" height="120">
+			<br>
+			<input type="text" id="tutu" placeholder="Votre nom ici" class="commentaire" />
+		</div>
+		<br><br>
+		<ul>
+			<li id="stats_titre">Statistiques</li>
+			<li id="total_stats_niveau">Niveau 5</li>
+			<li id="total_stats_pv">10 Points de Vie</li>
+			<li id="total_stats_pf">0 Point de Magie</li>
+			<li id="inventaire_titre">Inventaire</li>
+			<li id="total_inventaire_arc">3 Arcs</li>
+			<li id="total_inventaire_fleche">0 Flèches</li>
+			<li id="total_inventaire_bouclier">1 Bouclier</li>
+		</ul>
+	</body>
+</html>

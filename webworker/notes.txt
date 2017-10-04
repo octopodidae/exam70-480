@@ -1,0 +1,2 @@
+Deux types de web-workers :
+    - dedicated-workers

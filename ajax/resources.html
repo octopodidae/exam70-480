@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Le tchat en AJAX !</title>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<script
+		src="https://code.jquery.com/jquery-3.2.1.min.js"
+		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+		crossorigin="anonymous"></script>
+		<style>
+					
+		</style>
+	</head>
+	
+	<body class="col-md-12">
+		<h1>jQuery.ajax()</h1>
+		<div id="display-resources"></div>
+		<p>jQuery example using <a href="http://api.jquery.com/jquery.ajax/">jQuery.ajax()</a> to retrieve a list of JavaScript Training Resources.</p>
+		<a href="#" class="btn btn-primary" id="retrieve-resources">Retrieve List</a>
+		<p id="typeof"></p>
+		<button id="btnEdit" style="display: none;">Edit</button>
+			
+	<script>
+		
+		$(document).ready(function () {
+
+			$('#retrieve-resources').click(function () {
+			 	var displayResources = $('#display-resources');
+			 
+				 displayResources.text('Loading data from JSON source...');
+				 
+				 $.ajax({
+				 type: "GET",
+				 url: "resources.json",
+				 success: function(result)
+				 {
+					 console.log(result);//
+					 console.log("typeof result : " + typeof(result));//
+					
+					 var output="<table><thead><tr><th>Name</th><th>Provider</th><th>URL</th></thead><tbody>";
+					 for (var i in result)
+					 {
+					 	output+="<tr><td>" + result[i].name + "</td><td>" + result[i].provider + "</td><td>" + result[i].url + "</td></tr>";
+					 }
+					 output+="</tbody></table>";
+					 
+					 displayResources.html(output);
+					 	$("table").addClass("table");
+					 }
+				 });
+				 
+			});
+		});	
+
+
+
+	</script> <!---->
+	</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Loop</title>
+</head>
+<body>
+
+	<div>
+		<p id="desc">Description : </p>
+	</div>
+	
+	
+	<script>
+	
+	var desc = document.getElementById("desc");
+	var obj = {
+		pseudo: "Bob",
+		age: 28,
+		job: "dev",
+		fiends: ["Steeve", "Léon", "Zak"]
+	};
+
+	console.log(obj["pseudo"]);
+
+	for (var key in obj) {
+		var p = document.createElement("p")
+		p.textContent = "obj[" + key + "] = " + obj[key];
+		desc.appendChild(p);
+	}
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Oolink</title>
+	<link href="./font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+	<style>
+		
+		
+		@-webkit-keyframes anim2
+		{
+		   from {left: 0px;   -webkit-transform: scale(1.0) rotate(0deg) }
+		   50%  {left: 500px; -webkit-transform: scale(0.8) rotate(10deg);  background-color: greenyellow}
+		   to   {left: 100%; -webkit-transform: scale(1.6) rotate(-20deg) }
+		}
+		@-moz-keyframes anim2
+		{
+		   from {left: 0px;   -moz-transform: scale(1.0) rotate(0deg)   }
+		   50%  {left: 500px; -moz-transform: scale(0.8) rotate(10deg); background-color: greenyellow  }
+		   to   {left: 100%; -moz-transform: scale(1.6) rotate(-20deg) }
+		}
+
+		/*.fa {
+		    display: inline-block;
+		    font: normal normal normal 14px/1 FontAwesome;
+		    font-size: inherit;
+		    text-rendering: auto;
+		    -webkit-font-smoothing: antialiased;
+		    -moz-osx-font-smoothing: grayscale;
+		    transform: translate(0, 0);
+		}*/
+
+		.move {
+			/*width: 40px;
+			margin-left: auto;
+			margin-right: auto;*/
+			width: 100px;
+			height: 100px;
+			background-color: orange;
+			-webkit-animation: anim2 ease-in-out 3s infinite alternate;
+			-moz-animation: anim2 ease-in-out 3s infinite alternate;
+			position: relative;/**/
+		}
+
+	</style>
+
+	<div class="move">
+      
+    </div>
+
+</body>
+</html>

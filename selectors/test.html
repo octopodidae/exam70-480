@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+	<title>Un petit test...</title>
+	<meta charset="UTF-8" />
+	<style>
+		body > p:nth-of-type(3) /* :nth-child(3)  :nth-child(4) :nth-last-child(2) */ 
+		{
+		    background-color: aqua;
+		}
+		li:nth-child(2)
+		{
+		    background-color: aqua;
+		}
+		#p1::before {
+			content: "1 - "
+		}
+		#p2::before {
+			content: "2 - "
+		}
+		#p3::before {
+			content: "3 - "
+		}
+
+		article > p:nth-of-type(2) {
+			background-color: yellow;
+		}
+
+	</style>
+    </head>
+    <body>
+		<p>Coucou, je suis le premier paragraphe !</p>
+		<p>Et je suis le second paragraphe !</p>
+		<ul>
+	        <li>Et moi,</li>
+		    <li>je suis</li>
+		    <li>une liste !</li>
+		</ul>
+		<p>Et je suis un troisième paragraphe, dingue !</p>
+		<p>Je suis un quatrième paragraphe !</p>
+		<article>
+			<p id="p1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, perspiciatis dolore blanditiis natus sunt repudiandae, facere vero officia amet voluptates ea omnis ratione aliquid officiis suscipit, adipisci eum dignissimos distinctio!</p>
+			<div>tutu</div>
+			<p id="p2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat quisquam maxime eveniet error quo harum, porro. Aliquam aperiam minima ad, ipsum praesentium necessitatibus ipsa quidem laudantium, perspiciatis similique nam minus!</p>
+			<p id="p3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores eveniet cumque sapiente, soluta, expedita quibusdam libero! Quibusdam numquam, fugiat similique dicta voluptas itaque aspernatur ab, inventore commodi magni. Reprehenderit, quisquam.</p>
+		</article>
+		<article>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, perspiciatis dolore blanditiis natus sunt repudiandae, facere vero officia amet voluptates ea omnis ratione aliquid officiis suscipit, adipisci eum dignissimos distinctio!</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat quisquam maxime eveniet error quo harum, porro. Aliquam aperiam minima ad, ipsum praesentium necessitatibus ipsa quidem laudantium, perspiciatis similique nam minus!</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores eveniet cumque sapiente, soluta, expedita quibusdam libero! Quibusdam numquam, fugiat similique dicta voluptas itaque aspernatur ab, inventore commodi magni. Reprehenderit, quisquam.</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, perspiciatis dolore blanditiis natus sunt repudiandae, facere vero officia amet voluptates ea omnis ratione aliquid officiis suscipit, adipisci eum dignissimos distinctio!</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat quisquam maxime eveniet error quo harum, porro. Aliquam aperiam minima ad, ipsum praesentium necessitatibus ipsa quidem laudantium, perspiciatis similique nam minus!</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores eveniet cumque sapiente, soluta, expedita quibusdam libero! Quibusdam numquam, fugiat similique dicta voluptas itaque aspernatur ab, inventore commodi magni. Reprehenderit, quisquam.</p>
+		</article>
+		<article>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, perspiciatis dolore blanditiis natus sunt repudiandae, facere vero officia amet voluptates ea omnis ratione aliquid officiis suscipit, adipisci eum dignissimos distinctio!</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat quisquam maxime eveniet error quo harum, porro. Aliquam aperiam minima ad, ipsum praesentium necessitatibus ipsa quidem laudantium, perspiciatis similique nam minus!</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores eveniet cumque sapiente, soluta, expedita quibusdam libero! Quibusdam numquam, fugiat similique dicta voluptas itaque aspernatur ab, inventore commodi magni. Reprehenderit, quisquam.</p>
+
+		</article>
+		<article>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, perspiciatis dolore blanditiis natus sunt repudiandae, facere vero officia amet voluptates ea omnis ratione aliquid officiis suscipit, adipisci eum dignissimos distinctio!</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat quisquam maxime eveniet error quo harum, porro. Aliquam aperiam minima ad, ipsum praesentium necessitatibus ipsa quidem laudantium, perspiciatis similique nam minus!</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores eveniet cumque sapiente, soluta, expedita quibusdam libero! Quibusdam numquam, fugiat similique dicta voluptas itaque aspernatur ab, inventore commodi magni. Reprehenderit, quisquam.</p>
+		</article>
+    </body>
+</html>
+	

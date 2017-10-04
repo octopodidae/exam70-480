@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Le tchat en AJAX !</title>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<script
+		src="https://code.jquery.com/jquery-3.2.1.min.js"
+		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+		crossorigin="anonymous"></script>
+		<style>
+			body{
+				background-color: rgb(30,30,30);
+			}
+			.container {
+				/*width: 600px;*/
+				background-color: rgba(150,100,150,.7);
+				margin-top: 5%;
+				padding: 5%;
+				border-radius: 15px;
+			}
+			span {
+				color: white;
+			}
+			#messages {
+				background-color: black;
+				color: green;
+				font-weight: 900;
+				font-size: 1.3em;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div class="container">
+			<div id="messages">
+				<!-- les messages du tchat -->
+			</div>
+			<div class="form-group">
+				<form method="POST"  id="formulaire"> <!-- action="traitement.php"-->
+					<span>Pseudo : </span><input class="form-control" type="text" name="pseudo" id="pseudo" /><br />
+					<span>Message : </span><textarea class="form-control" name="message" id="message"></textarea><br />
+					<input class="form-control" type="submit" name="submit" value="Envoyez votre message !" id="envoi" />
+				</form>
+			</div>
+		</div>
+		<script>
+			
+		$("#formulaire").submit(function(e){
+
+		    e.preventDefault(); // on empêche le bouton d'envoyer le formulaire
+
+		   	var pseudo = encodeURIComponent( $("#pseudo").val() ); // on sécurise les données
+		    var message = encodeURIComponent( $("#message").val() );
+
+			console.log(pseudo);
+		    console.log(message); 
+
+		    /*var pseudo = $("#pseudo").val();
+		    var message = $("#message").val();
+
+		    console.log(pseudo);
+		    console.log(message);*/
+
+		    var donnees = $(this).serialize();
+		    console.log(donnees);
+
+		    if(pseudo != "" && message != ""){ // on vérifie que les variables ne sont pas vides
+		    	$.post("traitement.php",
+			    	{
+			    		"pseudo": pseudo,
+			    		"message": message
+			    	}
+		    	);
+		      
+		    }/**/
+
+		    var pseudo = decodeURIComponent( $("#pseudo").val() ); // on sécurise les données
+		    var message = decodeURIComponent( $("#message").val() );
+
+		    $('#messages').append("<p>" + pseudo + " dit : " + message + "</p>"); // on ajoute le message dans la zone prévue
+
+		})
+		 	/*$.post('traitement.php', {
+	            'pseudo': pseudo,
+	            'message': message
+	        }, function(data) {
+	            	console.log(data);
+	        });*/
+
+	        //$.post( "traitement.php", { pseudo: "pseudo", message: "messages" });
+
+
+	function charger(){
+
+    setTimeout( function(){
+
+        var premierID = $('#messages p:first').attr('id'); // on récupère l'id le plus récent
+
+        $.ajax({
+            url : "charger.php?id=" + premierID, // on passe l'id le plus récent au fichier de chargement
+            type : "GET",
+            success : function(html){
+                $('#messages').prepend(html);
+            }
+        });
+
+        charger();
+
+    }, 5000);
+
+}
+
+charger();
+
+
+	</script> <!---->
+	</body>
+</html>

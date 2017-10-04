@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+</head>
+<body>
+<div align="center">
+    <div>
+        70-480 Study Group Chat Forum
+    </div>
+    <p><span id="msg" style="color:red;">Statut connexion</span></p>
+    <div>
+				<textarea id="chatWindow" style="height: 500px; width: 300px">
+				</textarea>
+    </div>
+    <div>
+        <input type="text" id="msgSendText" style="width: 300px"/>
+    </div>
+    <div>
+        <button id="Disconnect">Disconnect</button>
+        <button id="Connect">Connect</button>
+        <button id="Send">Send</button>
+    </div>
+</div>
+<script>
+
+    // 	https://developer.mozilla.org/en-US/docs/Web/API/WebSocket
+    window.onload = function() {
+        ws = "";
+        var chatArea = document.getElementById("chatWindow");
+        var disconnectBtn = document.getElementById("Disconnect");
+        var connectBtn = document.getElementById("Connect");
+        var sendBtn = document.getElementById("Send");
+        var msdToSend = document.getElementById("msgSendText");
+        var msgSpan = document.getElementById("msg");
+        disconnectBtn.onclick = function() {
+            ws.close();
+        }
+        connectBtn.onclick = function() {
+            //Or the use of wss for secure WebSockets. IE: wss://studygroup.70480.com
+            //Opens the WebSocket
+            ws = new WebSocket("wss://studygroup.70480.com");
+            console.log("Connecté, readyState :  " + ws.readyState);
+        }
+        sendBtn.onclick = function() {
+            //check the state of the connection
+            if (ws.readyState == WebSocket.OPEN) { // ws.readyState = 1
+                // send message to server.
+                ws.send(msdToSend.value);
+                console.log(msdToSend.value);
+            } else {
+                console.log("WebSocket connection to 'ws://studygroup.70480.com/' failed: Error during WebSocket handshake: Unexpected response code: 200");
+                msgSpan.innerHTML = "Pas connecté";
+                return;
+            }
+            //show message in chat window.
+            NewLine();
+            chatArea.value = "Your : " + msdToSend.value;
+            msdToSend.value = "";
+        }
+        // event handler for when the WebSocket connection is established
+        ws.onopen = function() {
+            msgSpan.innerHTML = "System: Connection has been established";
+        }
+        // event handler for when the WebSocket encounters an error
+        ws.onerror = function(err) {
+            //write an error to the screen
+            NewLine();
+            msgSpan.innerHTML = "System: Error Occurred. Code : " + err.code + " - Reason : " + err.reason;
+        }
+        ws.onclose = function(e) {
+            //write the connection has been closed.
+            console.log(ws.readyState);
+            NewLine();
+            msgSpan.innerHTML = "System: connection has been closed.";
+            console.log("System: connection has been closed.");
+        } ;
+        ws.onmessage = function(msg) {
+            NewLine();
+            chatArea.value = chatArea.value + "Them : " + msg.data;
+        }
+        // Listen for messages
+        /*ws.addEventListener('message', function (event) {
+            console.log('Message from server ', event.data);
+        });*/
+        // helper functions.
+        function NewLine(){
+            chatArea.text + "\r\n";
+        }
+    }
+
+</script>
+</body>
+</html>

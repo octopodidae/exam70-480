@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Drag & Drop</title>
+	<style>
+		#box {
+			width: 200px;
+			height: 200px;
+			background-color: grey;
+			border: 1px solid black;
+			position: absolute;
+			right: 20px;
+			top: 0px;
+		}
+	</style>
+</head>
+<body>
+	
+	<img src="Terre.jpg" alt="terre" draggable id="img" ondragstart="drag(event);" >
+
+	<div id="box" ondragover="allowDrop(event);" ondrop="drop(event);"></div>
+	<script>
+		
+	function allowDrop(ev) {
+		ev.preventDefault();
+		ev.target.style.borderColor = "red";
+	}
+
+	function drag (ev) {
+		ev.dataTransfer.setData("text", ev.target.id);
+	}
+
+	function drop(ev) {
+		ev.preventDefault();
+		var id = ev.dataTransfer.getData("text");
+		ev.target.appendChild(document.getElementById(id));
+	}
+
+	</script>
+</body>
+</html>

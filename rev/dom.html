@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>DOM</title>
+		<style>
+			.blue {
+				background-color: aqua;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="menu">
+			<div class="item class2 class3">
+				<span>Élément 1</span>
+				<span>Élément 2</span>
+			</div>
+			<div class="publicite">
+				<span>Élément 3</span>
+				<span>Élément 4</span>
+			</div>
+		</div>
+		<a href="/monsite.fr">Retour à l'accueil du site</a>
+		 <a id="myLink" href="http://www.un_lien_quelconque.com">Un lien modifié dynamiquement</a>
+		<div id="contenu">
+			<span>Introduction au contenu de la page...</span>
+		</div>
+		<div id="myDiv">
+			<p>Un peu de texte <a>et un lien</a></p>
+			<p name="toto"></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+			<p></p>
+		</div>
+		<form method="post" action="#" id="page-contact" onsubmit="return isValide();">
+			<label for="contact-nom">Nom :</label><input class="champ-texte" id="contact-nom" value="Nom" onfocus="changeCasse(this, true);" onblur="changeCasse(this, false);" /><span id="contact-nom-err" class="contact-err">Valeur non conforme !</span><br />
+			<label for="contact-prenom">Prénom :</label><input class="champ-texte" id="contact-prenom" value="Prénom" onfocus="changeCasse(this, true);" onblur="changeCasse(this,false);" /><span id="contact-prenom-err" class="contact-err">Valeur non conforme !</span><br />
+			<label for="contact-tel">Téléphone : (0123456789)</label><input name="tutu" class="champ-texte" id="contact-tel" value="Téléphone" onfocus="changeCasse(this, true);" onblur="changeCasse(this,false);" /><span id="contact-tel-err" class="contact-err">Valeur non conforme !</span><br />
+			<label for="contact-naissance">Date de naissance : (jj/mm/aaaa)</label><input class="champ-texte" id="contact-naissance" value="jj/mm/aaaa" onfocus="changeCasse(this, true);" onblur="changeCasse(this,false);" /><span id="contact-naissance-err" class="contact-err">Valeur non conforme !</span><br />
+			<label for="contact-mail">Adresse mail :</label><input class="champ-texte" id="contact-mail" value="Adresse mail" onfocus="changeCasse(this, true);" onblur="changeCasse(this,false);" /><span id="contact-mail-err" class="contact-err">Valeur non conforme !</span><br />
+			<label>Message :</label><textarea></textarea><br />
+			<p>Tous les champs sont obligatoires.</p>
+			<input type="submit" value="Envoyer le message" />
+		</form>
+		<script>
+			
+		window.onload = function() {
+			var x = 8;
+			y = 101;
+		}
+			
+		</script>
+	</body>
+</html>

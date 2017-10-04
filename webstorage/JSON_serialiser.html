@@ -12,25 +12,23 @@
         <script>
 			function onSauve() {
 
-                var myObj = {
+                var jsonObj = {
                     nom: document.getElementById("nom").value,
                     prenom: document.getElementById("prenom").value,
                     profession: document.getElementById("profession").value
                 }
 
-                window.sessionStorage.setItem("personne", JSON.stringify(myObj));
+                window.localStorage.setItem("datas", JSON.stringify(jsonObj));
 
             }
 
 			function onRestore() {
 			 
-					var jsonObj = JSON.parse(sessionStorage.getItem('datas'));
+					var jsonObj = JSON.parse(localStorage.getItem('datas'));
 					document.getElementById('nom').value = jsonObj.nom;
 					document.getElementById('prenom').value = jsonObj.prenom;
 					document.getElementById('profession').value = jsonObj.profession;
-
-				
-			}
+            }
 
         </script>
 

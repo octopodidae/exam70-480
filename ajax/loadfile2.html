@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Load File</title>
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+</head>
+<body>
+    <input type="button" id="search" value="search">
+    <div id="result"></div>
+    <script>
+        // Au clic sur le bouton #search je lance la fonction
+        $('#search').on('click', function(){
+
+            // J'initialise le variable box
+            var box = $('#result');
+
+            // Je définis ma requête ajax
+            $.ajax({
+
+                // Adresse à laquelle la requête est envoyée
+                url: 'test.txt',
+
+                // Le délai maximun en millisecondes de traitement de la demande
+                timeout: 4000,
+
+                // La fonction à apeller si la requête aboutie
+                success: function (data) {
+                    // Je charge les données dans box
+                    box.html(data);
+                },
+
+                // La fonction à appeler si la requête n'a pas abouti
+                error: function() {
+                    // J'affiche un message d'erreur
+                    box.html("Désolé, aucun résultat trouvé.");
+                },
+                dataType: "text"
+
+            });
+
+        });
+    </script>
+    
+</body>
+</html>

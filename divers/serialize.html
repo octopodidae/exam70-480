@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Serialize</title>
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous">
+
+    </script>
+</head>
+<body>
+
+<!-- Formulaire HTML super simple à sérialiser -->
+<form id="formulaire" method="POST" >
+    <input type="text" name="user" />
+    <input type="text" name="age" />
+    <input type="text" name="valeur3" />
+    <input type="submit" name="submit" />
+</form>
+
+<div id="result"></div>
+
+<script>
+
+    var result = $("#result");
+    $("#formulaire").submit(function(e){ // On sélectionne le formulaire par son identifiant
+       e.preventDefault(); // Le navigateur ne peut pas envoyer le formulaire
+
+        var donnees = $(this).serialize(); // On créer une variable content le formulaire sérialisé
+        console.log(donnees);
+
+        $.ajax({
+            url: "more_com.php",
+            type: "POST",
+            data : donnees,
+            dataType : 'html', // Le type de données à recevoir, ici, du HTML.
+            success: function(data) { //
+               result.html(data);
+            },
+            // La fonction à appeler si la requête n'a pas abouti
+            error : function(error){
+                // J'affiche un message d'erreur
+                result.html("Désolé, aucun résultat trouvé.");
+            }
+        });
+    });
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exo1</title>
+</head>
+<body>
+
+<script>
+
+    var myDiv = document.createElement("div");
+    myDiv.id = "divTP1";
+
+    var textNodes = [
+
+        document.createTextNode("Le"),
+        document.createTextNode("World Wild Web Consortium"),
+        document.createTextNode(", abrégé par le sigle "),
+        document.createTextNode("W3C"),
+        document.createTextNode(", est un "),
+        document.createTextNode('organisme de standardisation'),
+        document.createTextNode(" à but non-lucratif chargé de promouvoir la compatibilité des technologies du "),
+        document.createTextNode("World Wide Web"),
+        document.createTextNode(".")
+    ]
+
+    var strong1 = document.createElement("strong");
+    var strong2 = document.createElement("strong");
+
+    strong1.appendChild(textNodes[1]);
+    strong2.appendChild(textNodes[3]);
+
+    var ancre1 = document.createElement("a");
+    var ancre2 = document.createElement("a");
+
+    ancre1.href = "http://fr.wikipedia.org/wiki/Organisme_de_normalisation";
+    ancre1.title = "Organisme de normalisation";
+
+    ancre2.href = "http://fr.wikipedia.org/wiki/World_Wide_Web";
+    ancre2.title = "World Wide Web";
+
+    ancre1.appendChild(textNodes[5]);
+    ancre2.appendChild(textNodes[7]);
+
+    myDiv.appendChild(textNodes[0]);
+    myDiv.appendChild(strong1);
+    myDiv.appendChild(textNodes[2]);
+    myDiv.appendChild(strong2);
+    myDiv.appendChild(textNodes[4]);
+    myDiv.appendChild(ancre1);
+    myDiv.appendChild(textNodes[6]);
+    myDiv.appendChild(ancre2);
+    myDiv.appendChild(textNodes[8]);
+
+    document.body.appendChild(myDiv);
+
+</script>
+</body>
+</html>

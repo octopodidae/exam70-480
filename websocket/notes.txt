@@ -33,7 +33,7 @@ Le canal est fermé.
 
 
 Les WebSocket fournissent deux méthodes :
-send( data_string) pour envoyer un message au serveur.
+send( data_string ) pour envoyer un message au serveur.
 close() pour fermer la socket.
 
 Les messages envoyés par le serveur sont notifiés par l’événement onmessage contenant le message du serveur sous forme de chaîne. 

@@ -1,0 +1,6 @@
+static par défaut
+
+relative --> Reste dans le flux
+
+fixed --> Sort du flux
+
